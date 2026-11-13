@@ -14,7 +14,9 @@ services:
       MAX_PLAYERS: '20'
       ENABLE_RCON: 'true'
       RCON_PASSWORD: ${SOCIETY_RCON_PASSWORD:-change-me}
-      MEMORY: 3G
+      MEMORY: 2G
+      VIEW_DISTANCE: '6'
+      SIMULATION_DISTANCE: '4'
     ports:
       - '25565:25565'
     volumes:
@@ -30,6 +32,13 @@ services:
     depends_on:
       server:
         condition: service_healthy
+    # The HTTP API only comes up once the world, bases and deposit are built, so agents wait for it.
+    healthcheck:
+      test: ['CMD', 'node', '-e', "fetch('http://127.0.0.1:25590/health').then(r => process.exit(r.ok ? 0 : 1), () => process.exit(1))"]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+      start_period: 300s
     volumes:
       - societies-server:/server:ro
       - ../../examples:/app/examples:ro
@@ -49,7 +58,7 @@ services:
       SOCIETY_REFEREE: http://referee:25590
     depends_on:
       referee:
-        condition: service_started
+        condition: service_healthy
     volumes:
       - ../../examples:/app/examples:ro
       - ../../.agent-state:/app/.agent-state
@@ -68,7 +77,7 @@ services:
       SOCIETY_REFEREE: http://referee:25590
     depends_on:
       referee:
-        condition: service_started
+        condition: service_healthy
     volumes:
       - ../../examples:/app/examples:ro
       - ../../.agent-state:/app/.agent-state
