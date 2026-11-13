@@ -11,10 +11,11 @@ services:
       ONLINE_MODE: 'FALSE'
       DIFFICULTY: easy
       SPAWN_PROTECTION: '0'
+      ALLOW_FLIGHT: 'TRUE'
       MAX_PLAYERS: '20'
       ENABLE_RCON: 'true'
       RCON_PASSWORD: ${SOCIETY_RCON_PASSWORD:-change-me}
-      MEMORY: 2G
+      MEMORY: 10G
       VIEW_DISTANCE: '6'
       SIMULATION_DISTANCE: '4'
     ports:

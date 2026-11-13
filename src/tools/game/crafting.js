@@ -124,16 +124,37 @@ export function createCrafting(ctx) {
                 if (!recipes.length) {
                     let needs = '';
                     try {
-                        const r = active.recipesAll?.(id, null, true)?.[0];
+                        const all = active.recipesAll?.(id, null, true) ?? [];
+                        const itemHave = name =>
+                            active.inventory
+                                .items()
+                                .filter(i => i.name === name)
+                                .reduce((s, i) => s + i.count, 0);
+                        const scoreRecipe = r => {
+                            const inputs = (r?.delta ?? []).filter(d => d.count < 0);
+                            let score = 0;
+                            for (const d of inputs) {
+                                const n = active.registry.items?.[d.id]?.name ?? '';
+                                const have = itemHave(n);
+                                if (have >= -d.count) score += 100;
+                                else if (have > 0) score += 50;
+                                if (n === 'cobblestone' || n === 'oak_planks' || n === 'oak_log') score += 10;
+                            }
+                            return score;
+                        };
+                        const r = [...all].sort((a, b) => scoreRecipe(b) - scoreRecipe(a))[0];
                         const parts = (r?.delta ?? [])
                             .filter(d => d.count < 0)
                             .map(d => {
                                 const n = active.registry.items?.[d.id]?.name ?? 'item';
-                                const have = active.inventory
-                                    .items()
-                                    .filter(i => i.name === n)
-                                    .reduce((s, i) => s + i.count, 0);
-                                return `${-d.count} ${n} (you have ${have})`;
+                                const have = itemHave(n);
+                                const alt =
+                                    all.length > 1 && n.endsWith('_planks')
+                                        ? `${n} (or any planks)`
+                                        : all.length > 1 && (n === 'cobbled_deepslate' || n === 'blackstone')
+                                          ? 'cobblestone'
+                                          : n;
+                                return `${-d.count} ${alt} (you have ${have})`;
                             });
                         if (parts.length)
                             needs = ` One craft takes ${parts.join(', ')} and gives ${r.result?.count ?? 1}.`;

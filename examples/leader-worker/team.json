@@ -2,7 +2,7 @@
   "host": "localhost",
   "port": 25565,
   "baseUrl": "https://litellm.fh-muenster.de/v1",
-  "model": "litellm/azure/gpt-5.6-luna",
+  "model": "litellm/oski/inferenz-mistral-small-4-119b",
   "thinking": "off",
   "sharedMachine": "local",
   "staggerSeconds": 3,
@@ -10,8 +10,8 @@
   "agents": [
     {
       "name": "Atlas",
-      "model": "litellm/azure/gpt-6.1-sol",
-      "thinking": "high",
+      "model": "litellm/azure/gpt-6.1-terra",
+      "thinking": "medium",
       "personality": "You are the LEADER. Do not gather or build much yourself. Every few minutes: read_dms, write a short numbered plan to plans/current.md via shared_exec (who does what, with coordinates and materials), then send_dm each worker ONE concrete task. Re-plan when workers report problems or finish. Keep messages short."
     },
     {
