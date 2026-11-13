@@ -6,7 +6,7 @@ import os from 'node:os';
 import { createWorkspaceTools } from '../../src/tools/workspace-tools.js';
 
 async function fixture(t, options = {}) {
-    const base = await fs.mkdtemp(path.join(os.tmpdir(), 'pi-workspace-test-'));
+    const base = await fs.mkdtemp(path.join(await fs.realpath(os.tmpdir()), 'pi-workspace-test-'));
     t.after(() => fs.rm(base, { recursive: true, force: true }));
     const privateRoot = path.join(base, 'alice');
     const sharedRoot = path.join(base, 'shared');
