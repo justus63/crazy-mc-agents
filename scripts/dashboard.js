@@ -7,7 +7,7 @@ import path from 'node:path';
 const PORT = Number(process.env.DASHBOARD_PORT ?? 4321);
 
 const MODEL_BY_AGENT = {
-    Stalin: 'azure/gpt-6.1-terra',
+    Stalin: 'azure/gpt-5.6-luna',
     Justus: 'azure/gpt-6.1-terra',
     Reinecke: 'fhms/Qwen3.5-27B',
     FlorianHomm: 'fhms/Qwen3.5-27B',
@@ -22,16 +22,16 @@ const MODEL_BY_AGENT = {
 const SOCIETIES = [
     {
         key: 'collective',
-        label: 'Collective',
+        label: 'Collective (Kollektiv)',
         leader: 'Stalin',
-        members: ['Reinecke', 'Zappel', 'Stalin', 'Marcant', 'Lange'],
+        members: ['Stalin', 'Reinecke', 'Zappel', 'Marcant', 'Lange'],
         stateDir: '.agent-state/societies-collective',
     },
     {
         key: 'market',
-        label: 'Market',
+        label: 'Market (Kapitalisten)',
         leader: 'Justus',
-        members: ['FlorianHomm', 'Trump', 'Justus', 'Simon', 'Fohrmann'],
+        members: ['Justus', 'FlorianHomm', 'Trump', 'Simon', 'Fohrmann'],
         stateDir: '.agent-state/societies-market',
     },
 ];
@@ -42,7 +42,7 @@ function readDms(society) {
     try {
         const con = new DatabaseSync(dbPath, { open: true });
         const rows = con
-            .prepare('SELECT id, sender, recipient, body, created_at FROM mailbox_dm ORDER BY id DESC LIMIT 120')
+            .prepare('SELECT id, sender, recipient, body, created_at FROM mailbox_dm ORDER BY id DESC LIMIT 150')
             .all();
         con.close();
         return rows.map(r => ({
@@ -59,7 +59,7 @@ function readDms(society) {
     }
 }
 
-function readJsonLinesTail(filePath, maxLines = 150) {
+function readJsonLinesTail(filePath, maxLines = 180) {
     if (!existsSync(filePath)) return [];
     try {
         const raw = readFileSync(filePath, 'utf8').trim();
@@ -80,8 +80,8 @@ function readJsonLinesTail(filePath, maxLines = 150) {
 }
 
 function readWorldEvents() {
-    const events = readJsonLinesTail('.agent-state/societies/events.jsonl', 200);
-    const messages = readJsonLinesTail('.agent-state/societies/messages.jsonl', 100);
+    const events = readJsonLinesTail('.agent-state/societies/events.jsonl', 220);
+    const messages = readJsonLinesTail('.agent-state/societies/messages.jsonl', 120);
     const out = [];
     for (const m of messages) {
         out.push({
@@ -142,20 +142,67 @@ function readWorldEvents() {
 
 function summarizeThought(raw) {
     if (!raw) return '';
-    const cleaned = raw.replace(/\s+/g, ' ').trim();
+    const cleaned = raw
+        .replace(/^(We need to|Let me|Current (situation|state):?)\s*/i, '')
+        .replace(/\s+/g, ' ')
+        .trim();
     const sentences = cleaned.split(/(?<=[.!?])\s+/).filter(Boolean);
     const pick = sentences.slice(0, 2).join(' ');
-    return pick.length > 220 ? pick.slice(0, 217) + '...' : pick;
+    return pick.length > 160 ? pick.slice(0, 157) + '...' : pick;
+}
+
+function summarizeAction(tool, argsStr, resultStr, success) {
+    let args = {};
+    try {
+        args = JSON.parse(argsStr || '{}');
+    } catch {
+        // ignore
+    }
+    const status = success ? '✓' : '✗';
+    switch (tool) {
+        case 'go_to':
+            return `${status} Gehe zu (${args.x}, ${args.y}, ${args.z})`;
+        case 'gather':
+            return `${status} Sammle ${args.count ?? 1}× ${args.block}`;
+        case 'break_block':
+            return `${status} Baue Block ab (${args.x}, ${args.y}, ${args.z})`;
+        case 'place':
+            return `${status} Platziere ${args.block} bei (${args.x}, ${args.y}, ${args.z})`;
+        case 'craft':
+            return `${status} Crafte ${args.count ?? 1}× ${args.item}`;
+        case 'send_dm':
+            return `${status} DM an ${args.to}: "${String(args.text ?? '').slice(0, 60)}"`;
+        case 'read_dms':
+            return `${status} Liest DMs${args.peer ? ' von ' + args.peer : ''}`;
+        case 'diplomacy_send':
+            return `${status} Diplomatie an ${args.to}: "${String(args.text ?? '').slice(0, 60)}"`;
+        case 'trade_offer':
+            return `${status} Handelsangebot an ${args.to ?? 'Team'}`;
+        case 'trade_respond':
+            return `${status} Handel #${args.id} ${args.accept ? 'angenommen' : 'abgelehnt'}`;
+        case 'deposit':
+            return `${status} Legt ${args.count ?? ''}× ${args.item} in Kiste`;
+        case 'withdraw':
+            return `${status} Nimmt ${args.count ?? ''}× ${args.item} aus Kiste`;
+        case 'furnace':
+        case 'smelt':
+            return `${status} Ofen/Schmelzen (${args.operation ?? args.item ?? ''})`;
+        case 'fight':
+        case 'attack':
+            return `${status} Greift ${args.target ?? 'Gegner'} an!`;
+        default:
+            return `${status} ${tool} ${String(argsStr || '').slice(0, 50)}`;
+    }
 }
 
 function readAgentState(society, name) {
     const dir = path.join(society.stateDir, name);
-    const telemetry = readJsonLinesTail(path.join(dir, 'telemetry.jsonl'), 60);
+    const telemetry = readJsonLinesTail(path.join(dir, 'telemetry.jsonl'), 120);
     let health = null;
     let food = null;
     let position = null;
     let inventory = [];
-    let lastTool = null;
+    const actions = [];
 
     for (const entry of telemetry) {
         if (entry.event === 'observation') {
@@ -170,12 +217,14 @@ function readAgentState(society, name) {
             }
             if (Array.isArray(entry.inventory)) inventory = entry.inventory;
         } else if (entry.event === 'tool') {
-            lastTool = {
+            actions.push({
                 tool: entry.tool,
                 args: entry.args,
+                result: String(entry.result ?? '').slice(0, 180),
                 success: entry.success,
+                summary: summarizeAction(entry.tool, entry.args, entry.result, entry.success),
                 time: Date.parse(entry.time) || Date.now(),
-            };
+            });
         }
     }
 
@@ -188,7 +237,7 @@ function readAgentState(society, name) {
                 .map(f => ({ f, mtime: statSync(path.join(sessionsDir, f)).mtimeMs }))
                 .sort((a, b) => b.mtime - a.mtime);
             if (files.length) {
-                const entries = readJsonLinesTail(path.join(sessionsDir, files[0].f), 80);
+                const entries = readJsonLinesTail(path.join(sessionsDir, files[0].f), 100);
                 for (const item of entries) {
                     const msg = item.message;
                     if (msg?.role !== 'assistant' || !Array.isArray(msg.content)) continue;
@@ -213,16 +262,6 @@ function readAgentState(society, name) {
         }
     }
 
-    let workspaceNotes = [];
-    const wsDir = path.join(dir, 'workspace-unshared');
-    if (existsSync(wsDir)) {
-        try {
-            workspaceNotes = readdirSync(wsDir).slice(0, 8);
-        } catch {
-            // ignore
-        }
-    }
-
     return {
         name,
         society: society.key,
@@ -232,11 +271,11 @@ function readAgentState(society, name) {
         health,
         food,
         position,
-        inventory: inventory.slice(0, 8),
-        lastTool,
+        inventory,
+        lastAction: actions.at(-1) ?? null,
+        recentActions: actions.slice(-25).reverse(),
         latestThought: thoughts.at(-1) ?? null,
-        recentThoughts: thoughts.slice(-4).reverse(),
-        workspaceNotes,
+        recentThoughts: thoughts.slice(-15).reverse(),
     };
 }
 
@@ -257,200 +296,314 @@ const HTML = `<!doctype html>
 <style>
   :root {
     --bg: #0b0f17;
-    --panel: #131a26;
-    --panel-2: #192233;
-    --border: #263248;
+    --panel: #121926;
+    --panel-2: #182234;
+    --panel-hover: #1f2d44;
+    --border: #26344d;
     --text: #e6edf7;
     --muted: #8b9bb4;
     --collective: #22d3ee;
-    --collective-bg: rgba(34, 211, 238, 0.10);
+    --collective-bg: rgba(34, 211, 238, 0.09);
     --market: #facc15;
-    --market-bg: rgba(250, 204, 21, 0.10);
+    --market-bg: rgba(250, 204, 21, 0.09);
     --diplomacy: #c084fc;
     --trade: #34d399;
     --combat: #f87171;
   }
   * { box-sizing: border-box; }
-  body {
-    margin: 0;
+  html, body {
+    margin: 0; padding: 0;
+    height: 100vh; width: 100vw;
+    overflow: hidden;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    background: var(--bg); color: var(--text);
+  }
+  .app {
+    display: grid;
+    grid-template-rows: 52px 1fr;
+    height: 100vh;
+    width: 100vw;
   }
   header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 14px 22px;
-    background: var(--panel);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 18px; background: var(--panel); border-bottom: 1px solid var(--border);
   }
-  .title-wrap { display: flex; align-items: center; gap: 12px; }
-  h1 { font-size: 18px; margin: 0; font-weight: 700; letter-spacing: 0.2px; }
+  .title-wrap { display: flex; align-items: center; gap: 10px; }
+  h1 { font-size: 16px; margin: 0; font-weight: 700; }
   .live-pill {
     display: inline-flex; align-items: center; gap: 6px;
-    font-size: 12px; padding: 4px 10px; border-radius: 999px;
-    background: rgba(52, 211, 153, 0.14); color: var(--trade); font-weight: 600;
+    font-size: 11px; padding: 3px 9px; border-radius: 999px;
+    background: rgba(52, 211, 153, 0.14); color: var(--trade); font-weight: 700;
   }
-  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--trade); animation: pulse 1.5s infinite; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--trade); animation: pulse 1.5s infinite; }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
-  .filters { display: flex; flex-wrap: wrap; gap: 6px; }
+  .filters { display: flex; gap: 5px; }
   .filter-btn {
     background: var(--panel-2); color: var(--muted);
-    border: 1px solid var(--border); padding: 6px 12px;
-    border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600;
+    border: 1px solid var(--border); padding: 5px 10px;
+    border-radius: 7px; cursor: pointer; font-size: 11.5px; font-weight: 600;
   }
-  .filter-btn.active { color: var(--text); border-color: #60a5fa; background: rgba(96, 165, 250, 0.16); }
-  main {
+  .filter-btn.active { color: var(--text); border-color: #60a5fa; background: rgba(96, 165, 250, 0.18); }
+
+  /* 3-Column Equal Fullscreen Workspace */
+  .workspace {
     display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 18px;
-    padding: 18px 22px;
-    max-width: 1720px;
-    margin: 0 auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 12px;
+    padding: 12px;
+    height: calc(100vh - 52px);
+    overflow: hidden;
   }
-  @media (max-width: 1120px) { main { grid-template-columns: 1fr; } }
-  .section-title {
-    font-size: 13px; text-transform: uppercase; letter-spacing: 0.8px;
-    color: var(--muted); margin: 0 0 10px 0; display: flex; justify-content: space-between;
+  .col {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
   }
-  .societies-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  @media (max-width: 720px) { .societies-grid { grid-template-columns: 1fr; } }
-  .society-col {
-    background: var(--panel); border: 1px solid var(--border);
-    border-radius: 12px; padding: 12px;
-  }
-  .society-col.collective { border-top: 3px solid var(--collective); }
-  .society-col.market { border-top: 3px solid var(--market); }
-  .society-header {
+  .col.collective { border-top: 3px solid var(--collective); }
+  .col.market { border-top: 3px solid var(--market); }
+  .col.feed { border-top: 3px solid #60a5fa; }
+
+  .col-header {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
     display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
   }
-  .society-name { font-weight: 700; font-size: 15px; }
-  .society-name.collective { color: var(--collective); }
-  .society-name.market { color: var(--market); }
+  .col-title { font-weight: 700; font-size: 14px; }
+  .col-title.collective { color: var(--collective); }
+  .col-title.market { color: var(--market); }
+  .col-sub { font-size: 11px; color: var(--muted); }
+
+  /* Uniform 5-row grid for the 5 agents in each society */
+  .agents-list {
+    display: grid;
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+    padding: 10px;
+    flex: 1;
+    overflow: hidden;
+  }
   .agent-card {
-    background: var(--panel-2); border: 1px solid var(--border);
-    border-radius: 10px; padding: 10px 12px; margin-bottom: 10px;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 8px 11px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background 0.12s, border-color 0.12s, transform 0.08s;
+    overflow: hidden;
   }
-  .agent-card.leader { border-color: rgba(250, 204, 21, 0.55); box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.18); }
-  .agent-top { display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap; }
-  .agent-name { font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; }
-  .badge {
-    font-size: 10px; padding: 2px 6px; border-radius: 5px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.4px;
+  .agent-card:hover { background: var(--panel-hover); border-color: #60a5fa; }
+  .agent-card.selected { border-color: #38bdf8; box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.28); }
+  .agent-card.leader { border-color: rgba(250, 204, 21, 0.55); background: linear-gradient(180deg, rgba(250,204,21,0.07), var(--panel-2)); }
+
+  .row-top { display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+  .agent-name { font-weight: 700; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px; }
+  .badge { font-size: 9.5px; padding: 2px 5px; border-radius: 4px; font-weight: 700; text-transform: uppercase; }
+  .badge.leader { background: rgba(250, 204, 21, 0.22); color: #fde047; }
+  .badge.model { background: rgba(148, 163, 184, 0.14); color: var(--muted); font-weight: 500; text-transform: none; }
+  .vitals { font-size: 11px; color: var(--muted); display: flex; gap: 8px; align-items: center; }
+
+  .thought-preview {
+    font-size: 11.5px; color: #dbeafe; line-height: 1.35;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden; text-overflow: ellipsis;
+    background: rgba(15, 23, 42, 0.55); border-left: 2.5px solid #60a5fa;
+    padding: 4px 8px; border-radius: 5px;
   }
-  .badge.leader { background: rgba(250, 204, 21, 0.2); color: #fde047; }
-  .badge.model { background: rgba(148, 163, 184, 0.14); color: var(--muted); font-weight: 500; }
-  .stats { font-size: 11px; color: var(--muted); display: flex; gap: 10px; margin-top: 4px; flex-wrap: wrap; }
-  .thought-box {
-    margin-top: 8px; padding: 8px 10px; border-radius: 8px;
-    background: rgba(15, 23, 42, 0.65); border-left: 3px solid #60a5fa;
-    font-size: 12.5px; line-height: 1.45; color: #dbeafe;
+  .row-bottom {
+    display: flex; justify-content: space-between; align-items: center; gap: 8px;
+    font-size: 11px; color: var(--muted);
   }
-  .thought-label { font-size: 10px; text-transform: uppercase; color: #93c5fd; font-weight: 700; margin-bottom: 3px; display: flex; justify-content: space-between; }
-  details { margin-top: 5px; font-size: 11.5px; color: var(--muted); }
-  details summary { cursor: pointer; color: #93c5fd; }
-  .tool-line {
-    margin-top: 6px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  .action-preview {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    color: #93c5fd; flex: 1;
   }
-  .inv-pills { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
-  .inv-pill {
-    font-size: 10.5px; background: rgba(255,255,255,0.05);
-    padding: 2px 6px; border-radius: 4px; color: #cbd5e1;
+  .click-hint { font-size: 10px; color: #60a5fa; flex-shrink: 0; font-weight: 600; }
+
+  /* Feed column */
+  .feed-list {
+    padding: 10px; overflow-y: auto; display: flex; flex-direction: column; gap: 7px; flex: 1;
   }
-  .feed-panel {
-    background: var(--panel); border: 1px solid var(--border);
-    border-radius: 12px; padding: 14px; display: flex; flex-direction: column;
-    max-height: calc(100vh - 96px); position: sticky; top: 76px;
-  }
-  .feed-list { overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 4px; }
   .msg-card {
-    padding: 10px 12px; border-radius: 9px; background: var(--panel-2);
-    border-left: 4px solid var(--border); font-size: 13px; line-height: 1.45;
+    padding: 8px 10px; border-radius: 8px; background: var(--panel-2);
+    border-left: 3.5px solid var(--border); font-size: 12px; line-height: 1.4;
   }
   .msg-card.collective { border-left-color: var(--collective); background: var(--collective-bg); }
   .msg-card.market { border-left-color: var(--market); background: var(--market-bg); }
   .msg-card.diplomacy, .msg-card.pact { border-left-color: var(--diplomacy); background: rgba(192, 132, 252, 0.10); }
   .msg-card.trade { border-left-color: var(--trade); background: rgba(52, 211, 153, 0.10); }
   .msg-card.combat { border-left-color: var(--combat); background: rgba(248, 113, 113, 0.12); }
-  .msg-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 4px; font-size: 11.5px; }
+  .msg-head { display: flex; justify-content: space-between; align-items: center; gap: 6px; margin-bottom: 3px; font-size: 11px; }
   .msg-route { font-weight: 700; }
-  .tag {
-    font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px;
-    text-transform: uppercase;
-  }
+  .tag { font-size: 9.5px; font-weight: 700; padding: 1.5px 5px; border-radius: 4px; text-transform: uppercase; margin-right: 4px; }
   .tag.collective { background: rgba(34,211,238,0.2); color: var(--collective); }
   .tag.market { background: rgba(250,204,21,0.2); color: var(--market); }
   .tag.diplomacy, .tag.pact { background: rgba(192,132,252,0.22); color: var(--diplomacy); }
   .tag.trade { background: rgba(52,211,153,0.22); color: var(--trade); }
   .tag.combat { background: rgba(248,113,113,0.25); color: var(--combat); }
-  .time { color: var(--muted); font-size: 11px; }
+  .time { color: var(--muted); font-size: 10.5px; }
+
+  /* Agent Inspector Drawer / Modal */
+  .drawer-backdrop {
+    position: fixed; inset: 0; background: rgba(3, 7, 18, 0.68);
+    display: none; align-items: center; justify-content: center; z-index: 50;
+    padding: 24px;
+  }
+  .drawer-backdrop.open { display: flex; }
+  .drawer {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 14px; width: min(1050px, 95vw); height: min(84vh, 820px);
+    display: flex; flex-direction: column; overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.65);
+  }
+  .drawer-header {
+    padding: 14px 18px; border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--panel-2);
+  }
+  .close-btn {
+    background: transparent; border: 1px solid var(--border); color: var(--text);
+    padding: 6px 12px; border-radius: 7px; cursor: pointer; font-weight: 600;
+  }
+  .close-btn:hover { background: rgba(255,255,255,0.08); }
+  .drawer-body {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    padding: 14px 18px; flex: 1; overflow: hidden;
+  }
+  .drawer-col {
+    background: var(--panel-2); border: 1px solid var(--border);
+    border-radius: 10px; display: flex; flex-direction: column; overflow: hidden;
+  }
+  .drawer-col-head {
+    padding: 9px 12px; border-bottom: 1px solid var(--border);
+    font-size: 12px; font-weight: 700; text-transform: uppercase; color: #93c5fd;
+  }
+  .drawer-scroll { padding: 10px 12px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  .thought-item, .action-item {
+    background: rgba(15, 23, 42, 0.65); border: 1px solid var(--border);
+    border-radius: 8px; padding: 9px 11px; font-size: 12.5px; line-height: 1.45;
+  }
+  .thought-item { border-left: 3px solid #60a5fa; }
+  .action-item.ok { border-left: 3px solid var(--trade); }
+  .action-item.fail { border-left: 3px solid var(--combat); }
+  .inv-bar {
+    padding: 8px 18px; border-top: 1px solid var(--border);
+    display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12px;
+    background: var(--panel-2);
+  }
+  .inv-pill {
+    font-size: 11px; background: rgba(255,255,255,0.07);
+    padding: 3px 8px; border-radius: 5px; color: #e2e8f0;
+  }
 </style>
 </head>
 <body>
-<header>
-  <div class="title-wrap">
-    <h1>Minecraft Agents — Live Mission Control</h1>
-    <span class="live-pill"><span class="dot"></span><span id="status-text">LIVE</span></span>
-  </div>
-  <div class="filters" id="filters">
-    <button class="filter-btn active" data-filter="all">Alle Events</button>
-    <button class="filter-btn" data-filter="collective">Collective DMs</button>
-    <button class="filter-btn" data-filter="market">Market DMs</button>
-    <button class="filter-btn" data-filter="diplomacy">Diplomatie & Pakte</button>
-    <button class="filter-btn" data-filter="trade">Trades</button>
-    <button class="filter-btn" data-filter="combat">Kampf / Tod</button>
-  </div>
-</header>
-<main>
-  <section>
-    <div class="section-title">
-      <span>Agenten-Status & Zusammengefasste Gedanken (Live)</span>
-      <span id="updated-at"></span>
+<div class="app">
+  <header>
+    <div class="title-wrap">
+      <h1>Minecraft Agents — Live Mission Control</h1>
+      <span class="live-pill"><span class="dot"></span><span id="status-text">LIVE</span></span>
+      <span class="col-sub" id="updated-at"></span>
     </div>
-    <div class="societies-grid">
-      <div class="society-col collective">
-        <div class="society-header">
-          <span class="society-name collective">Collective (Gemeineigentum)</span>
-          <span class="badge model">Chef: Stalin (GPT-6.1 Terra)</span>
-        </div>
-        <div id="agents-collective"></div>
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">Alle (<span id="cnt-all">0</span>)</button>
+      <button class="filter-btn" data-filter="collective" onclick="setFilter('collective')">Collective DMs (<span id="cnt-collective">0</span>)</button>
+      <button class="filter-btn" data-filter="market" onclick="setFilter('market')">Market DMs (<span id="cnt-market">0</span>)</button>
+      <button class="filter-btn" data-filter="diplomacy" onclick="setFilter('diplomacy')">Diplomatie & Pakte (<span id="cnt-diplomacy">0</span>)</button>
+      <button class="filter-btn" data-filter="trade" onclick="setFilter('trade')">Trades (<span id="cnt-trade">0</span>)</button>
+      <button class="filter-btn" data-filter="combat" onclick="setFilter('combat')">Kampf (<span id="cnt-combat">0</span>)</button>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <section class="col collective">
+      <div class="col-header">
+        <span class="col-title collective">Collective (Kollektiv)</span>
+        <span class="col-sub">Klicke auf einen Bot für Details</span>
       </div>
-      <div class="society-col market">
-        <div class="society-header">
-          <span class="society-name market">Market (Privateigentum)</span>
-          <span class="badge model">Chef: Justus (GPT-6.1 Terra)</span>
-        </div>
-        <div id="agents-market"></div>
+      <div class="agents-list" id="agents-collective"></div>
+    </section>
+
+    <section class="col market">
+      <div class="col-header">
+        <span class="col-title market">Market (Kapitalisten)</span>
+        <span class="col-sub">Klicke auf einen Bot für Details</span>
+      </div>
+      <div class="agents-list" id="agents-market"></div>
+    </section>
+
+    <section class="col feed">
+      <div class="col-header">
+        <span class="col-title">Live-Kommunikation & Ereignisse</span>
+        <span class="col-sub" id="feed-count">0 Einträge</span>
+      </div>
+      <div class="feed-list" id="feed-list"></div>
+    </section>
+  </div>
+</div>
+
+<!-- Detail Modal on Bot Click -->
+<div class="drawer-backdrop" id="drawer-backdrop">
+  <div class="drawer">
+    <div class="drawer-header">
+      <div id="drawer-title" style="display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;"></div>
+      <button class="close-btn" id="drawer-close">Schließen (ESC)</button>
+    </div>
+    <div class="drawer-body">
+      <div class="drawer-col">
+        <div class="drawer-col-head">💭 Gedanken & Entscheidungen (Chronologisch)</div>
+        <div class="drawer-scroll" id="drawer-thoughts"></div>
+      </div>
+      <div class="drawer-col">
+        <div class="drawer-col-head">⚡ Ausgeführte Handlungen & Nachrichten</div>
+        <div class="drawer-scroll" id="drawer-actions"></div>
       </div>
     </div>
-  </section>
-  <section class="feed-panel">
-    <div class="section-title">
-      <span>Live-Kommunikation (DMs, Diplomatie, Handel)</span>
-      <span id="feed-count">0 Einträge</span>
-    </div>
-    <div class="feed-list" id="feed-list"></div>
-  </section>
-</main>
+    <div class="inv-bar" id="drawer-inv"></div>
+  </div>
+</div>
+
 <script>
   let activeFilter = 'all';
+  let selectedAgentName = null;
   let lastData = null;
+  const openThoughtKeys = new Set();
+  let lastFeedHash = '';
+  let lastDrawerHash = '';
 
-  document.getElementById('filters').addEventListener('click', e => {
-    const btn = e.target.closest('.filter-btn');
-    if (!btn) return;
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeFilter = btn.dataset.filter;
-    if (lastData) renderFeed(lastData.feed);
+  window.setFilter = function(filter) {
+    activeFilter = filter;
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.filter === filter);
+    });
+    lastFeedHash = '';
+    if (lastData) renderFeed(lastData.feed, true);
+  };
+
+  window.toggleThought = function(key, isOpen) {
+    if (isOpen) openThoughtKeys.add(key);
+    else openThoughtKeys.delete(key);
+  };
+
+  document.getElementById('drawer-close').addEventListener('click', () => {
+    selectedAgentName = null;
+    lastDrawerHash = '';
+    document.getElementById('drawer-backdrop').classList.remove('open');
+    if (lastData) renderAgents(lastData.agents);
+  });
+  document.getElementById('drawer-backdrop').addEventListener('click', e => {
+    if (e.target.id === 'drawer-backdrop') document.getElementById('drawer-close').click();
+  });
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && selectedAgentName) document.getElementById('drawer-close').click();
   });
 
   function esc(s) {
@@ -465,66 +618,140 @@ const HTML = `<!doctype html>
     return list.map(i => \`\${i.count}× \${i.item || i.name}\`).join(', ');
   }
 
+  window.selectAgent = function(name) {
+    selectedAgentName = name;
+    if (lastData) {
+      renderAgents(lastData.agents);
+      renderDrawer();
+    }
+  };
+
   function renderAgents(agents) {
     for (const soc of ['collective', 'market']) {
       const container = document.getElementById('agents-' + soc);
       const list = agents.filter(a => a.society === soc);
       container.innerHTML = list.map(a => {
-        const pos = a.position ? \`(\${a.position.x}, \${a.position.y}, \${a.position.z})\` : '–';
-        const thought = a.latestThought;
-        const toolStr = a.lastTool ? \`⚡ \${a.lastTool.tool} \${a.lastTool.args || ''}\` : '⏳ wartet...';
-        const inv = (a.inventory || []).map(i => \`<span class="inv-pill">\${esc(i.count)}× \${esc(i.name)}</span>\`).join('');
+        const pos = a.position ? \`\${a.position.x}, \${a.position.y}, \${a.position.z}\` : '–';
+        const thought = a.latestThought ? a.latestThought.summary : 'Wartet auf ersten Gedanken...';
+        const action = a.lastAction ? a.lastAction.summary : '⏳ Wartet...';
+        const isSel = selectedAgentName === a.name;
         return \`
-          <div class="agent-card \${a.isLeader ? 'leader' : ''}">
-            <div class="agent-top">
+          <div class="agent-card \${a.isLeader ? 'leader' : ''} \${isSel ? 'selected' : ''}" onclick="selectAgent('\${esc(a.name)}')">
+            <div class="row-top">
               <span class="agent-name">
                 \${esc(a.name)}
-                \${a.isLeader ? '<span class="badge leader">★ Anführer</span>' : ''}
+                \${a.isLeader ? '<span class="badge leader">★ Chef</span>' : ''}
+                <span class="badge model">\${esc(a.model)}</span>
               </span>
-              <span class="badge model">\${esc(a.model)}</span>
-            </div>
-            <div class="stats">
-              <span>❤️ \${a.health ?? '–'}/20</span>
-              <span>🍖 \${a.food ?? '–'}/20</span>
-              <span>📍 \${pos}</span>
-            </div>
-            <div class="thought-box">
-              <div class="thought-label">
-                <span>💭 Aktueller Gedanke (Zusammenfassung)</span>
-                <span>\${thought ? fmtTime(thought.time) : ''}</span>
+              <div class="vitals">
+                <span>❤️ \${a.health ?? '–'}</span>
+                <span>🍖 \${a.food ?? '–'}</span>
+                <span>📍 \${pos}</span>
               </div>
-              <div>\${thought ? esc(thought.summary) : 'Noch keine Gedanken aufgezeichnet.'}</div>
-              \${thought && thought.full && thought.full.length > thought.summary.length ? \`
-                <details>
-                  <summary>Kompletten Gedankengang aufklappen</summary>
-                  <div style="margin-top:4px;white-space:pre-wrap;">\${esc(thought.full)}</div>
-                </details>
-              \` : ''}
             </div>
-            <div class="tool-line" title="\${esc(toolStr)}">\${esc(toolStr)}</div>
-            \${inv ? \`<div class="inv-pills">\${inv}</div>\` : ''}
+            <div class="thought-preview">💭 \${esc(thought)}</div>
+            <div class="row-bottom">
+              <div class="action-preview">\${esc(action)}</div>
+              <span class="click-hint">Details ↗</span>
+            </div>
           </div>
         \`;
       }).join('');
     }
   }
 
-  function renderFeed(feed) {
-    const filtered = feed.filter(item => {
-      if (activeFilter === 'all') return true;
-      if (activeFilter === 'collective') return item.kind === 'dm' && item.society === 'collective';
-      if (activeFilter === 'market') return item.kind === 'dm' && item.society === 'market';
-      if (activeFilter === 'diplomacy') return item.kind === 'diplomacy' || item.kind === 'pact';
-      return item.kind === activeFilter;
+  function renderDrawer() {
+    const backdrop = document.getElementById('drawer-backdrop');
+    if (!selectedAgentName || !lastData) {
+      backdrop.classList.remove('open');
+      return;
+    }
+    const a = lastData.agents.find(x => x.name === selectedAgentName);
+    if (!a) return;
+    backdrop.classList.add('open');
+    const drawerHash = JSON.stringify({
+      name: a.name,
+      h: a.health,
+      f: a.food,
+      p: a.position,
+      t: (a.recentThoughts || []).map(x => x.summary),
+      act: (a.recentActions || []).map(x => x.time + x.tool),
+      inv: a.inventory,
     });
-    document.getElementById('feed-count').textContent = filtered.length + ' Einträge';
+    if (drawerHash === lastDrawerHash) return;
+    lastDrawerHash = drawerHash;
+
+    const pos = a.position ? \`(\${a.position.x}, \${a.position.y}, \${a.position.z})\` : '–';
+    document.getElementById('drawer-title').innerHTML = \`
+      <span>\${esc(a.name)}</span>
+      \${a.isLeader ? '<span class="badge leader">★ Anführer</span>' : ''}
+      <span class="badge model">\${esc(a.societyLabel)} · \${esc(a.model)}</span>
+      <span style="font-size:12px;color:var(--muted);font-weight:500;">❤️ \${a.health ?? '–'}/20 · 🍖 \${a.food ?? '–'}/20 · 📍 \${pos}</span>
+    \`;
+
+    const thoughtsEl = document.getElementById('drawer-thoughts');
+    thoughtsEl.innerHTML = (a.recentThoughts || []).map((t, idx) => {
+      const key = \`\${a.name}-\${t.time}-\${idx}\`;
+      const isOpen = openThoughtKeys.has(key) ? 'open' : '';
+      return \`
+      <div class="thought-item">
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:#93c5fd;margin-bottom:4px;font-weight:700;">
+          <span>Zusammenfassung: \${esc(t.summary)}</span>
+          <span>\${fmtTime(t.time)}</span>
+        </div>
+        <details \${isOpen} ontoggle="toggleThought('\${esc(key)}', this.open)">
+          <summary style="cursor:pointer;font-size:11px;color:var(--muted);">Kompletten Gedankengang anzeigen</summary>
+          <div style="margin-top:6px;white-space:pre-wrap;color:#cbd5e1;font-size:12px;">\${esc(t.full)}</div>
+        </details>
+      </div>
+    \`;
+    }).join('') || '<div style="color:var(--muted);">Noch keine Gedanken aufgezeichnet.</div>';
+
+    const actionsEl = document.getElementById('drawer-actions');
+    actionsEl.innerHTML = (a.recentActions || []).map(act => \`
+      <div class="action-item \${act.success ? 'ok' : 'fail'}">
+        <div style="display:flex;justify-content:space-between;font-weight:700;font-size:12px;">
+          <span>\${esc(act.summary)}</span>
+          <span class="time">\${fmtTime(act.time)}</span>
+        </div>
+        <div style="font-family:monospace;font-size:11px;color:var(--muted);margin-top:3px;word-break:break-all;">
+          Args: \${esc(act.args)}<br/>Result: \${esc(act.result)}
+        </div>
+      </div>
+    \`).join('') || '<div style="color:var(--muted);">Noch keine Handlungen.</div>';
+
+    const inv = (a.inventory || []).map(i => \`<span class="inv-pill">\${esc(i.count)}× \${esc(i.name)}</span>\`).join('');
+    document.getElementById('drawer-inv').innerHTML = \`<b>Inventar (\${(a.inventory || []).length} Slots):</b> \${inv || '<span style="color:var(--muted);">Leer</span>'}\`;
+  }
+
+  function matchFilter(item, f) {
+    if (f === 'all') return true;
+    if (f === 'collective') return item.kind === 'dm' && item.society === 'collective';
+    if (f === 'market') return item.kind === 'dm' && item.society === 'market';
+    if (f === 'diplomacy') return item.kind === 'diplomacy' || item.kind === 'pact';
+    return item.kind === f;
+  }
+
+  function renderFeed(feed, force = false) {
+    for (const f of ['all', 'collective', 'market', 'diplomacy', 'trade', 'combat']) {
+      const el = document.getElementById('cnt-' + f);
+      if (el) el.textContent = feed.filter(i => matchFilter(i, f)).length;
+    }
+    const filtered = feed.filter(item => matchFilter(item, activeFilter));
+    const hash = activeFilter + ':' + filtered.map(i => i.id).join(',');
+    if (!force && hash === lastFeedHash) return;
+    lastFeedHash = hash;
+    document.getElementById('feed-count').textContent = filtered.length + ' Einträge (' + activeFilter.toUpperCase() + ')';
     const el = document.getElementById('feed-list');
-    el.innerHTML = filtered.map(item => {
+    if (!filtered.length) {
+      el.innerHTML = '<div style="padding:18px;text-align:center;color:var(--muted);font-size:12.5px;">Keine Einträge in dieser Kategorie vorhanden.</div>';
+      return;
+    }
       let cls = item.kind;
       let tagLabel = item.kind.toUpperCase();
       if (item.kind === 'dm') {
         cls = item.society;
-        tagLabel = item.society === 'collective' ? 'COLLECTIVE DM' : 'MARKET DM';
+        tagLabel = item.society === 'collective' ? 'COLLECTIVE' : 'MARKET';
       } else if (item.kind === 'trade') {
         tagLabel = \`TRADE #\${item.tradeId} (\${item.subtype.replace('trade_','')})\`;
       } else if (item.kind === 'pact') {
@@ -558,7 +785,8 @@ const HTML = `<!doctype html>
       lastData = data;
       renderAgents(data.agents);
       renderFeed(data.feed);
-      document.getElementById('updated-at').textContent = 'Aktualisiert: ' + fmtTime(data.now);
+      if (selectedAgentName) renderDrawer();
+      document.getElementById('updated-at').textContent = 'Stand: ' + fmtTime(data.now);
       document.getElementById('status-text').textContent = 'LIVE';
     } catch (e) {
       document.getElementById('status-text').textContent = 'VERBINDUNG...';
