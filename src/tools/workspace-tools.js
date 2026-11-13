@@ -22,7 +22,12 @@ const DIR_FLAGS = constants.O_RDONLY | constants.O_DIRECTORY | constants.O_NOFOL
 const FILE_FLAGS = constants.O_RDONLY | constants.O_NOFOLLOW | constants.O_NONBLOCK;
 const workerPath = fileURLToPath(new URL('./compute-worker.js', import.meta.url));
 const bytes = value => Buffer.byteLength(value, 'utf8');
-const fdPath = handle => `/proc/self/fd/${handle.fd}`;
+// Linux: resolve children through the already-open descriptor (race-free).
+// macOS/other: Node cannot address children relative to an fd, so we fall back to the
+// verified path of the directory we opened step-by-step with O_NOFOLLOW (weaker against
+// concurrent directory swaps, fine for local development).
+const USE_PROC_FD = process.platform === 'linux';
+const fdPath = handle => (USE_PROC_FD ? `/proc/self/fd/${handle.fd}` : handle.wsPath);
 const fail = message => {
     throw new ToolError(message);
 };
@@ -60,7 +65,8 @@ function fileCheck(stat, limit) {
 }
 
 async function openDirectory(parent, name, create = false) {
-    const target = `${fdPath(parent)}/${name}`;
+    const base = fdPath(parent);
+    const target = base === '/' ? `/${name}` : `${base}/${name}`;
     if (create) {
         try {
             await fs.mkdir(target, { mode: 0o700 });
@@ -68,10 +74,13 @@ async function openDirectory(parent, name, create = false) {
             if (error.code !== 'EEXIST') throw error;
         }
     }
-    return fs.open(target, DIR_FLAGS);
+    const handle = await fs.open(target, DIR_FLAGS);
+    handle.wsPath = target;
+    return handle;
 }
 async function openRoot(root, create = false) {
     let handle = await fs.open('/', DIR_FLAGS);
+    handle.wsPath = '/';
     try {
         for (const part of root.split('/').filter(Boolean)) {
             const next = await openDirectory(handle, part, create);
@@ -320,7 +329,6 @@ export async function createWorkspaceTools({
     limits: overrides = {},
     sesPath,
 } = {}) {
-    if (process.platform !== 'linux') throw new Error('Workspace tools require Linux descriptor paths.');
     const limits = { ...DEFAULTS, ...overrides };
     for (const [key, value] of Object.entries(limits)) {
         if (!Object.hasOwn(DEFAULTS, key) || !Number.isSafeInteger(value) || value <= 0 || value > DEFAULTS[key]) {

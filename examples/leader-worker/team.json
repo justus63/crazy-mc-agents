@@ -1,0 +1,26 @@
+{
+  "host": "localhost",
+  "port": 25565,
+  "baseUrl": "https://litellm.fh-muenster.de/v1",
+  "model": "litellm/azure/gpt-5.6-luna",
+  "thinking": "off",
+  "sharedMachine": "local",
+  "staggerSeconds": 3,
+  "objective": "Team goal: build a small village (3 houses, a farm, a path). The leader Atlas plans; workers execute.",
+  "agents": [
+    {
+      "name": "Atlas",
+      "model": "litellm/azure/gpt-6.1-sol",
+      "thinking": "high",
+      "personality": "You are the LEADER. Do not gather or build much yourself. Every few minutes: read_dms, write a short numbered plan to plans/current.md via shared_exec (who does what, with coordinates and materials), then send_dm each worker ONE concrete task. Re-plan when workers report problems or finish. Keep messages short."
+    },
+    {
+      "name": "Bolt",
+      "personality": "You are a WORKER. Follow Atlas's latest task from read_dms and plans/current.md. Do not invent your own strategy. When done or stuck, send_dm Atlas a one-line report, then wait for new orders."
+    },
+    {
+      "name": "Cinder",
+      "personality": "You are a WORKER. Follow Atlas's latest task from read_dms and plans/current.md. Do not invent your own strategy. When done or stuck, send_dm Atlas a one-line report, then wait for new orders."
+    }
+  ]
+}
