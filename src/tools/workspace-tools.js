@@ -64,6 +64,16 @@ function fileCheck(stat, limit) {
     if (stat.size > limit) fail('File exceeds size limit.');
 }
 
+// Non-Linux best effort: the opened handle must still be what the path names (no symlink, same inode).
+async function verifyOpened(handle, target) {
+    try {
+        const [opened, named] = await Promise.all([handle.stat(), fs.lstat(target)]);
+        if (named.isSymbolicLink() || !sameFile(opened, named)) fail('Workspace path changed.');
+    } catch (error) {
+        await handle.close();
+        throw error;
+    }
+}
 async function openDirectory(parent, name, create = false) {
     const base = fdPath(parent);
     const target = base === '/' ? `/${name}` : `${base}/${name}`;
@@ -76,6 +86,7 @@ async function openDirectory(parent, name, create = false) {
     }
     const handle = await fs.open(target, DIR_FLAGS);
     handle.wsPath = target;
+    if (!USE_PROC_FD) await verifyOpened(handle, target);
     return handle;
 }
 async function openRoot(root, create = false) {
@@ -374,8 +385,10 @@ export async function createWorkspaceTools({
                 const offset = integer(args.offset ?? 0, 0, limits.fileBytes, 'offset');
                 const maxBytes = integer(args.maxBytes ?? readLimit, 4, readLimit, 'maxBytes');
                 return withDirectory(root, parts.slice(0, -1), false, async dir => {
-                    const file = await fs.open(`${fdPath(dir)}/${parts.at(-1)}`, FILE_FLAGS);
+                    const filePath = `${fdPath(dir)}/${parts.at(-1)}`;
+                    const file = await fs.open(filePath, FILE_FLAGS);
                     try {
+                        if (!USE_PROC_FD) await verifyOpened(file, filePath);
                         const stat = await file.stat();
                         fileCheck(stat, limits.fileBytes);
                         checkAbort(signal);
