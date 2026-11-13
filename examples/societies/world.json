@@ -10,14 +10,14 @@
       "color": "aqua",
       "base": [-100, 0],
       "storage": "common",
-      "players": ["Arin", "Bela", "Cato", "Dara", "Eske"]
+      "players": ["Reinecke", "Zappel", "Stalin", "Marcant", "Lange"]
     },
     "market": {
       "label": "Market",
       "color": "yellow",
       "base": [100, 0],
       "storage": "private",
-      "players": ["Fenn", "Gita", "Hale", "Ivo", "Juna"]
+      "players": ["FlorianHomm", "Trump", "Justus", "Simon", "Fohrmann"]
     }
   },
   "kit": [

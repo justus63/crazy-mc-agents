@@ -45,7 +45,7 @@ test('RCON replies are parsed without picking up digits from player names', () =
     assert.equal(parseFound('No player was found'), null);
     assert.equal(parseRemoved('Removed 4 item(s) from player Ivo2'), 4);
     assert.equal(parseRemoved('No items were found on player Ivo2'), 0);
-    assert.deepEqual(parsePos('Arin has the following entity data: [-99.5d, 71.0d, 0.3d]'), [-99.5, 71, 0.3]);
+    assert.deepEqual(parsePos('Reinecke has the following entity data: [-99.5d, 71.0d, 0.3d]'), [-99.5, 71, 0.3]);
     assert.equal(parsePos('No entity was found'), null);
 });
 
@@ -59,15 +59,15 @@ test('nearest picks the closest candidate other than yourself', () => {
 test('diplomacy limiter enforces spacing, hourly caps, per-pair caps and refuses repeats', () => {
     const l = new MessageLimiter({ minSecondsBetween: 20, maxPerHour: 3, maxPerPairPer10Min: 2, maxRepeats: 1 });
     let t = 0;
-    assert.equal(l.check('Arin', 'Market', 'Hello', t), null);
-    l.record('Arin', 'Market', 'Hello', t);
-    assert.match(l.check('Arin', 'Market', 'Again', (t += 5_000)), /wait 15s/);
-    assert.match(l.check('Arin', 'Fenn', 'hello!', (t += 30_000)), /already sent/);
-    l.record('Arin', 'Market', 'Second', t);
-    assert.match(l.check('Arin', 'Market', 'Third', (t += 30_000)), /same recipient/);
-    l.record('Arin', 'Fenn', 'Third', t);
-    assert.match(l.check('Arin', 'Gita', 'Fourth', (t += 30_000)), /3 messages per hour/);
-    assert.equal(l.check('Bela', 'Market', 'Hello', t), null);
+    assert.equal(l.check('Reinecke', 'Market', 'Hello', t), null);
+    l.record('Reinecke', 'Market', 'Hello', t);
+    assert.match(l.check('Reinecke', 'Market', 'Again', (t += 5_000)), /wait 15s/);
+    assert.match(l.check('Reinecke', 'FlorianHomm', 'hello!', (t += 30_000)), /already sent/);
+    l.record('Reinecke', 'Market', 'Second', t);
+    assert.match(l.check('Reinecke', 'Market', 'Third', (t += 30_000)), /same recipient/);
+    l.record('Reinecke', 'FlorianHomm', 'Third', t);
+    assert.match(l.check('Reinecke', 'Trump', 'Fourth', (t += 30_000)), /3 messages per hour/);
+    assert.equal(l.check('Zappel', 'Market', 'Hello', t), null);
 });
 
 test('only active, unexpired protective pacts protect', () => {
@@ -86,7 +86,7 @@ test('only active, unexpired protective pacts protect', () => {
 function fakeBot(entities = {}) {
     const at = (x, z) => ({ x, y: 64, z, distanceTo: o => Math.hypot(x - o.x, z - o.z) });
     return {
-        username: 'Arin',
+        username: 'Reinecke',
         game: { gameMode: 'survival' },
         entity: { id: 0, position: at(0, 0), yaw: 0, pitch: 0 },
         entities: Object.fromEntries(
@@ -155,9 +155,9 @@ test('society tools: fight picks the nearest player of the other society and res
             : [200, {}],
     );
     t.after(() => ref.close());
-    // Bela (own society) is closest, Gita (other society) next, Fenn farther, Hale out of range.
-    const bot = fakeBot({ 1: ['Bela', 2, 0], 2: ['Gita', 6, 0], 3: ['Fenn', 10, 0], 4: ['Hale', 40, 0] });
-    const specs = create({ bot, name: 'Arin', schema, options: { referee: ref.url, poll: false } });
+    // Zappel (own society) is closest, Trump (other society) next, FlorianHomm farther, Justus out of range.
+    const bot = fakeBot({ 1: ['Zappel', 2, 0], 2: ['Trump', 6, 0], 3: ['FlorianHomm', 10, 0], 4: ['Justus', 40, 0] });
+    const specs = create({ bot, name: 'Reinecke', schema, options: { referee: ref.url, poll: false } });
     assert.deepEqual(
         specs.map(s => s.name),
         ['fight', 'trade_offer', 'trade_respond', 'trades', 'diplomacy_send', 'pact_respond', 'society_status'],
@@ -169,22 +169,22 @@ test('society tools: fight picks the nearest player of the other society and res
         return { targetDied: true };
     };
     const refused = await fight.run({}, { builtin });
-    assert.deepEqual(refused, { attacked: false, target: 'Gita', reason: 'pact in force', pact: { id: 3 } });
+    assert.deepEqual(refused, { attacked: false, target: 'Trump', reason: 'pact in force', pact: { id: 3 } });
     assert.equal(attacks.length, 0);
     allowed = true;
     const done = await fight.run({ break_pact: true }, { builtin });
-    assert.equal(done.target, 'Gita');
+    assert.equal(done.target, 'Trump');
     assert.equal(done.targetSociety, 'Market');
     assert.deepEqual(attacks, [['attack', { id: 2 }]]);
-    assert.deepEqual(ref.calls.at(-1).body, { attacker: 'Arin', target: 'Gita', breakPact: true });
-    const own = await fight.run({ target: 'bela' }, { builtin });
-    assert.equal(own.target, 'Bela');
-    await assert.rejects(fight.run({ target: 'Hale' }, { builtin }), /not within 24 blocks/);
+    assert.deepEqual(ref.calls.at(-1).body, { attacker: 'Reinecke', target: 'Trump', breakPact: true });
+    const own = await fight.run({ target: 'zappel' }, { builtin });
+    assert.equal(own.target, 'Zappel');
+    await assert.rejects(fight.run({ target: 'Justus' }, { builtin }), /not within 24 blocks/);
 });
 
 test('society tools: trades and diplomacy are sent as the agent, inbox events wake it', async t => {
     const { default: create } = await import('../examples/societies/tools.mjs');
-    let inbox = [{ id: 7, type: 'trade_offer', urgent: true, offer: 5, from: 'Fenn' }];
+    let inbox = [{ id: 7, type: 'trade_offer', urgent: true, offer: 5, from: 'FlorianHomm' }];
     const ref = await fakeReferee(c => {
         if (c.url.startsWith('/inbox')) {
             const events = inbox;
@@ -198,7 +198,7 @@ test('society tools: trades and diplomacy are sent as the agent, inbox events wa
     const woken = [];
     const specs = create({
         bot: fakeBot(),
-        name: 'Arin',
+        name: 'Reinecke',
         schema,
         options: { referee: ref.url, pollSeconds: 0.05 },
         wake: (event, opts) => woken.push([event, opts]),
@@ -206,13 +206,13 @@ test('society tools: trades and diplomacy are sent as the agent, inbox events wa
     const byName = Object.fromEntries(specs.map(s => [s.name, s]));
     await assert.rejects(byName.trade_offer.run({ give: [{ item: 'bread', count: 3 }], want: [] }), /has 1/);
     assert.deepEqual(ref.calls.find(c => c.url === '/trade/offer').body, {
-        from: 'Arin',
+        from: 'Reinecke',
         give: [{ item: 'bread', count: 3 }],
         want: [],
     });
     await byName.diplomacy_send.run({ to: 'Market', text: 'Hello', pact: 'peace', pact_minutes: 60 });
     assert.deepEqual(ref.calls.find(c => c.url === '/message').body, {
-        from: 'Arin',
+        from: 'Reinecke',
         to: 'Market',
         text: 'Hello',
         pact: 'peace',
@@ -220,7 +220,7 @@ test('society tools: trades and diplomacy are sent as the agent, inbox events wa
     });
     for (let i = 0; i < 40 && !woken.length; i++) await new Promise(r => setTimeout(r, 25));
     assert.deepEqual(woken[0], [
-        { kind: 'society', type: 'trade_offer', offer: 5, from: 'Fenn' },
+        { kind: 'society', type: 'trade_offer', offer: 5, from: 'FlorianHomm' },
         { key: 'society:7', urgent: true },
     ]);
 });
@@ -252,13 +252,13 @@ test('society team files are mirrored: same objective shape, same personalities,
 test('item lists are read from SNBT without being fooled by nested data or strings', async () => {
     const { parseItemList, tally, diffCounts, relation } = await import('../examples/societies/rules.mjs');
     const inv =
-        'Arin has the following entity data: [{Slot: 0b, id: "minecraft:bread", count: 3}, {count: 1, Slot: 1b, id: "minecraft:iron_pickaxe", components: {"minecraft:damage": 4, "minecraft:custom_name": "{\\"id\\": \\"minecraft:diamond\\", count: 64}"}}, {Slot: 2b, id: "minecraft:bundle", count: 1, components: {"minecraft:bundle_contents": [{id: "minecraft:gold_ingot", count: 9}]}}]';
+        'Reinecke has the following entity data: [{Slot: 0b, id: "minecraft:bread", count: 3}, {count: 1, Slot: 1b, id: "minecraft:iron_pickaxe", components: {"minecraft:damage": 4, "minecraft:custom_name": "{\\"id\\": \\"minecraft:diamond\\", count: 64}"}}, {Slot: 2b, id: "minecraft:bundle", count: 1, components: {"minecraft:bundle_contents": [{id: "minecraft:gold_ingot", count: 9}]}}]';
     assert.deepEqual(parseItemList(inv), [
         { item: 'bread', count: 3 },
         { item: 'iron_pickaxe', count: 1 },
         { item: 'bundle', count: 1 },
     ]);
-    assert.deepEqual(parseItemList('Arin has the following entity data: []'), []);
+    assert.deepEqual(parseItemList('Reinecke has the following entity data: []'), []);
     assert.deepEqual(parseItemList('Found no elements matching Items'), []);
     assert.equal(parseItemList('That position is not loaded'), null);
     const before = tally([
@@ -276,13 +276,13 @@ test('item lists are read from SNBT without being fooled by nested data or strin
         ],
         put: [{ item: 'coal', count: 4 }],
     });
-    const factionOf = { Arin: 'collective', Bela: 'collective', Fenn: 'market', Gita: 'market' };
-    assert.equal(relation({ kind: 'society', id: 'collective' }, 'Bela', factionOf), 'own_society_common');
-    assert.equal(relation({ kind: 'society', id: 'collective' }, 'Fenn', factionOf), 'other_society');
-    assert.equal(relation({ kind: 'player', id: 'Fenn' }, 'Fenn', factionOf), 'own');
-    assert.equal(relation({ kind: 'player', id: 'Fenn' }, 'Gita', factionOf), 'other_member');
-    assert.equal(relation({ kind: 'player', id: 'Fenn' }, 'Arin', factionOf), 'other_society');
-    assert.equal(relation(null, 'Arin', factionOf), 'unowned');
+    const factionOf = { Reinecke: 'collective', Zappel: 'collective', FlorianHomm: 'market', Trump: 'market' };
+    assert.equal(relation({ kind: 'society', id: 'collective' }, 'Zappel', factionOf), 'own_society_common');
+    assert.equal(relation({ kind: 'society', id: 'collective' }, 'FlorianHomm', factionOf), 'other_society');
+    assert.equal(relation({ kind: 'player', id: 'FlorianHomm' }, 'FlorianHomm', factionOf), 'own');
+    assert.equal(relation({ kind: 'player', id: 'FlorianHomm' }, 'Trump', factionOf), 'other_member');
+    assert.equal(relation({ kind: 'player', id: 'FlorianHomm' }, 'Reinecke', factionOf), 'other_society');
+    assert.equal(relation(null, 'Reinecke', factionOf), 'unowned');
 });
 
 test('gold prices come only from trades paid purely in gold for one kind of item', async () => {
@@ -360,8 +360,8 @@ test('analysis counts trades, gold, chest taking, wealth, inequality and roles p
     const ledger = [
         {
             t: T(1),
-            from: 'Fenn',
-            to: 'Arin',
+            from: 'FlorianHomm',
+            to: 'Reinecke',
             fromFaction: 'market',
             toFaction: 'collective',
             gave: items(['iron_ingot', 2]),
@@ -370,8 +370,8 @@ test('analysis counts trades, gold, chest taking, wealth, inequality and roles p
         },
         {
             t: T(2),
-            from: 'Fenn',
-            to: 'Gita',
+            from: 'FlorianHomm',
+            to: 'Trump',
             fromFaction: 'market',
             toFaction: 'market',
             gave: items(['bread', 4]),
@@ -380,8 +380,8 @@ test('analysis counts trades, gold, chest taking, wealth, inequality and roles p
         },
         {
             t: T(3),
-            from: 'Arin',
-            to: 'Bela',
+            from: 'Reinecke',
+            to: 'Zappel',
             fromFaction: 'collective',
             toFaction: 'collective',
             gave: items(['bread', 2]),
@@ -389,8 +389,8 @@ test('analysis counts trades, gold, chest taking, wealth, inequality and roles p
         },
         {
             t: T(4),
-            from: 'Cato',
-            to: 'Hale',
+            from: 'Stalin',
+            to: 'Justus',
             fromFaction: 'collective',
             toFaction: 'market',
             gave: items(['coal', 4]),
@@ -399,23 +399,23 @@ test('analysis counts trades, gold, chest taking, wealth, inequality and roles p
     ];
     const events = [
         { t: T(0), event: 'ready', swapped: false },
-        { t: T(0.5), event: 'trade_offered', id: 1, from: 'Fenn' },
-        { t: T(1.5), event: 'trade_offered', id: 2, from: 'Fenn' },
-        { t: T(1.6), event: 'trade_offered', id: 9, from: 'Fenn' },
+        { t: T(0.5), event: 'trade_offered', id: 1, from: 'FlorianHomm' },
+        { t: T(1.5), event: 'trade_offered', id: 2, from: 'FlorianHomm' },
+        { t: T(1.6), event: 'trade_offered', id: 9, from: 'FlorianHomm' },
         { t: T(1.7), event: 'trade_declined', id: 9 },
         {
             t: T(5),
             event: 'combat',
-            attacker: 'Hale',
-            target: 'Dara',
+            attacker: 'Justus',
+            target: 'Marcant',
             attackerFaction: 'market',
             targetFaction: 'collective',
         },
         {
             t: T(6),
             event: 'death',
-            victim: 'Dara',
-            killer: 'Hale',
+            victim: 'Marcant',
+            killer: 'Justus',
             victimFaction: 'collective',
             killerFaction: 'market',
         },
@@ -424,7 +424,7 @@ test('analysis counts trades, gold, chest taking, wealth, inequality and roles p
         {
             t: T(7),
             event: 'chest_access',
-            player: 'Gita',
+            player: 'Trump',
             relation: 'other_member',
             took: items(['gold_ingot', 2]),
             put: [],
@@ -432,7 +432,7 @@ test('analysis counts trades, gold, chest taking, wealth, inequality and roles p
         {
             t: T(8),
             event: 'chest_access',
-            player: 'Bela',
+            player: 'Zappel',
             relation: 'own_society_common',
             took: items(['bread', 1]),
             put: [],
@@ -440,7 +440,7 @@ test('analysis counts trades, gold, chest taking, wealth, inequality and roles p
         {
             t: T(9),
             event: 'chest_access',
-            player: 'Arin',
+            player: 'Reinecke',
             relation: 'other_society',
             took: items(['iron_ingot', 1]),
             put: [],
@@ -450,20 +450,20 @@ test('analysis counts trades, gold, chest taking, wealth, inequality and roles p
         {
             t: T(10),
             players: {
-                Arin: { faction: 'collective', items: { gold_ingot: 3 } },
-                Fenn: { faction: 'market', items: { gold_ingot: 4 } },
-                Gita: { faction: 'market', items: {} },
+                Reinecke: { faction: 'collective', items: { gold_ingot: 3 } },
+                FlorianHomm: { faction: 'market', items: { gold_ingot: 4 } },
+                Trump: { faction: 'market', items: {} },
             },
             chests: {
                 a: { owner: { kind: 'society', id: 'collective' }, items: { iron_ingot: 5, bread: 10 } },
-                b: { owner: { kind: 'player', id: 'Gita' }, items: { gold_ingot: 4 } },
+                b: { owner: { kind: 'player', id: 'Trump' }, items: { gold_ingot: 4 } },
             },
         },
     ];
     const telemetry = {
-        Arin: [
+        Reinecke: [
             { time: T(1), event: 'tool', tool: 'gather', args: { block: 'iron_ore' }, timeMs: 60000 },
-            { time: T(2), event: 'tool', tool: 'send_dm', args: { to: 'Bela', text: 'hi' }, timeMs: 100 },
+            { time: T(2), event: 'tool', tool: 'send_dm', args: { to: 'Zappel', text: 'hi' }, timeMs: 100 },
             { time: T(12), event: 'tool', tool: 'place', args: { item: 'wheat_seeds' }, timeMs: 30000 },
         ],
     };
@@ -478,7 +478,7 @@ test('analysis counts trades, gold, chest taking, wealth, inequality and roles p
     assert.equal(c.trades.goldPaid, 3);
     assert.equal(m.trades.goldReceived, 3);
     assert.equal(m.trades.goldMovedWithin, 1);
-    assert.equal(r.players.Fenn.trades.goldReceived, 4);
+    assert.equal(r.players.FlorianHomm.trades.goldReceived, 4);
     assert.deepEqual([m.offers.made, m.offers.declined], [3, 1]);
     assert.equal(m.offers.acceptanceRate, 0.67);
     assert.deepEqual([m.conflict.attacksOnOther, m.conflict.kills, c.conflict.deaths], [1, 1, 1]);
@@ -489,12 +489,12 @@ test('analysis counts trades, gold, chest taking, wealth, inequality and roles p
     assert.equal(c.wealth.total, 11);
     assert.equal(c.wealth.iron, 5);
     assert.equal(c.wealth.food, 10);
-    assert.deepEqual(m.wealth.personal, { Fenn: 4, Gita: 4, Hale: 0, Ivo: 0, Juna: 0 });
+    assert.deepEqual(m.wealth.personal, { FlorianHomm: 4, Trump: 4, Justus: 0, Simon: 0, Fohrmann: 0 });
     assert.equal(m.wealth.personalGini, 0.6);
     assert.equal(r.goldPrices.iron_ingot.median, 1.5);
-    assert.equal(r.players.Arin.role.dominant, 'miner');
-    assert.equal(r.players.Arin.role.switches, 1);
-    assert.equal(c.communication.mostConnected, 'Arin');
+    assert.equal(r.players.Reinecke.role.dominant, 'miner');
+    assert.equal(r.players.Reinecke.role.switches, 1);
+    assert.equal(c.communication.mostConnected, 'Reinecke');
     assert.equal(classifyTool('gather', { block: 'wheat' }), 'farmer');
     assert.equal(classifyTool('fight', {}), 'fighter');
     assert.equal(classifyTool('observe_world', {}), null);
