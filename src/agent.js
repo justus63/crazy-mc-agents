@@ -476,7 +476,14 @@ export async function startAgent(settings, options = {}) {
             },
         };
         const extraTools = options.toolsModule
-            ? await loadToolsModule(options.toolsModule, { bot, name, team, options: options.toolOptions ?? {} })
+            ? await loadToolsModule(options.toolsModule, {
+                  bot,
+                  name,
+                  team,
+                  options: options.toolOptions ?? {},
+                  wake: (event, { key, urgent = true } = {}) =>
+                      Boolean(runner?.enqueue(event, { key, urgent, interrupt: false })),
+              })
             : [];
         const gameTools = createGameTools({
             extraTools,

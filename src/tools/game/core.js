@@ -19,9 +19,11 @@ export function createCore(ctx) {
         await done;
         if (!woke) active.isSleeping = false;
     };
+    const impls = new Map();
     const add = (toolName, description, properties, fn, { body = false, required } = {}) => {
         const parameters = object(properties, required);
         if (body) parameters.properties.timeout_ms = integer(1, 120000);
+        impls.set(toolName, { fn, body, parameters });
         tools.push({
             name: toolName,
             label: toolName.replaceAll('_', ' '),
@@ -169,5 +171,5 @@ export function createCore(ctx) {
             throw withFailureCode(new Error('Block is not currently visible and in reach.'), 'not_visible_or_range');
         return block;
     };
-    return { add, blockAt, body, call, leaveBed };
+    return { add, blockAt, body, call, impls, leaveBed };
 }

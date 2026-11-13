@@ -113,7 +113,17 @@ export function createLocalBackend({ workdir, sharedDir }) {
                     cwd: home,
                     env,
                     stdio: ['ignore', 'pipe', 'pipe'],
+                    // Own process group, so a kill reaches what bash started too. Otherwise a child like `sleep`
+                    // survives, keeps the pipes open and 'close' waits for it (bash on macOS does not exec it).
+                    detached: true,
                 });
+                const kill = () => {
+                    try {
+                        process.kill(-child.pid, 'SIGKILL');
+                    } catch {
+                        child.kill('SIGKILL');
+                    }
+                };
                 let stdout = '',
                     stderr = '',
                     timedOut = false;
@@ -125,9 +135,9 @@ export function createLocalBackend({ workdir, sharedDir }) {
                 });
                 const timer = setTimeout(() => {
                     timedOut = true;
-                    child.kill('SIGKILL');
+                    kill();
                 }, timeoutMs);
-                const onAbort = () => child.kill('SIGKILL');
+                const onAbort = kill;
                 signal?.addEventListener('abort', onAbort, { once: true });
                 child.on('close', code => {
                     clearTimeout(timer);

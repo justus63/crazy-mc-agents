@@ -2,6 +2,7 @@ import { createObservation } from './game/observation.js';
 import { createActionRunner, installSkillCompatibility } from './game/runtime.js';
 import { createHelpers } from './game/helpers.js';
 import { createCore } from './game/core.js';
+import { validate } from './game/schema.js';
 import { createPerception } from './game/perception.js';
 import { createMovement } from './game/movement.js';
 import { createGathering } from './game/gathering.js';
@@ -141,12 +142,25 @@ export function createGameTools({
         tools,
     };
     for (const build of BUILDERS) Object.assign(ctx, build(ctx));
+    const extraNames = new Set();
     for (const spec of extraTools) {
         if (!/^[a-z][a-z0-9_]{1,40}$/.test(spec?.name ?? '') || typeof spec.run !== 'function')
             throw new Error(`Extra tool needs a snake_case name and a run function: ${spec?.name}`);
         if (tools.some(t => t.name === spec.name))
             throw new Error(`Extra tool ${spec.name} clashes with a built-in tool`);
-        ctx.add(spec.name, String(spec.description ?? ''), spec.properties ?? {}, spec.run, {
+        const builtin =
+            context =>
+            async (toolName, args = {}) => {
+                const impl = toolName !== spec.name && !extraNames.has(toolName) ? ctx.impls.get(toolName) : null;
+                if (!impl) throw new Error(`${toolName} is not a built-in tool`);
+                if (impl.body && spec.body !== true)
+                    throw new Error(`${spec.name} needs body: true to call the body tool ${toolName}`);
+                validate(impl.parameters, args);
+                return impl.fn(args, context);
+            };
+        const run = (args, context) => spec.run(args, { ...context, builtin: builtin(context) });
+        extraNames.add(spec.name);
+        ctx.add(spec.name, String(spec.description ?? ''), spec.properties ?? {}, run, {
             body: spec.body === true,
             ...(spec.required ? { required: spec.required } : {}),
         });

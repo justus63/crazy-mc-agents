@@ -9,7 +9,7 @@ for t in json.load(open(sys.argv[1])):
     if t["name"]==sys.argv[2]: print(json.dumps(t,indent=1))'
 if [[ "${1:-}" == "--list" ]]; then python3 -c "$PYLIST" "$TOOLS_JSON"; exit 0; fi
 if [[ "${1:-}" == "--help" ]]; then python3 -c "$PYHELP" "$TOOLS_JSON" "${2:?name}"; exit 0; fi
-NAME="${1:?usage: tool <name> [json-args]}"; ARGS="${2:-{\}}"
+NAME="${1:?usage: tool <name> [json-args]}"; ARGS="${2:-}"; [[ -n "$ARGS" ]] || ARGS="{}"  # bash 3.2 (macOS) misreads ${2:-{\}}
 BODY=$(python3 -c 'import json,sys
 try: a=json.loads(sys.argv[2])
 except Exception: sys.stderr.write("args must be a JSON object\n"); sys.exit(2)

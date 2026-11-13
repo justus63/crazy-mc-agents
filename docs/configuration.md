@@ -40,11 +40,14 @@ connect; the bundled protocol patches target 1.21.6.
 | `--no-reconnect` | `AGENT_RECONNECT=false`  | `reconnect`         | reconnect on   | exit on the first kick or disconnect instead of reconnecting                       |
 | `--tools-module` | `AGENT_TOOLS_MODULE`     | `toolsModule`       | none           | an ES module that adds tools; `toolOptions` in a config file is passed to it       |
 
-A tools module exports a default function. It receives `{ bot, name, team, options, schema }` and returns a list of
-tools, each `{ name, description, properties, required, body, run(args, { bot, signal }) }`. `schema` has the same
-`text`, `integer`, `number` and `choice` helpers the built-in tools use. Extra tools go through the same argument
-validation as built-in ones, `body: true` runs them through the action runner, and a name that clashes with a built-in
-tool is refused. [examples/bedwars/tools.mjs](../examples/bedwars/tools.mjs) is a working example.
+A tools module exports a default function. It receives `{ bot, name, team, options, schema, wake }` and returns a
+list of tools, each `{ name, description, properties, required, body, run(args, { bot, signal, builtin }) }`. `schema`
+has the same `text`, `integer`, `number`, `choice` and `object` helpers the built-in tools use. Extra tools go through
+the same argument validation as built-in ones, `body: true` runs them through the action runner, and a name that
+clashes with a built-in tool is refused. `builtin(name, args)` runs a built-in tool inside the current call (body tools
+such as `attack` only from a `body: true` tool), and `wake(event, { key, urgent })` queues an event for the agent's
+next turn, waking it when `urgent` (default true). [examples/bedwars/tools.mjs](../examples/bedwars/tools.mjs) and
+[examples/societies/tools.mjs](../examples/societies/tools.mjs) are working examples.
 
 After a kick or a dropped connection the agent reconnects with backoff (5s, 10s, 20s, 40s, then every 60s, at most 8
 tries in a row) and resumes the same session. Kicks for bans, whitelists, duplicate logins, auth failures or a reason containing `game over` stop it instead. Exit codes: 0 finished or stopped, 1 startup, model or connection error, 2 bad flags or config, 3 kicked for
