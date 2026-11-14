@@ -1,0 +1,44 @@
+# Death log
+
+- 2026-11-14T01:18:33.162Z: died at 99,73,-2 ("Fohrmann was slain by Lange"); was doing go_to; hunger 8/20. Respawned at world spawn.
+- 2026-11-14T01:18:56.664Z: died at 105,73,5 ("Fohrmann was slain by Zappel"); was doing flee; hunger 16/20. Respawned at world spawn.
+- 2026-11-14T01:19:06.959Z: died at 99,74,-4 ("Fohrmann was slain by Marcant"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:19:12.057Z: died at 101,74,3 ("Fohrmann was slain by Marcant"); was doing go_to; hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:19:21.006Z: died at 98,74,6 ("Fohrmann was slain by Lange"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:19:26.655Z: died at 100,73,-4 ("Fohrmann was slain by Lange"); was doing flee; hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:19:31.907Z: died at 101,73,3 ("Fohrmann was slain by Lange"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:19:37.160Z: died at 100,73,3 ("Fohrmann was slain by Lange"); was doing go_to; hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:19:42.303Z: died at 100,74,5 ("Fohrmann was slain by Reinecke"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:19:47.602Z: died at 101,74,3 ("Fohrmann was slain by Reinecke"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:19:52.827Z: died at 101,74,5 ("Fohrmann was slain by Zappel"); was doing attack; hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:20:29.776Z: died at 99,73,0 ("Fohrmann was slain by Lange"); was doing flee; hunger 15/20. Respawned at world spawn.
+- 2026-11-14T01:20:35.151Z: died at 103,73,-4 ("Fohrmann was slain by Reinecke"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:20:40.371Z: died at 101,74,4 ("Fohrmann was slain by Reinecke"); was doing move; hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:20:45.753Z: died at 99,73,-4 ("Fohrmann was slain by Marcant"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:20:50.953Z: died at 103,73,3 ("Fohrmann was slain by Stalin"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:20:56.063Z: died at 99,73,-4 ("Fohrmann was slain by Marcant"); was doing move; hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:21:01.407Z: died at 96,73,-2 ("Fohrmann was slain by Marcant"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:21:15.276Z: died at 100,73,-3 ("Fohrmann was slain by Stalin"); was doing flee; hunger 18/20. Respawned at world spawn.
+- 2026-11-14T01:21:21.611Z: died at 102,73,6 ("Fohrmann was slain by Stalin"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:21:26.750Z: died at 102,73,-4 ("Fohrmann was slain by Marcant"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:21:31.955Z: died at 99,73,5 ("Fohrmann was slain by Stalin"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:21:37.010Z: died at 100,73,-4 ("Fohrmann was slain by Marcant"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:21:42.351Z: died at 101,73,5 ("Fohrmann was slain by Marcant"); was doing move; hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:21:49.151Z: died at 108,74,-2 ("Fohrmann was slain by Marcant"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:21:54.683Z: died at 98,73,4 ("Fohrmann was slain by Lange"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:21:59.612Z: died at 102,73,-4 ("Fohrmann was slain by Stalin"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:22:19.672Z: died at 102,74,6 ("Fohrmann was slain by Stalin"); hunger 16/20. Respawned at world spawn.
+- 2026-11-14T01:22:25.715Z: died at 102,73,-4 ("Fohrmann was slain by Stalin"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:22:30.906Z: died at 100,73,5 ("Fohrmann was slain by Marcant"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:22:36.605Z: died at 106,74,-3 ("Fohrmann was slain by Stalin"); was doing go_to; hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:22:44.452Z: died at 97,73,5 ("Fohrmann was slain by Stalin"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:22:49.260Z: died at 102,74,-4 ("Fohrmann was slain by Lange"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:22:53.892Z: died at 100,74,0 ("Fohrmann was slain by Marcant"); was doing go_to; hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:22:58.305Z: died at 100,73,3 ("Fohrmann was slain by Lange"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:23:03.624Z: died at 102,73,1 ("Fohrmann was slain by Lange"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:27:24.259Z: died at -62,76,1 ("Fohrmann was slain by Stalin"); hunger 13/20. Respawned at world spawn.
+- 2026-11-14T01:27:33.275Z: died at 96,73,-4 ("Fohrmann was slain by Lange"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:27:38.813Z: died at 103,73,5 ("Fohrmann was slain by Lange"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:48:41.269Z: died at -52,71,3 ("Fohrmann fell from a high place"); was doing move; hunger 17/20. Respawned at world spawn.
+- 2026-11-14T01:50:09.106Z: died at 3,67,3 ("Fohrmann was slain by Stalin"); hunger 20/20. Respawned at world spawn.
+- 2026-11-14T01:51:34.557Z: died at -45,69,2 ("Fohrmann was slain by Zombie"); was doing go_to; hunger 19/20. Respawned at world spawn.

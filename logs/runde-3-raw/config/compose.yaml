@@ -1,0 +1,102 @@
+# Two societies of five agents, a referee and a Paper server, all in Linux containers.
+# From the repository root:  docker compose -f examples/societies/compose.yaml up --build
+services:
+  server:
+    image: itzg/minecraft-server:java21
+    environment:
+      EULA: 'TRUE'
+      TYPE: PAPER
+      VERSION: '1.21.6'
+      SEED: '2024'
+      ONLINE_MODE: 'FALSE'
+      DIFFICULTY: easy
+      SPAWN_PROTECTION: '0'
+      ALLOW_FLIGHT: 'TRUE'
+      MAX_PLAYERS: '20'
+      ENABLE_RCON: 'true'
+      RCON_PASSWORD: ${SOCIETY_RCON_PASSWORD:-change-me}
+      OPS: C_O_R_N_Y
+      MEMORY: 10G
+      VIEW_DISTANCE: '5'
+      SIMULATION_DISTANCE: '4'
+      JVM_OPTS: '-Dpaper.disable-watchdog=true'
+    ports:
+      - '25565:25565'
+    volumes:
+      - societies-server:/data
+    restart: on-failure
+
+  referee:
+    build: ../..
+    entrypoint: ['node', 'examples/societies/referee.mjs']
+    command:
+      ['--server', '/server', '--out', '/app/.agent-state/societies', '--rcon-host', 'server', '--bind', '0.0.0.0']
+    environment:
+      SOCIETY_SWAP: ${SOCIETY_SWAP:-0}
+    depends_on:
+      server:
+        condition: service_healthy
+    # The HTTP API only comes up once the world, bases and deposit are built, so agents wait for it.
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://127.0.0.1:25590/health').then(r => process.exit(r.ok ? 0 : 1), () => process.exit(1))",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+      start_period: 300s
+    volumes:
+      - societies-server:/server:ro
+      - ../../examples:/app/examples:ro
+      - ../../.agent-state:/app/.agent-state
+    restart: on-failure
+
+  collective:
+    build: ../..
+    command: ['team', 'examples/societies/collective.json']
+    env_file:
+      - path: ../../.env
+        required: false
+    environment:
+      MC_HOST: server
+      MC_PORT: '25565'
+      AGENT_STATE_DIR: /app/.agent-state/societies-collective
+      SOCIETY_REFEREE: http://referee:25590
+      AGENT_RESPAWN: 'false'
+    depends_on:
+      referee:
+        condition: service_healthy
+    volumes:
+      - ../../src:/app/src:ro
+      - ../../examples:/app/examples:ro
+      - ../../.agent-state:/app/.agent-state
+    restart: on-failure
+
+  market:
+    build: ../..
+    command: ['team', 'examples/societies/market.json']
+    env_file:
+      - path: ../../.env
+        required: false
+    environment:
+      MC_HOST: server
+      MC_PORT: '25565'
+      AGENT_STATE_DIR: /app/.agent-state/societies-market
+      SOCIETY_REFEREE: http://referee:25590
+      AGENT_RESPAWN: 'false'
+      MODEL_API_KEY_VAR: MODEL_API_KEY_2
+    depends_on:
+      referee:
+        condition: service_healthy
+    volumes:
+      - ../../src:/app/src:ro
+      - ../../examples:/app/examples:ro
+      - ../../.agent-state:/app/.agent-state
+    restart: on-failure
+
+volumes:
+  societies-server:

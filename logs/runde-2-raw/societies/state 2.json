@@ -1,0 +1,836 @@
+{
+ "createdAt": "2026-11-13T20:53:46.178Z",
+ "swapped": false,
+ "bases": {
+  "collective": {
+   "spawn": [
+    -100,
+    126,
+    0
+   ],
+   "chests": [
+    [
+     -104,
+     126,
+     3
+    ],
+    [
+     -102,
+     126,
+     3
+    ],
+    [
+     -100,
+     126,
+     3
+    ],
+    [
+     -98,
+     126,
+     3
+    ],
+    [
+     -96,
+     126,
+     3
+    ]
+   ],
+   "ground": "dirt/grass"
+  },
+  "market": {
+   "spawn": [
+    100,
+    73,
+    0
+   ],
+   "chests": [
+    [
+     96,
+     73,
+     3
+    ],
+    [
+     98,
+     73,
+     3
+    ],
+    [
+     100,
+     73,
+     3
+    ],
+    [
+     102,
+     73,
+     3
+    ],
+    [
+     104,
+     73,
+     3
+    ]
+   ],
+   "ground": "dirt/grass"
+  }
+ },
+ "deposit": {
+  "from": [
+   -3,
+   63,
+   -3
+  ],
+  "to": [
+   3,
+   66,
+   3
+  ],
+  "surfaceY": 70,
+  "ore": "iron_ore",
+  "placed": 184
+ },
+ "initialized": {
+  "Reinecke": "2026-11-13T20:54:07.415Z",
+  "FlorianHomm": "2026-11-13T20:54:09.545Z",
+  "Zappel": "2026-11-13T20:54:35.239Z",
+  "Trump": "2026-11-13T20:54:36.073Z",
+  "Justus": "2026-11-13T20:55:20.662Z",
+  "Stalin": "2026-11-13T20:55:24.018Z",
+  "Simon": "2026-11-13T20:55:27.036Z",
+  "Marcant": "2026-11-13T20:55:29.484Z",
+  "Fohrmann": "2026-11-13T20:55:36.123Z",
+  "Lange": "2026-11-13T20:55:38.392Z"
+ },
+ "nextId": 753,
+ "offers": {},
+ "pacts": {},
+ "inbox": {
+  "Reinecke": [],
+  "FlorianHomm": [],
+  "Zappel": [],
+  "Trump": [],
+  "Justus": [],
+  "Stalin": [],
+  "Simon": [],
+  "Marcant": [],
+  "Fohrmann": [],
+  "Lange": []
+ },
+ "lastRationAt": 1794620426824,
+ "lastRegenAt": 1794620372405,
+ "stats": {
+  "deaths": {
+   "Simon": 13,
+   "Zappel": 2,
+   "Justus": 9,
+   "Fohrmann": 39,
+   "Trump": 2,
+   "Reinecke": 7,
+   "FlorianHomm": 10,
+   "Stalin": 2,
+   "Lange": 1
+  },
+  "kills": {
+   "Lange": 20,
+   "Marcant": 15,
+   "Reinecke": 11,
+   "Zappel": 4,
+   "Stalin": 13,
+   "Simon": 6,
+   "FlorianHomm": 1
+  },
+  "trades": 0,
+  "messages": 0,
+  "lastKillBy": {
+   "Reinecke": "Simon",
+   "Zappel": "Simon",
+   "FlorianHomm": "Lange",
+   "Marcant": "FlorianHomm",
+   "Stalin": "FlorianHomm"
+  }
+ },
+ "recent": [
+  {
+   "t": "2026-11-14T01:40:10.673Z",
+   "event": "death",
+   "victim": "Justus",
+   "killer": "Reinecke",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "Justus was slain by Reinecke",
+   "counted": true,
+   "repeatKill": false
+  },
+  {
+   "t": "2026-11-14T01:40:15.078Z",
+   "event": "combat",
+   "attacker": "Stalin",
+   "target": "Simon",
+   "attackerFaction": "collective",
+   "targetFaction": "market"
+  },
+  {
+   "t": "2026-11-14T01:40:15.675Z",
+   "event": "combat",
+   "attacker": "Reinecke",
+   "target": "Simon",
+   "attackerFaction": "collective",
+   "targetFaction": "market"
+  },
+  {
+   "t": "2026-11-14T01:40:17.558Z",
+   "event": "combat",
+   "attacker": "Fohrmann",
+   "target": "Stalin",
+   "attackerFaction": "market",
+   "targetFaction": "collective"
+  },
+  {
+   "t": "2026-11-14T01:40:21.828Z",
+   "event": "combat",
+   "attacker": "Stalin",
+   "target": "Simon",
+   "attackerFaction": "collective",
+   "targetFaction": "market"
+  },
+  {
+   "t": "2026-11-14T01:40:24.061Z",
+   "event": "combat",
+   "attacker": "Reinecke",
+   "target": "Simon",
+   "attackerFaction": "collective",
+   "targetFaction": "market"
+  },
+  {
+   "t": "2026-11-14T01:40:26.822Z",
+   "event": "death",
+   "victim": "Simon",
+   "killer": "Reinecke",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "Simon was slain by Reinecke",
+   "counted": true,
+   "repeatKill": false
+  },
+  {
+   "t": "2026-11-14T01:40:49.553Z",
+   "event": "combat",
+   "attacker": "Simon",
+   "target": "Zappel",
+   "attackerFaction": "market",
+   "targetFaction": "collective"
+  },
+  {
+   "t": "2026-11-14T01:40:51.244Z",
+   "event": "combat",
+   "attacker": "Reinecke",
+   "target": "Trump",
+   "attackerFaction": "collective",
+   "targetFaction": "market"
+  },
+  {
+   "t": "2026-11-14T01:40:52.869Z",
+   "event": "combat",
+   "attacker": "Zappel",
+   "target": "Simon",
+   "attackerFaction": "collective",
+   "targetFaction": "market"
+  },
+  {
+   "t": "2026-11-14T01:40:54.478Z",
+   "event": "combat",
+   "attacker": "Trump",
+   "target": "Reinecke",
+   "attackerFaction": "market",
+   "targetFaction": "collective"
+  },
+  {
+   "t": "2026-11-14T01:40:58.032Z",
+   "event": "combat",
+   "attacker": "Reinecke",
+   "target": "Trump",
+   "attackerFaction": "collective",
+   "targetFaction": "market"
+  },
+  {
+   "t": "2026-11-14T01:40:59.151Z",
+   "event": "death",
+   "victim": "Simon",
+   "killer": "Zappel",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "Simon was slain by Zappel",
+   "counted": true,
+   "repeatKill": false
+  },
+  {
+   "t": "2026-11-14T01:41:04.162Z",
+   "event": "death",
+   "victim": "Simon",
+   "killer": "Zappel",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "Simon was slain by Zappel",
+   "counted": false,
+   "repeatKill": true
+  },
+  {
+   "t": "2026-11-14T01:41:09.187Z",
+   "event": "death",
+   "victim": "Simon",
+   "killer": "Zappel",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "Simon was slain by Zappel",
+   "counted": false,
+   "repeatKill": true
+  },
+  {
+   "t": "2026-11-14T01:41:15.231Z",
+   "event": "death",
+   "victim": "Simon",
+   "killer": "Zappel",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "Simon was slain by Zappel",
+   "counted": false,
+   "repeatKill": true
+  },
+  {
+   "t": "2026-11-14T01:41:18.250Z",
+   "event": "death",
+   "victim": "Lange",
+   "killer": "FlorianHomm",
+   "victimFaction": "collective",
+   "killerFaction": "market",
+   "message": "Lange was slain by FlorianHomm",
+   "counted": true,
+   "repeatKill": false
+  },
+  {
+   "t": "2026-11-14T01:41:21.624Z",
+   "event": "combat",
+   "attacker": "Marcant",
+   "target": "Simon",
+   "attackerFaction": "collective",
+   "targetFaction": "market"
+  },
+  {
+   "t": "2026-11-14T01:41:24.286Z",
+   "event": "death",
+   "victim": "Simon",
+   "killer": "Marcant",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "Simon was slain by Marcant",
+   "counted": true,
+   "repeatKill": false
+  },
+  {
+   "t": "2026-11-14T01:41:25.670Z",
+   "event": "combat",
+   "attacker": "Reinecke",
+   "target": "FlorianHomm",
+   "attackerFaction": "collective",
+   "targetFaction": "market"
+  },
+  {
+   "t": "2026-11-14T01:41:30.324Z",
+   "event": "death",
+   "victim": "Simon",
+   "killer": "Marcant",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "Simon was slain by Marcant",
+   "counted": false,
+   "repeatKill": true
+  },
+  {
+   "t": "2026-11-14T01:41:35.353Z",
+   "event": "death",
+   "victim": "Simon",
+   "killer": "Marcant",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "Simon was slain by Marcant",
+   "counted": false,
+   "repeatKill": true
+  },
+  {
+   "t": "2026-11-14T01:41:40.385Z",
+   "event": "death",
+   "victim": "Simon",
+   "killer": "Marcant",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "Simon was slain by Marcant",
+   "counted": false,
+   "repeatKill": true
+  },
+  {
+   "t": "2026-11-14T01:41:44.588Z",
+   "event": "combat",
+   "attacker": "Stalin",
+   "target": "FlorianHomm",
+   "attackerFaction": "collective",
+   "targetFaction": "market"
+  },
+  {
+   "t": "2026-11-14T01:41:45.430Z",
+   "event": "death",
+   "victim": "FlorianHomm",
+   "killer": "Stalin",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "FlorianHomm was slain by Stalin",
+   "counted": true,
+   "repeatKill": false
+  },
+  {
+   "t": "2026-11-14T01:41:46.436Z",
+   "event": "death",
+   "victim": "Simon",
+   "killer": "Marcant",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "Simon was slain by Marcant",
+   "counted": false,
+   "repeatKill": true
+  },
+  {
+   "t": "2026-11-14T01:41:51.460Z",
+   "event": "death",
+   "victim": "Simon",
+   "killer": "Marcant",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "Simon was slain by Marcant",
+   "counted": false,
+   "repeatKill": true
+  },
+  {
+   "t": "2026-11-14T01:42:01.118Z",
+   "event": "combat",
+   "attacker": "Marcant",
+   "target": "FlorianHomm",
+   "attackerFaction": "collective",
+   "targetFaction": "market"
+  },
+  {
+   "t": "2026-11-14T01:42:04.507Z",
+   "event": "death",
+   "victim": "FlorianHomm",
+   "killer": "Marcant",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "FlorianHomm was slain by Marcant",
+   "counted": true,
+   "repeatKill": false
+  },
+  {
+   "t": "2026-11-14T01:42:17.127Z",
+   "event": "combat",
+   "attacker": "Fohrmann",
+   "target": "Lange",
+   "attackerFaction": "market",
+   "targetFaction": "collective"
+  }
+ ],
+ "chests": {
+  "-104,126,3": {
+   "pos": [
+    -104,
+    126,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "society",
+    "id": "collective"
+   },
+   "origin": "base",
+   "since": "2026-11-13T20:53:48.106Z",
+   "contents": {}
+  },
+  "-102,126,3": {
+   "pos": [
+    -102,
+    126,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "society",
+    "id": "collective"
+   },
+   "origin": "base",
+   "since": "2026-11-13T20:53:48.151Z",
+   "contents": {}
+  },
+  "-100,126,3": {
+   "pos": [
+    -100,
+    126,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "society",
+    "id": "collective"
+   },
+   "origin": "base",
+   "since": "2026-11-13T20:53:48.170Z",
+   "contents": {}
+  },
+  "-98,126,3": {
+   "pos": [
+    -98,
+    126,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "society",
+    "id": "collective"
+   },
+   "origin": "base",
+   "since": "2026-11-13T20:53:48.191Z",
+   "contents": {
+    "oak_fence_gate": 32
+   }
+  },
+  "-96,126,3": {
+   "pos": [
+    -96,
+    126,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "society",
+    "id": "collective"
+   },
+   "origin": "base",
+   "since": "2026-11-13T20:53:48.203Z",
+   "contents": {},
+   "removed": "2026-11-14T01:27:16.326Z"
+  },
+  "96,73,3": {
+   "pos": [
+    96,
+    73,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "player",
+    "id": "FlorianHomm"
+   },
+   "origin": "base",
+   "since": "2026-11-13T20:53:51.445Z",
+   "contents": {
+    "iron_helmet": 1
+   },
+   "removed": "2026-11-14T01:20:50.032Z"
+  },
+  "98,73,3": {
+   "pos": [
+    98,
+    73,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "player",
+    "id": "Trump"
+   },
+   "origin": "base",
+   "since": "2026-11-13T20:53:51.465Z",
+   "contents": {},
+   "removed": "2026-11-14T01:20:37.978Z"
+  },
+  "100,73,3": {
+   "pos": [
+    100,
+    73,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "player",
+    "id": "Justus"
+   },
+   "origin": "base",
+   "since": "2026-11-13T20:53:51.510Z",
+   "contents": {
+    "cooked_beef": 32
+   },
+   "removed": "2026-11-14T01:20:59.099Z"
+  },
+  "102,73,3": {
+   "pos": [
+    102,
+    73,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "player",
+    "id": "Simon"
+   },
+   "origin": "base",
+   "since": "2026-11-13T20:53:51.528Z",
+   "contents": {
+    "leaf_litter": 64
+   },
+   "removed": "2026-11-14T01:21:05.845Z"
+  },
+  "104,73,3": {
+   "pos": [
+    104,
+    73,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "player",
+    "id": "Fohrmann"
+   },
+   "origin": "base",
+   "since": "2026-11-13T20:53:51.600Z",
+   "contents": {
+    "diamond_sword": 1
+   },
+   "removed": "2026-11-14T01:21:23.949Z"
+  },
+  "97,73,-4": {
+   "pos": [
+    97,
+    73,
+    -4
+   ],
+   "block": "chest",
+   "owner": null,
+   "origin": "found",
+   "since": "2026-11-13T21:10:01.274Z",
+   "contents": {
+    "bricks": 64
+   },
+   "removed": "2026-11-14T01:21:14.016Z"
+  },
+  "103,73,-4": {
+   "pos": [
+    103,
+    73,
+    -4
+   ],
+   "block": "chest",
+   "owner": null,
+   "origin": "found",
+   "since": "2026-11-13T21:10:27.773Z",
+   "contents": {
+    "oak_slab": 64
+   },
+   "removed": "2026-11-14T01:22:40.562Z"
+  },
+  "-103,126,-4": {
+   "pos": [
+    -103,
+    126,
+    -4
+   ],
+   "block": "chest",
+   "owner": null,
+   "origin": "found",
+   "since": "2026-11-13T21:11:05.289Z",
+   "contents": {},
+   "removed": "2026-11-14T01:29:41.176Z"
+  },
+  "-97,126,-4": {
+   "pos": [
+    -97,
+    126,
+    -4
+   ],
+   "block": "chest",
+   "owner": null,
+   "origin": "found",
+   "since": "2026-11-13T21:12:22.041Z",
+   "contents": {}
+  },
+  "-107,128,-1": {
+   "pos": [
+    -107,
+    128,
+    -1
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "society",
+    "id": "collective"
+   },
+   "origin": "placed",
+   "placedBy": "Lange",
+   "since": "2026-11-13T21:32:23.226Z",
+   "contents": {},
+   "removed": "2026-11-13T21:32:58.341Z"
+  },
+  "-107,130,-1": {
+   "pos": [
+    -107,
+    130,
+    -1
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "society",
+    "id": "collective"
+   },
+   "origin": "placed",
+   "placedBy": "Lange",
+   "since": "2026-11-13T21:36:17.989Z",
+   "contents": {
+    "stone_bricks": 64
+   },
+   "removed": "2026-11-14T01:29:41.230Z"
+  },
+  "109,74,-3": {
+   "pos": [
+    109,
+    74,
+    -3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "player",
+    "id": "Fohrmann"
+   },
+   "origin": "placed",
+   "placedBy": "Fohrmann",
+   "since": "2026-11-13T21:39:54.108Z",
+   "contents": {
+    "oak_planks": 48
+   },
+   "removed": "2026-11-14T01:24:44.823Z"
+  },
+  "-87,120,-7": {
+   "pos": [
+    -87,
+    120,
+    -7
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "society",
+    "id": "collective"
+   },
+   "origin": "placed",
+   "placedBy": "Marcant",
+   "since": "2026-11-13T21:58:25.258Z",
+   "contents": {
+    "birch_planks": 12
+   }
+  },
+  "-100,128,11": {
+   "pos": [
+    -100,
+    128,
+    11
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "society",
+    "id": "collective"
+   },
+   "origin": "placed",
+   "placedBy": "Lange",
+   "since": "2026-11-14T00:44:27.724Z",
+   "contents": {}
+  },
+  "113,74,9": {
+   "pos": [
+    113,
+    74,
+    9
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "player",
+    "id": "Fohrmann"
+   },
+   "origin": "placed",
+   "placedBy": "Fohrmann",
+   "since": "2026-11-14T00:50:19.247Z",
+   "contents": {}
+  },
+  "-94,125,4": {
+   "pos": [
+    -94,
+    125,
+    4
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "player",
+    "id": "Justus"
+   },
+   "origin": "placed",
+   "placedBy": "Justus",
+   "since": "2026-11-14T01:23:32.043Z",
+   "contents": {
+    "birch_planks": 64
+   },
+   "removed": "2026-11-14T01:26:28.930Z"
+  },
+  "-94,125,5": {
+   "pos": [
+    -94,
+    125,
+    5
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "player",
+    "id": "Justus"
+   },
+   "origin": "placed",
+   "placedBy": "Justus",
+   "since": "2026-11-14T01:24:17.232Z",
+   "contents": {
+    "oak_planks": 64
+   },
+   "removed": "2026-11-14T01:27:08.130Z"
+  },
+  "-97,126,5": {
+   "pos": [
+    -97,
+    126,
+    5
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "player",
+    "id": "Justus"
+   },
+   "origin": "placed",
+   "placedBy": "Justus",
+   "since": "2026-11-14T01:25:25.448Z",
+   "contents": {
+    "oak_log": 5
+   }
+  },
+  "-101,126,0": {
+   "pos": [
+    -101,
+    126,
+    0
+   ],
+   "block": "chest",
+   "owner": null,
+   "origin": "found",
+   "since": "2026-11-14T01:27:19.641Z",
+   "contents": {}
+  }
+ },
+ "lastSnapshotAt": 1794620372469,
+ "lastChestCheckAt": 1794620493333
+}

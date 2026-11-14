@@ -1,0 +1,999 @@
+{
+ "createdAt": "2026-11-14T03:17:31.419Z",
+ "swapped": false,
+ "bases": {
+  "collective": {
+   "spawn": [
+    -100,
+    126,
+    0
+   ],
+   "chests": [
+    [
+     -104,
+     126,
+     3
+    ],
+    [
+     -102,
+     126,
+     3
+    ],
+    [
+     -100,
+     126,
+     3
+    ],
+    [
+     -98,
+     126,
+     3
+    ],
+    [
+     -96,
+     126,
+     3
+    ]
+   ],
+   "ground": "dirt/grass"
+  },
+  "market": {
+   "spawn": [
+    100,
+    73,
+    0
+   ],
+   "chests": [
+    [
+     96,
+     73,
+     3
+    ],
+    [
+     98,
+     73,
+     3
+    ],
+    [
+     100,
+     73,
+     3
+    ],
+    [
+     102,
+     73,
+     3
+    ],
+    [
+     104,
+     73,
+     3
+    ]
+   ],
+   "ground": "dirt/grass"
+  }
+ },
+ "deposit": {
+  "from": [
+   -3,
+   63,
+   -3
+  ],
+  "to": [
+   3,
+   66,
+   3
+  ],
+  "surfaceY": 70,
+  "ore": "iron_ore",
+  "placed": 184
+ },
+ "initialized": {
+  "FlorianHomm": "2026-11-14T03:17:39.450Z",
+  "Reinecke": "2026-11-14T03:17:39.550Z",
+  "Trump": "2026-11-14T03:17:47.944Z",
+  "Zappel": "2026-11-14T03:17:48.056Z",
+  "Justus": "2026-11-14T03:17:54.160Z",
+  "Stalin": "2026-11-14T03:17:55.192Z",
+  "Simon": "2026-11-14T03:18:02.249Z",
+  "Marcant": "2026-11-14T03:18:03.326Z",
+  "Fohrmann": "2026-11-14T03:18:10.509Z",
+  "Lange": "2026-11-14T03:18:11.658Z"
+ },
+ "nextId": 93,
+ "offers": {},
+ "pacts": {},
+ "inbox": {
+  "FlorianHomm": [
+   {
+    "id": 35,
+    "at": "2026-11-14T03:21:20.194Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Simon",
+    "killer": "Marcant",
+    "text": "Simon was slain by Marcant",
+    "eliminated": true
+   },
+   {
+    "id": 47,
+    "at": "2026-11-14T03:30:24.920Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Stalin",
+    "killer": "Trump",
+    "text": "Stalin was slain by Trump",
+    "eliminated": true
+   },
+   {
+    "id": 51,
+    "at": "2026-11-14T03:30:37.962Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Trump",
+    "killer": "Reinecke",
+    "text": "Trump was slain by Reinecke",
+    "eliminated": true
+   },
+   {
+    "id": 59,
+    "at": "2026-11-14T03:35:11.788Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Justus",
+    "killer": "Marcant",
+    "text": "Justus was slain by Marcant",
+    "eliminated": true
+   },
+   {
+    "id": 71,
+    "at": "2026-11-14T03:36:13.065Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Marcant",
+    "killer": "Fohrmann",
+    "text": "Marcant was doomed to fall by Fohrmann",
+    "eliminated": true
+   },
+   {
+    "id": 75,
+    "at": "2026-11-14T03:36:15.079Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Fohrmann",
+    "killer": "Reinecke",
+    "text": "Fohrmann was slain by Reinecke",
+    "eliminated": true
+   },
+   {
+    "id": 88,
+    "at": "2026-11-14T03:37:31.521Z",
+    "type": "ration",
+    "urgent": false,
+    "text": "Ration delivered to everyone online: 2 bread"
+   }
+  ],
+  "Reinecke": [],
+  "Trump": [
+   {
+    "id": 60,
+    "at": "2026-11-14T03:35:11.788Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Justus",
+    "killer": "Marcant",
+    "text": "Justus was slain by Marcant",
+    "eliminated": true
+   },
+   {
+    "id": 72,
+    "at": "2026-11-14T03:36:13.065Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Marcant",
+    "killer": "Fohrmann",
+    "text": "Marcant was doomed to fall by Fohrmann",
+    "eliminated": true
+   },
+   {
+    "id": 76,
+    "at": "2026-11-14T03:36:15.079Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Fohrmann",
+    "killer": "Reinecke",
+    "text": "Fohrmann was slain by Reinecke",
+    "eliminated": true
+   },
+   {
+    "id": 89,
+    "at": "2026-11-14T03:37:31.521Z",
+    "type": "ration",
+    "urgent": false,
+    "text": "Ration delivered to everyone online: 2 bread"
+   }
+  ],
+  "Zappel": [
+   {
+    "id": 20,
+    "at": "2026-11-14T03:19:25.109Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Lange",
+    "killer": "Simon",
+    "text": "Lange was slain by Simon",
+    "eliminated": true
+   },
+   {
+    "id": 31,
+    "at": "2026-11-14T03:20:12.313Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "FlorianHomm",
+    "killer": "Reinecke",
+    "text": "FlorianHomm was slain by Reinecke",
+    "eliminated": true
+   },
+   {
+    "id": 40,
+    "at": "2026-11-14T03:21:20.194Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Simon",
+    "killer": "Marcant",
+    "text": "Simon was slain by Marcant",
+    "eliminated": true
+   },
+   {
+    "id": 44,
+    "at": "2026-11-14T03:30:24.920Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Stalin",
+    "killer": "Trump",
+    "text": "Stalin was slain by Trump",
+    "eliminated": true
+   },
+   {
+    "id": 55,
+    "at": "2026-11-14T03:30:37.962Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Trump",
+    "killer": "Reinecke",
+    "text": "Trump was slain by Reinecke",
+    "eliminated": true
+   },
+   {
+    "id": 64,
+    "at": "2026-11-14T03:35:11.788Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Justus",
+    "killer": "Marcant",
+    "text": "Justus was slain by Marcant",
+    "eliminated": true
+   },
+   {
+    "id": 68,
+    "at": "2026-11-14T03:36:13.065Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Marcant",
+    "killer": "Fohrmann",
+    "text": "Marcant was doomed to fall by Fohrmann",
+    "eliminated": true
+   },
+   {
+    "id": 79,
+    "at": "2026-11-14T03:36:15.079Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Fohrmann",
+    "killer": "Reinecke",
+    "text": "Fohrmann was slain by Reinecke",
+    "eliminated": true
+   },
+   {
+    "id": 84,
+    "at": "2026-11-14T03:37:31.521Z",
+    "type": "ration",
+    "urgent": false,
+    "text": "Ration delivered to everyone online: 2 bread"
+   }
+  ],
+  "Justus": [
+   {
+    "id": 73,
+    "at": "2026-11-14T03:36:13.065Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Marcant",
+    "killer": "Fohrmann",
+    "text": "Marcant was doomed to fall by Fohrmann",
+    "eliminated": true
+   },
+   {
+    "id": 77,
+    "at": "2026-11-14T03:36:15.079Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Fohrmann",
+    "killer": "Reinecke",
+    "text": "Fohrmann was slain by Reinecke",
+    "eliminated": true
+   },
+   {
+    "id": 90,
+    "at": "2026-11-14T03:37:31.521Z",
+    "type": "ration",
+    "urgent": false,
+    "text": "Ration delivered to everyone online: 2 bread"
+   }
+  ],
+  "Stalin": [
+   {
+    "id": 56,
+    "at": "2026-11-14T03:30:37.962Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Trump",
+    "killer": "Reinecke",
+    "text": "Trump was slain by Reinecke",
+    "eliminated": true
+   },
+   {
+    "id": 65,
+    "at": "2026-11-14T03:35:11.788Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Justus",
+    "killer": "Marcant",
+    "text": "Justus was slain by Marcant",
+    "eliminated": true
+   },
+   {
+    "id": 69,
+    "at": "2026-11-14T03:36:13.065Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Marcant",
+    "killer": "Fohrmann",
+    "text": "Marcant was doomed to fall by Fohrmann",
+    "eliminated": true
+   },
+   {
+    "id": 80,
+    "at": "2026-11-14T03:36:15.079Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Fohrmann",
+    "killer": "Reinecke",
+    "text": "Fohrmann was slain by Reinecke",
+    "eliminated": true
+   },
+   {
+    "id": 85,
+    "at": "2026-11-14T03:37:31.521Z",
+    "type": "ration",
+    "urgent": false,
+    "text": "Ration delivered to everyone online: 2 bread"
+   }
+  ],
+  "Simon": [
+   {
+    "id": 49,
+    "at": "2026-11-14T03:30:24.920Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Stalin",
+    "killer": "Trump",
+    "text": "Stalin was slain by Trump",
+    "eliminated": true
+   },
+   {
+    "id": 53,
+    "at": "2026-11-14T03:30:37.962Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Trump",
+    "killer": "Reinecke",
+    "text": "Trump was slain by Reinecke",
+    "eliminated": true
+   },
+   {
+    "id": 61,
+    "at": "2026-11-14T03:35:11.788Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Justus",
+    "killer": "Marcant",
+    "text": "Justus was slain by Marcant",
+    "eliminated": true
+   },
+   {
+    "id": 74,
+    "at": "2026-11-14T03:36:13.065Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Marcant",
+    "killer": "Fohrmann",
+    "text": "Marcant was doomed to fall by Fohrmann",
+    "eliminated": true
+   },
+   {
+    "id": 78,
+    "at": "2026-11-14T03:36:15.079Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Fohrmann",
+    "killer": "Reinecke",
+    "text": "Fohrmann was slain by Reinecke",
+    "eliminated": true
+   },
+   {
+    "id": 91,
+    "at": "2026-11-14T03:37:31.521Z",
+    "type": "ration",
+    "urgent": false,
+    "text": "Ration delivered to everyone online: 2 bread"
+   }
+  ],
+  "Marcant": [
+   {
+    "id": 81,
+    "at": "2026-11-14T03:36:15.079Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Fohrmann",
+    "killer": "Reinecke",
+    "text": "Fohrmann was slain by Reinecke",
+    "eliminated": true
+   },
+   {
+    "id": 86,
+    "at": "2026-11-14T03:37:31.521Z",
+    "type": "ration",
+    "urgent": false,
+    "text": "Ration delivered to everyone online: 2 bread"
+   }
+  ],
+  "Fohrmann": [
+   {
+    "id": 92,
+    "at": "2026-11-14T03:37:31.521Z",
+    "type": "ration",
+    "urgent": false,
+    "text": "Ration delivered to everyone online: 2 bread"
+   }
+  ],
+  "Lange": [
+   {
+    "id": 34,
+    "at": "2026-11-14T03:20:12.313Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "FlorianHomm",
+    "killer": "Reinecke",
+    "text": "FlorianHomm was slain by Reinecke",
+    "eliminated": true
+   },
+   {
+    "id": 42,
+    "at": "2026-11-14T03:21:20.194Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Simon",
+    "killer": "Marcant",
+    "text": "Simon was slain by Marcant",
+    "eliminated": true
+   },
+   {
+    "id": 46,
+    "at": "2026-11-14T03:30:24.920Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Stalin",
+    "killer": "Trump",
+    "text": "Stalin was slain by Trump",
+    "eliminated": true
+   },
+   {
+    "id": 58,
+    "at": "2026-11-14T03:30:37.962Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Trump",
+    "killer": "Reinecke",
+    "text": "Trump was slain by Reinecke",
+    "eliminated": true
+   },
+   {
+    "id": 66,
+    "at": "2026-11-14T03:35:11.788Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Justus",
+    "killer": "Marcant",
+    "text": "Justus was slain by Marcant",
+    "eliminated": true
+   },
+   {
+    "id": 70,
+    "at": "2026-11-14T03:36:13.065Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Marcant",
+    "killer": "Fohrmann",
+    "text": "Marcant was doomed to fall by Fohrmann",
+    "eliminated": true
+   },
+   {
+    "id": 82,
+    "at": "2026-11-14T03:36:15.079Z",
+    "type": "death",
+    "urgent": true,
+    "victim": "Fohrmann",
+    "killer": "Reinecke",
+    "text": "Fohrmann was slain by Reinecke",
+    "eliminated": true
+   },
+   {
+    "id": 87,
+    "at": "2026-11-14T03:37:31.521Z",
+    "type": "ration",
+    "urgent": false,
+    "text": "Ration delivered to everyone online: 2 bread"
+   }
+  ]
+ },
+ "lastRationAt": 1794627451513,
+ "lastRegenAt": 1794626251428,
+ "stats": {
+  "deaths": {
+   "Zappel": 1,
+   "Lange": 1,
+   "FlorianHomm": 1,
+   "Simon": 1,
+   "Stalin": 1,
+   "Trump": 1,
+   "Justus": 1,
+   "Marcant": 1,
+   "Fohrmann": 1
+  },
+  "kills": {
+   "Simon": 2,
+   "Reinecke": 3,
+   "Marcant": 2,
+   "Trump": 1,
+   "Fohrmann": 1
+  },
+  "lastKillBy": {},
+  "trades": 0,
+  "messages": 0
+ },
+ "recent": [
+  {
+   "t": "2026-11-14T03:18:34.154Z",
+   "event": "combat",
+   "attacker": "Simon",
+   "target": "Zappel",
+   "attackerFaction": "market",
+   "targetFaction": "collective"
+  },
+  {
+   "t": "2026-11-14T03:18:34.398Z",
+   "event": "combat",
+   "attacker": "Zappel",
+   "target": "Simon",
+   "attackerFaction": "collective",
+   "targetFaction": "market"
+  },
+  {
+   "t": "2026-11-14T03:18:48.879Z",
+   "event": "death",
+   "victim": "Zappel",
+   "killer": "Simon",
+   "victimFaction": "collective",
+   "killerFaction": "market",
+   "message": "Zappel was slain by Simon",
+   "counted": true,
+   "eliminated": true,
+   "totalAlive": 9
+  },
+  {
+   "t": "2026-11-14T03:18:49.676Z",
+   "event": "combat",
+   "attacker": "Justus",
+   "target": "Marcant",
+   "attackerFaction": "market",
+   "targetFaction": "collective"
+  },
+  {
+   "t": "2026-11-14T03:18:53.990Z",
+   "event": "combat",
+   "attacker": "Simon",
+   "target": "Lange",
+   "attackerFaction": "market",
+   "targetFaction": "collective"
+  },
+  {
+   "t": "2026-11-14T03:18:54.424Z",
+   "event": "combat",
+   "attacker": "Lange",
+   "target": "FlorianHomm",
+   "attackerFaction": "collective",
+   "targetFaction": "market"
+  },
+  {
+   "t": "2026-11-14T03:18:59.671Z",
+   "event": "combat",
+   "attacker": "Simon",
+   "target": "Lange",
+   "attackerFaction": "market",
+   "targetFaction": "collective"
+  },
+  {
+   "t": "2026-11-14T03:19:02.361Z",
+   "event": "combat",
+   "attacker": "Marcant",
+   "target": "Justus",
+   "attackerFaction": "collective",
+   "targetFaction": "market"
+  },
+  {
+   "t": "2026-11-14T03:19:03.128Z",
+   "event": "combat",
+   "attacker": "Fohrmann",
+   "target": "Lange",
+   "attackerFaction": "market",
+   "targetFaction": "collective"
+  },
+  {
+   "t": "2026-11-14T03:19:14.060Z",
+   "event": "combat",
+   "attacker": "Fohrmann",
+   "target": "Lange",
+   "attackerFaction": "market",
+   "targetFaction": "collective"
+  },
+  {
+   "t": "2026-11-14T03:19:24.440Z",
+   "event": "combat",
+   "attacker": "Fohrmann",
+   "target": "Lange",
+   "attackerFaction": "market",
+   "targetFaction": "collective"
+  },
+  {
+   "t": "2026-11-14T03:19:25.108Z",
+   "event": "death",
+   "victim": "Lange",
+   "killer": "Simon",
+   "victimFaction": "collective",
+   "killerFaction": "market",
+   "message": "Lange was slain by Simon",
+   "counted": true,
+   "eliminated": true,
+   "totalAlive": 8
+  },
+  {
+   "t": "2026-11-14T03:20:12.312Z",
+   "event": "death",
+   "victim": "FlorianHomm",
+   "killer": "Reinecke",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "FlorianHomm was slain by Reinecke",
+   "counted": true,
+   "eliminated": true,
+   "totalAlive": 7
+  },
+  {
+   "t": "2026-11-14T03:21:09.693Z",
+   "event": "combat",
+   "attacker": "Marcant",
+   "target": "Simon",
+   "attackerFaction": "collective",
+   "targetFaction": "market"
+  },
+  {
+   "t": "2026-11-14T03:21:20.193Z",
+   "event": "death",
+   "victim": "Simon",
+   "killer": "Marcant",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "Simon was slain by Marcant",
+   "counted": true,
+   "eliminated": true,
+   "totalAlive": 6
+  },
+  {
+   "t": "2026-11-14T03:27:48.390Z",
+   "event": "combat",
+   "attacker": "Fohrmann",
+   "target": "Stalin",
+   "attackerFaction": "market",
+   "targetFaction": "collective"
+  },
+  {
+   "t": "2026-11-14T03:30:15.436Z",
+   "event": "combat",
+   "attacker": "Trump",
+   "target": "Stalin",
+   "attackerFaction": "market",
+   "targetFaction": "collective"
+  },
+  {
+   "t": "2026-11-14T03:30:24.918Z",
+   "event": "death",
+   "victim": "Stalin",
+   "killer": "Trump",
+   "victimFaction": "collective",
+   "killerFaction": "market",
+   "message": "Stalin was slain by Trump",
+   "counted": true,
+   "eliminated": true,
+   "totalAlive": 5
+  },
+  {
+   "t": "2026-11-14T03:30:27.569Z",
+   "event": "combat",
+   "attacker": "Trump",
+   "target": "Reinecke",
+   "attackerFaction": "market",
+   "targetFaction": "collective"
+  },
+  {
+   "t": "2026-11-14T03:30:37.961Z",
+   "event": "death",
+   "victim": "Trump",
+   "killer": "Reinecke",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "Trump was slain by Reinecke",
+   "counted": true,
+   "eliminated": true,
+   "totalAlive": 4
+  },
+  {
+   "t": "2026-11-14T03:30:55.710Z",
+   "event": "combat",
+   "attacker": "Fohrmann",
+   "target": "Reinecke",
+   "attackerFaction": "market",
+   "targetFaction": "collective"
+  },
+  {
+   "t": "2026-11-14T03:35:06.746Z",
+   "event": "combat",
+   "attacker": "Justus",
+   "target": "Marcant",
+   "attackerFaction": "market",
+   "targetFaction": "collective"
+  },
+  {
+   "t": "2026-11-14T03:35:11.787Z",
+   "event": "death",
+   "victim": "Justus",
+   "killer": "Marcant",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "Justus was slain by Marcant",
+   "counted": true,
+   "eliminated": true,
+   "totalAlive": 3
+  },
+  {
+   "t": "2026-11-14T03:35:25.365Z",
+   "event": "combat",
+   "attacker": "Fohrmann",
+   "target": "Marcant",
+   "attackerFaction": "market",
+   "targetFaction": "collective"
+  },
+  {
+   "t": "2026-11-14T03:35:53.044Z",
+   "event": "combat",
+   "attacker": "Fohrmann",
+   "target": "Marcant",
+   "attackerFaction": "market",
+   "targetFaction": "collective"
+  },
+  {
+   "t": "2026-11-14T03:36:08.316Z",
+   "event": "combat",
+   "attacker": "Reinecke",
+   "target": "Fohrmann",
+   "attackerFaction": "collective",
+   "targetFaction": "market"
+  },
+  {
+   "t": "2026-11-14T03:36:13.063Z",
+   "event": "death",
+   "victim": "Marcant",
+   "killer": "Fohrmann",
+   "victimFaction": "collective",
+   "killerFaction": "market",
+   "message": "Marcant was doomed to fall by Fohrmann",
+   "counted": true,
+   "eliminated": true,
+   "totalAlive": 2
+  },
+  {
+   "t": "2026-11-14T03:36:15.077Z",
+   "event": "death",
+   "victim": "Fohrmann",
+   "killer": "Reinecke",
+   "victimFaction": "market",
+   "killerFaction": "collective",
+   "message": "Fohrmann was slain by Reinecke",
+   "counted": true,
+   "eliminated": true,
+   "totalAlive": 1
+  },
+  {
+   "t": "2026-11-14T03:36:15.079Z",
+   "event": "victory",
+   "winnerFaction": "collective",
+   "survivors": [
+    "Reinecke"
+   ]
+  }
+ ],
+ "chests": {
+  "-104,126,3": {
+   "pos": [
+    -104,
+    126,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "society",
+    "id": "collective"
+   },
+   "origin": "base",
+   "since": "2026-11-14T03:17:32.100Z",
+   "contents": {}
+  },
+  "-102,126,3": {
+   "pos": [
+    -102,
+    126,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "society",
+    "id": "collective"
+   },
+   "origin": "base",
+   "since": "2026-11-14T03:17:32.105Z",
+   "contents": {}
+  },
+  "-100,126,3": {
+   "pos": [
+    -100,
+    126,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "society",
+    "id": "collective"
+   },
+   "origin": "base",
+   "since": "2026-11-14T03:17:32.111Z",
+   "contents": {}
+  },
+  "-98,126,3": {
+   "pos": [
+    -98,
+    126,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "society",
+    "id": "collective"
+   },
+   "origin": "base",
+   "since": "2026-11-14T03:17:32.120Z",
+   "contents": {}
+  },
+  "-96,126,3": {
+   "pos": [
+    -96,
+    126,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "society",
+    "id": "collective"
+   },
+   "origin": "base",
+   "since": "2026-11-14T03:17:32.124Z",
+   "contents": {}
+  },
+  "96,73,3": {
+   "pos": [
+    96,
+    73,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "player",
+    "id": "FlorianHomm"
+   },
+   "origin": "base",
+   "since": "2026-11-14T03:17:33.031Z",
+   "contents": {}
+  },
+  "98,73,3": {
+   "pos": [
+    98,
+    73,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "player",
+    "id": "Trump"
+   },
+   "origin": "base",
+   "since": "2026-11-14T03:17:33.056Z",
+   "contents": {}
+  },
+  "100,73,3": {
+   "pos": [
+    100,
+    73,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "player",
+    "id": "Justus"
+   },
+   "origin": "base",
+   "since": "2026-11-14T03:17:33.062Z",
+   "contents": {}
+  },
+  "102,73,3": {
+   "pos": [
+    102,
+    73,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "player",
+    "id": "Simon"
+   },
+   "origin": "base",
+   "since": "2026-11-14T03:17:33.075Z",
+   "contents": {}
+  },
+  "104,73,3": {
+   "pos": [
+    104,
+    73,
+    3
+   ],
+   "block": "chest",
+   "owner": {
+    "kind": "player",
+    "id": "Fohrmann"
+   },
+   "origin": "base",
+   "since": "2026-11-14T03:17:33.098Z",
+   "contents": {}
+  }
+ },
+ "lastSnapshotAt": 1794627456546,
+ "lastChestCheckAt": 1794627460580
+}

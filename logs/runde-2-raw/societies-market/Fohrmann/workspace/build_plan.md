@@ -1,0 +1,1 @@
+Master builder watchtower at x110-114,z2-6. Floor y76, walls mostly complete; roof y77, torches/interior chest pending. Cleared/continue after reconnect.

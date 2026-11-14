@@ -180,7 +180,7 @@ export async function startAgent(settings, options = {}) {
         record('message_received', { from, chars: text.length });
         const active = actionRunner.status.active;
         const now = Date.now();
-        if (active && now - (lastInterruptBy.get(from) ?? 0) > 15000) {
+        if (!team && active && now - (lastInterruptBy.get(from) ?? 0) > 15000) {
             lastInterruptBy.set(from, now);
             actionRunner.interrupt(`Interrupted: private message from ${from}`);
         }
@@ -188,7 +188,9 @@ export async function startAgent(settings, options = {}) {
     const messageAlert = () => {
         if (!pendingMessages.length) return null;
         const lines = pendingMessages.splice(0).map(m => `${m.from}: "${m.text}"`);
-        return `NEW PRIVATE MESSAGE${lines.length > 1 ? 'S' : ''} (also in read_dms): ${lines.join(' | ')}. The sender is waiting for an answer: reply now with send_dm${team ? '' : ' (players receive it as a whisper)'}, then carry on with your work.`;
+        return team
+            ? `NEW PRIVATE MESSAGE${lines.length > 1 ? 'S' : ''} (also in read_dms): ${lines.join(' | ')}. Execute any orders or actions using physical world tools first (go_to, break_block, craft, smelt, deposit). Do NOT send pure 'Acknowledged'/'Confirmed' replies back and forth; only call send_dm when you have finished a task or need to issue a new task.`
+            : `NEW PRIVATE MESSAGE${lines.length > 1 ? 'S' : ''} (also in read_dms): ${lines.join(' | ')}. The sender is waiting for an answer: reply now with send_dm (players receive it as a whisper), then carry on with your work.`;
     };
     process.once('SIGINT', () => void finish('operator_stop'));
     process.once('SIGTERM', () => void finish('operator_stop'));
@@ -310,7 +312,23 @@ export async function startAgent(settings, options = {}) {
         if (!team) {
             bot.on('chat', (from, text) => receive(from, text));
             bot.on('whisper', (from, text) => receive(from, text, 'direct'));
-        } else
+        } else {
+            const peerSet = new Set([name.toLowerCase(), ...peers.map(p => p.toLowerCase())]);
+            bot.on('whisper', (from, text) => {
+                if (!from || peerSet.has(from.toLowerCase())) return;
+                receive(from, `[IN-GAME ADMIN/PLAYER DIRECT COMMAND from ${from}]: ${text}`, 'direct');
+            });
+            bot.on('chat', (from, text) => {
+                if (!from || peerSet.has(from.toLowerCase()) || typeof text !== 'string') return;
+                const lowerText = text.toLowerCase();
+                if (
+                    lowerText.includes(name.toLowerCase()) ||
+                    lowerText.startsWith('!befehl') ||
+                    lowerText.startsWith('!alle')
+                ) {
+                    receive(from, `[IN-GAME ADMIN/PLAYER COMMAND from ${from}]: ${text}`, 'direct');
+                }
+            });
             timers.push(
                 setInterval(() => {
                     if (closing || !mailbox) return;
@@ -329,6 +347,7 @@ export async function startAgent(settings, options = {}) {
                     }
                 }, 2000),
             );
+        }
         let lowOxygen = false;
         installDamageWake(bot, () => runner, actionRunner);
         const hurtLog = [];

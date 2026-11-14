@@ -1,0 +1,1 @@
+North gate/tower checkpoint: support row completed at stone_bricks x105-107 y77 z=-5. Tower interior and walls/torches complete. Upper cap attempt blocked by geometry; leave structure safe. Current position ~105.6,74,-3.4. Combat kit equipped.

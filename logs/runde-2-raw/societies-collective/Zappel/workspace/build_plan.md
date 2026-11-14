@@ -1,0 +1,1 @@
+Defensive wall segment complete at x=-85..-82, y=120..122, z=-5 (12 bricks), torch at x=-81 preserved. Adjacent tree/leaf litter left intact.

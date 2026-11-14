@@ -1,0 +1,1 @@
+Trump perimeter duty: stationed south gate at (99,73,-6). Gate interior is sealed by built cobble/stone bricks at z=-5; reported to Justus and Fohrmann. No assigned build yet; do not alter built blocks.

@@ -103,7 +103,7 @@ const state = existsSync(stateFile)
           inbox: {},
           lastRationAt: Date.now(),
           lastRegenAt: Date.now(),
-          stats: { deaths: {}, kills: {}, trades: 0, messages: 0 },
+          stats: { deaths: {}, kills: {}, lastKillBy: {}, trades: 0, messages: 0 },
           recent: [],
       };
 state.chests ??= {};
@@ -282,6 +282,10 @@ async function initPlayer(p) {
         `spawnpoint ${p} ${x} ${y} ${z}`,
         `tp ${p} ${x + 0.5} ${y} ${z + 0.5}`,
         `effect clear ${p}`,
+        `item replace entity ${p} armor.head with minecraft:diamond_helmet`,
+        `item replace entity ${p} armor.chest with minecraft:diamond_chestplate`,
+        `item replace entity ${p} armor.legs with minecraft:diamond_leggings`,
+        `item replace entity ${p} armor.feet with minecraft:diamond_boots`,
     ])
         await rcon.send(c);
     await give(
@@ -293,7 +297,7 @@ async function initPlayer(p) {
     notify(p, {
         type: 'welcome',
         urgent: true,
-        text: `You arrived at your society's base at ${xyz(base.spawn)} with the starter kit. Call society_status to see the rules, your storage and the world.`,
+        text: `FINAL ROUND — ONE LIFE ONLY! Death is permanent (no respawn). You spawned in your base at ${xyz(base.spawn)} wearing full diamond armor with combat gear. Eliminate all members of the rival society. The last survivor/team alive wins!`,
     });
 }
 
@@ -806,14 +810,42 @@ function onDeath({ victim, killer, message: text }) {
     const fv = factionOf[victim];
     const fk = killer ? factionOf[killer] : null;
     state.stats.deaths[victim] = (state.stats.deaths[victim] ?? 0) + 1;
-    if (killer) state.stats.kills[killer] = (state.stats.kills[killer] ?? 0) + 1;
-    event('death', { victim, killer, victimFaction: fv, killerFaction: fk, message: text }, { public: true });
+    const isEnemyKill = Boolean(killer && fk && fk !== fv);
+    if (killer && isEnemyKill) {
+        state.stats.kills[killer] = (state.stats.kills[killer] ?? 0) + 1;
+    }
+    const aliveByFaction = {};
+    for (const fkKey of factionKeys) {
+        aliveByFaction[fkKey] = factions[fkKey].players.filter(p => !(state.stats.deaths[p] > 0));
+    }
+    const aliveFactions = factionKeys.filter(fkKey => aliveByFaction[fkKey].length > 0);
+    const totalAlive = aliveFactions.reduce((sum, fkKey) => sum + aliveByFaction[fkKey].length, 0);
+    event(
+        'death',
+        { victim, killer, victimFaction: fv, killerFaction: fk, message: text, counted: isEnemyKill, eliminated: true, totalAlive },
+        { public: true },
+    );
+    const remainingText = factionKeys.map(k => `${factions[k].label}: ${aliveByFaction[k].length}`).join(', ');
+    if (isEnemyKill) {
+        announce(`[Referee] ${killer} eliminated ${victim} PERMANENTLY! (${remainingText})`, 'gold');
+    } else {
+        announce(`[Referee] ${victim} died and is ELIMINATED PERMANENTLY! (${remainingText})`, 'red');
+    }
+    if (aliveFactions.length === 1) {
+        const winKey = aliveFactions[0];
+        const survivors = aliveByFaction[winKey].join(', ');
+        announce(`[Referee] VICTORY! ${factions[winKey].label} wins the Final Round! Survivors: ${survivors}`, 'green');
+        event('victory', { winnerFaction: winKey, survivors: aliveByFaction[winKey] }, { public: true });
+    } else if (totalAlive === 0) {
+        announce(`[Referee] DRAW! No survivors remain!`, 'red');
+        event('victory', { winnerFaction: null, survivors: [] }, { public: true });
+    }
     if (fk && fk !== fv) {
         const pact = protectivePact(state.pacts, fk, fv, Date.now());
         if (pact) breakPact(pact, killer);
     }
-    notifyFaction(fv, { type: 'death', urgent: false, victim, killer, text }, victim);
-    if (fk && fk !== fv) notifyFaction(fk, { type: 'death', urgent: false, victim, killer, text }, killer);
+    notifyFaction(fv, { type: 'death', urgent: true, victim, killer, text, eliminated: true }, victim);
+    if (fk && fk !== fv) notifyFaction(fk, { type: 'death', urgent: true, victim, killer, text, eliminated: true }, killer);
     save();
 }
 
@@ -991,6 +1023,21 @@ function startHttp() {
                 '/chest/close': () => exclusive(() => chestClose(body)),
                 '/chest/placed': () => chestPlaced(body),
                 '/chest/broken': () => chestBroken(body),
+                '/whisper': async () => {
+                    const to = String(body.to ?? '');
+                    const from = String(body.from ?? 'Agent');
+                    const text = String(body.text ?? '').replace(/[\r\n]+/g, ' ').trim().slice(0, 1000);
+                    if (!/^[A-Za-z0-9_]{1,16}$/.test(to) || !text) {
+                        throw new Error('Invalid whisper target or empty text');
+                    }
+                    await rcon.send(
+                        `tellraw ${to} ${JSON.stringify([
+                            { text: `[${from} → ${to}] `, color: 'aqua' },
+                            { text, color: 'white' },
+                        ])}`,
+                    );
+                    return { ok: true, to };
+                },
             };
             const route = routes[url.pathname];
             if (!route) return reply(404, { error: 'not found' });

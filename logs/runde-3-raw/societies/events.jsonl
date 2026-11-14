@@ -1,0 +1,54 @@
+{"t":"2026-11-14T03:17:32.100Z","event":"chest_registered","pos":[-104,126,3],"block":"chest","owner":{"kind":"society","id":"collective"},"origin":"base"}
+{"t":"2026-11-14T03:17:32.105Z","event":"chest_registered","pos":[-102,126,3],"block":"chest","owner":{"kind":"society","id":"collective"},"origin":"base"}
+{"t":"2026-11-14T03:17:32.112Z","event":"chest_registered","pos":[-100,126,3],"block":"chest","owner":{"kind":"society","id":"collective"},"origin":"base"}
+{"t":"2026-11-14T03:17:32.120Z","event":"chest_registered","pos":[-98,126,3],"block":"chest","owner":{"kind":"society","id":"collective"},"origin":"base"}
+{"t":"2026-11-14T03:17:32.124Z","event":"chest_registered","pos":[-96,126,3],"block":"chest","owner":{"kind":"society","id":"collective"},"origin":"base"}
+{"t":"2026-11-14T03:17:32.125Z","event":"base_built","faction":"collective","spawn":[-100,126,0],"ground":"dirt/grass"}
+{"t":"2026-11-14T03:17:33.031Z","event":"chest_registered","pos":[96,73,3],"block":"chest","owner":{"kind":"player","id":"FlorianHomm"},"origin":"base"}
+{"t":"2026-11-14T03:17:33.056Z","event":"chest_registered","pos":[98,73,3],"block":"chest","owner":{"kind":"player","id":"Trump"},"origin":"base"}
+{"t":"2026-11-14T03:17:33.062Z","event":"chest_registered","pos":[100,73,3],"block":"chest","owner":{"kind":"player","id":"Justus"},"origin":"base"}
+{"t":"2026-11-14T03:17:33.075Z","event":"chest_registered","pos":[102,73,3],"block":"chest","owner":{"kind":"player","id":"Simon"},"origin":"base"}
+{"t":"2026-11-14T03:17:33.098Z","event":"chest_registered","pos":[104,73,3],"block":"chest","owner":{"kind":"player","id":"Fohrmann"},"origin":"base"}
+{"t":"2026-11-14T03:17:33.099Z","event":"base_built","faction":"market","spawn":[100,73,0],"ground":"dirt/grass"}
+{"t":"2026-11-14T03:17:33.189Z","event":"deposit_built","from":[-3,63,-3],"to":[3,66,3],"surfaceY":70,"ore":"iron_ore","placed":184}
+{"t":"2026-11-14T03:17:33.194Z","event":"ready","port":25590,"bind":"0.0.0.0","swapped":false,"bases":{"collective":{"spawn":[-100,126,0],"chests":[[-104,126,3],[-102,126,3],[-100,126,3],[-98,126,3],[-96,126,3]],"ground":"dirt/grass"},"market":{"spawn":[100,73,0],"chests":[[96,73,3],[98,73,3],[100,73,3],[102,73,3],[104,73,3]],"ground":"dirt/grass"}}}
+{"t":"2026-11-14T03:17:39.451Z","event":"player_started","player":"FlorianHomm","faction":"market","spawn":[100,73,0]}
+{"t":"2026-11-14T03:17:39.550Z","event":"player_started","player":"Reinecke","faction":"collective","spawn":[-100,126,0]}
+{"t":"2026-11-14T03:17:47.945Z","event":"player_started","player":"Trump","faction":"market","spawn":[100,73,0]}
+{"t":"2026-11-14T03:17:48.056Z","event":"player_started","player":"Zappel","faction":"collective","spawn":[-100,126,0]}
+{"t":"2026-11-14T03:17:54.160Z","event":"player_started","player":"Justus","faction":"market","spawn":[100,73,0]}
+{"t":"2026-11-14T03:17:55.192Z","event":"player_started","player":"Stalin","faction":"collective","spawn":[-100,126,0]}
+{"t":"2026-11-14T03:18:02.249Z","event":"player_started","player":"Simon","faction":"market","spawn":[100,73,0]}
+{"t":"2026-11-14T03:18:03.326Z","event":"player_started","player":"Marcant","faction":"collective","spawn":[-100,126,0]}
+{"t":"2026-11-14T03:18:10.509Z","event":"player_started","player":"Fohrmann","faction":"market","spawn":[100,73,0]}
+{"t":"2026-11-14T03:18:11.658Z","event":"player_started","player":"Lange","faction":"collective","spawn":[-100,126,0]}
+{"t":"2026-11-14T03:18:34.154Z","event":"combat","attacker":"Simon","target":"Zappel","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T03:18:34.398Z","event":"combat","attacker":"Zappel","target":"Simon","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T03:18:48.879Z","event":"death","victim":"Zappel","killer":"Simon","victimFaction":"collective","killerFaction":"market","message":"Zappel was slain by Simon","counted":true,"eliminated":true,"totalAlive":9}
+{"t":"2026-11-14T03:18:49.676Z","event":"combat","attacker":"Justus","target":"Marcant","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T03:18:53.990Z","event":"combat","attacker":"Simon","target":"Lange","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T03:18:54.424Z","event":"combat","attacker":"Lange","target":"FlorianHomm","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T03:18:59.671Z","event":"combat","attacker":"Simon","target":"Lange","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T03:19:02.361Z","event":"combat","attacker":"Marcant","target":"Justus","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T03:19:03.128Z","event":"combat","attacker":"Fohrmann","target":"Lange","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T03:19:14.060Z","event":"combat","attacker":"Fohrmann","target":"Lange","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T03:19:24.440Z","event":"combat","attacker":"Fohrmann","target":"Lange","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T03:19:25.108Z","event":"death","victim":"Lange","killer":"Simon","victimFaction":"collective","killerFaction":"market","message":"Lange was slain by Simon","counted":true,"eliminated":true,"totalAlive":8}
+{"t":"2026-11-14T03:20:12.312Z","event":"death","victim":"FlorianHomm","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"FlorianHomm was slain by Reinecke","counted":true,"eliminated":true,"totalAlive":7}
+{"t":"2026-11-14T03:21:09.693Z","event":"combat","attacker":"Marcant","target":"Simon","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T03:21:20.193Z","event":"death","victim":"Simon","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Marcant","counted":true,"eliminated":true,"totalAlive":6}
+{"t":"2026-11-14T03:27:48.390Z","event":"combat","attacker":"Fohrmann","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T03:30:15.436Z","event":"combat","attacker":"Trump","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T03:30:24.918Z","event":"death","victim":"Stalin","killer":"Trump","victimFaction":"collective","killerFaction":"market","message":"Stalin was slain by Trump","counted":true,"eliminated":true,"totalAlive":5}
+{"t":"2026-11-14T03:30:27.569Z","event":"combat","attacker":"Trump","target":"Reinecke","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T03:30:37.961Z","event":"death","victim":"Trump","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"Trump was slain by Reinecke","counted":true,"eliminated":true,"totalAlive":4}
+{"t":"2026-11-14T03:30:55.710Z","event":"combat","attacker":"Fohrmann","target":"Reinecke","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T03:35:06.746Z","event":"combat","attacker":"Justus","target":"Marcant","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T03:35:11.787Z","event":"death","victim":"Justus","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Justus was slain by Marcant","counted":true,"eliminated":true,"totalAlive":3}
+{"t":"2026-11-14T03:35:25.365Z","event":"combat","attacker":"Fohrmann","target":"Marcant","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T03:35:53.044Z","event":"combat","attacker":"Fohrmann","target":"Marcant","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T03:36:08.316Z","event":"combat","attacker":"Reinecke","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T03:36:13.063Z","event":"death","victim":"Marcant","killer":"Fohrmann","victimFaction":"collective","killerFaction":"market","message":"Marcant was doomed to fall by Fohrmann","counted":true,"eliminated":true,"totalAlive":2}
+{"t":"2026-11-14T03:36:15.077Z","event":"death","victim":"Fohrmann","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Reinecke","counted":true,"eliminated":true,"totalAlive":1}
+{"t":"2026-11-14T03:36:15.079Z","event":"victory","winnerFaction":"collective","survivors":["Reinecke"]}
+{"t":"2026-11-14T03:37:31.522Z","event":"ration","players":["Reinecke"],"items":[{"item":"bread","count":2}]}

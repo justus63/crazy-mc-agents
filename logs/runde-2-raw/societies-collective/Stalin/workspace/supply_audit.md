@@ -1,0 +1,1 @@
+Audit at common chest (-96,126,3): 176 cooked beef, 128 bread, 96 golden apples, 32 ender pearls, 64 TNT, 64 iron ingots, 64 gold ingots, 128 coal, 64 oak planks, 64 cobblestone, 32 torches, plus bow, 64 arrows, shield and buckets. Stock is shared. Counts are snapshot and may change.

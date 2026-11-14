@@ -7,16 +7,16 @@ import path from 'node:path';
 const PORT = Number(process.env.DASHBOARD_PORT ?? 4321);
 
 const MODEL_BY_AGENT = {
-    Stalin: 'azure/gpt-5.6-luna',
-    Justus: 'azure/gpt-6.1-terra',
-    Reinecke: 'fhms/Qwen3.5-27B',
-    FlorianHomm: 'fhms/Qwen3.5-27B',
-    Zappel: 'fhms/Qwen3.8-27B',
-    Trump: 'fhms/Qwen3.8-27B',
-    Marcant: 'oski/mistral-small-4-119b',
-    Simon: 'oski/mistral-small-4-119b',
-    Lange: 'oski/gpt-oss-120b',
-    Fohrmann: 'oski/gpt-oss-120b',
+    Stalin: 'azure/gpt-6.1-terra (medium)',
+    Justus: 'azure/gpt-6.1-terra (medium)',
+    Reinecke: 'azure/gpt-5.6-luna (low)',
+    FlorianHomm: 'azure/gpt-5.6-luna (low)',
+    Zappel: 'azure/gpt-5.6-luna (low)',
+    Trump: 'azure/gpt-5.6-luna (low)',
+    Marcant: 'azure/gpt-5.6-luna (low)',
+    Simon: 'azure/gpt-5.6-luna (low)',
+    Lange: 'azure/gpt-5.6-luna (low)',
+    Fohrmann: 'azure/gpt-5.6-luna (low)',
 };
 
 const SOCIETIES = [
@@ -195,6 +195,104 @@ function summarizeAction(tool, argsStr, resultStr, success) {
     }
 }
 
+function synthesizeToolPlanThought(toolCalls, modelLabel = 'azure/gpt-5.6-luna') {
+    if (!toolCalls.length) return null;
+    const parts = [];
+    const details = [];
+    for (const tc of toolCalls) {
+        const a = tc.arguments || {};
+        switch (tc.name) {
+            case 'send_dm':
+                parts.push(`Befehl/Nachricht an ${a.to}: "${String(a.text ?? '').slice(0, 80)}"`);
+                details.push(`• send_dm an ${a.to}: "${a.text ?? ''}"`);
+                break;
+            case 'diplomacy_send':
+                parts.push(`Diplomatie an ${a.to}: "${String(a.text ?? '').slice(0, 80)}"`);
+                details.push(`• diplomacy_send an ${a.to}: "${a.text ?? ''}"`);
+                break;
+            case 'go_to':
+                parts.push(`Bewegt sich zu (${a.x}, ${a.y}, ${a.z})`);
+                details.push(`• go_to: Ziel (${a.x}, ${a.y}, ${a.z}) [Distanz-Toleranz: ${a.range ?? 2}]`);
+                break;
+            case 'gather':
+                parts.push(`Plant Abbau von ${a.count ?? 1}× ${a.block}`);
+                details.push(`• gather: Sammle ${a.count ?? 1}× ${a.block} (Radius ${a.maxDistance ?? 32})`);
+                break;
+            case 'break_block':
+                parts.push(`Baut Block bei (${a.x}, ${a.y}, ${a.z}) ab`);
+                details.push(`• break_block bei (${a.x}, ${a.y}, ${a.z})`);
+                break;
+            case 'break_area':
+                parts.push(
+                    `Hebt Bereich (${a.x1 ?? a.from?.x},${a.y1 ?? a.from?.y},${a.z1 ?? a.from?.z})→(${a.x2 ?? a.to?.x},${a.y2 ?? a.to?.y},${a.z2 ?? a.to?.z}) aus`,
+                );
+                details.push(
+                    `• break_area: (${a.x1 ?? a.from?.x},${a.y1 ?? a.from?.y},${a.z1 ?? a.from?.z}) bis (${a.x2 ?? a.to?.x},${a.y2 ?? a.to?.y},${a.z2 ?? a.to?.z})`,
+                );
+                break;
+            case 'observe_world':
+                parts.push(`Scannt Umgebung (Radius ${a.distance ?? 32} Blöcke)`);
+                details.push(`• observe_world: Radius ${a.distance ?? 32}`);
+                break;
+            case 'place':
+                parts.push(`Platziert ${a.block} bei (${a.x}, ${a.y}, ${a.z})`);
+                details.push(`• place: ${a.block} bei (${a.x}, ${a.y}, ${a.z})`);
+                break;
+            case 'craft':
+                parts.push(`Fertigt ${a.count ?? 1}× ${a.item} an`);
+                details.push(`• craft: ${a.count ?? 1}× ${a.item}`);
+                break;
+            case 'smelt':
+            case 'furnace':
+                parts.push(`Schmilzt ${a.count ?? ''}× ${a.input ?? a.item ?? 'Erz/Nahrung'} im Ofen`);
+                details.push(`• ${tc.name}: ${JSON.stringify(a)}`);
+                break;
+            case 'deposit':
+                parts.push(`Lagert ${a.count ?? 'alle'}× ${a.item} in die Team-Truhe ein`);
+                details.push(
+                    `• deposit: ${a.count ?? 'alle'}× ${a.item} in Kiste (${a.x ?? ''}, ${a.y ?? ''}, ${a.z ?? ''})`,
+                );
+                break;
+            case 'withdraw':
+                parts.push(`Entnimmt ${a.count ?? ''}× ${a.item} aus der Truhe`);
+                details.push(`• withdraw: ${a.count ?? ''}× ${a.item}`);
+                break;
+            case 'return_to_surface':
+                parts.push('Kehrt an die Oberfläche zurück');
+                details.push('• return_to_surface: Aus Höhle/Schacht nach oben graben/laufen');
+                break;
+            case 'eat':
+                parts.push(`Isst ${a.item ?? 'Nahrung'} zur Heilung/Sättigung`);
+                details.push(`• eat: ${a.item ?? 'automatisch'}`);
+                break;
+            case 'equip':
+                parts.push(`Rüstet ${a.item} (${a.destination ?? 'hand'}) aus`);
+                details.push(`• equip: ${a.item} -> ${a.destination ?? 'hand'}`);
+                break;
+            case 'workspace_write':
+            case 'write_file':
+                parts.push(`Aktualisiert Notiz/Plan (${a.path ?? 'Notizen'})`);
+                details.push(`• ${tc.name} (${a.path ?? ''}):\n${String(a.content ?? '').slice(0, 400)}`);
+                break;
+            case 'read_dms':
+                parts.push(`Prüft Postfach${a.peer ? ' (' + a.peer + ')' : ''}`);
+                details.push(`• read_dms${a.peer ? ' von ' + a.peer : ''}`);
+                break;
+            default:
+                parts.push(`Entscheidung: ${tc.name}(${Object.values(a).slice(0, 2).join(', ')})`);
+                details.push(`• ${tc.name}: ${JSON.stringify(a)}`);
+                break;
+        }
+    }
+    const summaryText = parts.join(' → ');
+    return {
+        type: 'thinking',
+        synthetic: true,
+        summary: summaryText.length > 160 ? summaryText.slice(0, 157) + '...' : summaryText,
+        full: `[Kein Klartext-Reasoning vom Modell (${modelLabel}) — OpenAI/Azure liefert internen CoT teils nur verschlüsselt; abgeleiteter Aktionsplan]\n${details.join('\n')}`,
+    };
+}
+
 function readAgentState(society, name) {
     const dir = path.join(society.stateDir, name);
     const telemetry = readJsonLinesTail(path.join(dir, 'telemetry.jsonl'), 120);
@@ -237,22 +335,37 @@ function readAgentState(society, name) {
                 .map(f => ({ f, mtime: statSync(path.join(sessionsDir, f)).mtimeMs }))
                 .sort((a, b) => b.mtime - a.mtime);
             if (files.length) {
-                const entries = readJsonLinesTail(path.join(sessionsDir, files[0].f), 100);
+                const entries = readJsonLinesTail(path.join(sessionsDir, files[0].f), 180);
                 for (const item of entries) {
                     const msg = item.message;
                     if (msg?.role !== 'assistant' || !Array.isArray(msg.content)) continue;
                     const t = Date.parse(item.timestamp ?? msg.timestamp) || files[0].mtime;
-                    for (const block of msg.content) {
+                    const entryKey = item.id ?? `${files[0].f}:${t}`;
+                    let addedExplicitThought = false;
+                    const toolCalls = [];
+                    for (let blockIdx = 0; blockIdx < msg.content.length; blockIdx++) {
+                        const block = msg.content[blockIdx];
                         if (block.type === 'thinking' || block.type === 'text') {
                             const raw = (block.thinking || block.text || '').trim();
                             if (raw) {
                                 thoughts.push({
+                                    id: `${name}:${entryKey}:${blockIdx}`,
                                     type: block.type,
+                                    synthetic: false,
                                     summary: summarizeThought(raw),
                                     full: raw,
                                     time: t,
                                 });
+                                addedExplicitThought = true;
                             }
+                        } else if (block.type === 'toolCall') {
+                            toolCalls.push(block);
+                        }
+                    }
+                    if (!addedExplicitThought && toolCalls.length) {
+                        const synth = synthesizeToolPlanThought(toolCalls, MODEL_BY_AGENT[name] ?? 'azure/gpt-5.6-luna');
+                        if (synth) {
+                            thoughts.push({ id: `${name}:${entryKey}:plan`, ...synth, time: t });
                         }
                     }
                 }
@@ -275,7 +388,7 @@ function readAgentState(society, name) {
         lastAction: actions.at(-1) ?? null,
         recentActions: actions.slice(-25).reverse(),
         latestThought: thoughts.at(-1) ?? null,
-        recentThoughts: thoughts.slice(-15).reverse(),
+        recentThoughts: thoughts.slice(-30).reverse(),
     };
 }
 
@@ -577,7 +690,23 @@ const HTML = `<!doctype html>
   let lastData = null;
   const openThoughtKeys = new Set();
   let lastFeedHash = '';
-  let lastDrawerHash = '';
+  let lastDrawerAgent = null;
+  let lastHeaderHash = '';
+  let lastThoughtsHash = '';
+  let lastActionsHash = '';
+  let lastInvHash = '';
+
+  function resetDrawerCache() {
+    lastDrawerAgent = null;
+    lastHeaderHash = '';
+    lastThoughtsHash = '';
+    lastActionsHash = '';
+    lastInvHash = '';
+    const tEl = document.getElementById('drawer-thoughts');
+    const aEl = document.getElementById('drawer-actions');
+    if (tEl) tEl.innerHTML = '';
+    if (aEl) aEl.innerHTML = '';
+  }
 
   window.setFilter = function(filter) {
     activeFilter = filter;
@@ -588,14 +717,9 @@ const HTML = `<!doctype html>
     if (lastData) renderFeed(lastData.feed, true);
   };
 
-  window.toggleThought = function(key, isOpen) {
-    if (isOpen) openThoughtKeys.add(key);
-    else openThoughtKeys.delete(key);
-  };
-
   document.getElementById('drawer-close').addEventListener('click', () => {
     selectedAgentName = null;
-    lastDrawerHash = '';
+    resetDrawerCache();
     document.getElementById('drawer-backdrop').classList.remove('open');
     if (lastData) renderAgents(lastData.agents);
   });
@@ -619,6 +743,7 @@ const HTML = `<!doctype html>
   }
 
   window.selectAgent = function(name) {
+    if (selectedAgentName !== name) resetDrawerCache();
     selectedAgentName = name;
     if (lastData) {
       renderAgents(lastData.agents);
@@ -626,9 +751,36 @@ const HTML = `<!doctype html>
     }
   };
 
+  function createThoughtElement(t, key) {
+    const item = document.createElement('div');
+    item.className = 'thought-item';
+    item.dataset.key = key;
+    const badge = t.synthetic
+      ? '<span style="font-size:10px;padding:1px 6px;border-radius:4px;background:rgba(250,204,21,0.14);color:#fde047;margin-right:6px;">Aktionsplan</span>'
+      : '<span style="font-size:10px;padding:1px 6px;border-radius:4px;background:rgba(52,211,153,0.14);color:#6ee7b7;margin-right:6px;">Klartext</span>';
+    item.innerHTML = \`
+      <div style="display:flex;justify-content:space-between;gap:8px;font-size:11px;color:#93c5fd;margin-bottom:4px;font-weight:700;">
+        <span>\${badge}Zusammenfassung: \${esc(t.summary)}</span>
+        <span style="white-space:nowrap;">\${fmtTime(t.time)}</span>
+      </div>
+      <details>
+        <summary style="cursor:pointer;font-size:11px;color:var(--muted);">Kompletten Gedankengang anzeigen</summary>
+        <div style="margin-top:6px;white-space:pre-wrap;color:#cbd5e1;font-size:12px;">\${esc(t.full)}</div>
+      </details>
+    \`;
+    const details = item.querySelector('details');
+    if (openThoughtKeys.has(key)) details.open = true;
+    details.addEventListener('toggle', () => {
+      if (details.open) openThoughtKeys.add(key);
+      else openThoughtKeys.delete(key);
+    });
+    return item;
+  }
+
   function renderAgents(agents) {
     for (const soc of ['collective', 'market']) {
       const container = document.getElementById('agents-' + soc);
+      const prevTop = container.scrollTop;
       const list = agents.filter(a => a.society === soc);
       container.innerHTML = list.map(a => {
         const pos = a.position ? \`\${a.position.x}, \${a.position.y}, \${a.position.z}\` : '–';
@@ -657,6 +809,7 @@ const HTML = `<!doctype html>
           </div>
         \`;
       }).join('');
+      container.scrollTop = prevTop;
     }
   }
 
@@ -669,59 +822,94 @@ const HTML = `<!doctype html>
     const a = lastData.agents.find(x => x.name === selectedAgentName);
     if (!a) return;
     backdrop.classList.add('open');
-    const drawerHash = JSON.stringify({
-      name: a.name,
-      h: a.health,
-      f: a.food,
-      p: a.position,
-      t: (a.recentThoughts || []).map(x => x.summary),
-      act: (a.recentActions || []).map(x => x.time + x.tool),
-      inv: a.inventory,
-    });
-    if (drawerHash === lastDrawerHash) return;
-    lastDrawerHash = drawerHash;
+    if (lastDrawerAgent !== a.name) {
+      resetDrawerCache();
+      lastDrawerAgent = a.name;
+    }
 
-    const pos = a.position ? \`(\${a.position.x}, \${a.position.y}, \${a.position.z})\` : '–';
-    document.getElementById('drawer-title').innerHTML = \`
-      <span>\${esc(a.name)}</span>
-      \${a.isLeader ? '<span class="badge leader">★ Anführer</span>' : ''}
-      <span class="badge model">\${esc(a.societyLabel)} · \${esc(a.model)}</span>
-      <span style="font-size:12px;color:var(--muted);font-weight:500;">❤️ \${a.health ?? '–'}/20 · 🍖 \${a.food ?? '–'}/20 · 📍 \${pos}</span>
-    \`;
+    const headerHash = JSON.stringify({ h: a.health, f: a.food, p: a.position, m: a.model });
+    if (headerHash !== lastHeaderHash) {
+      lastHeaderHash = headerHash;
+      const pos = a.position ? \`(\${a.position.x}, \${a.position.y}, \${a.position.z})\` : '–';
+      document.getElementById('drawer-title').innerHTML = \`
+        <span>\${esc(a.name)}</span>
+        \${a.isLeader ? '<span class="badge leader">★ Anführer</span>' : ''}
+        <span class="badge model">\${esc(a.societyLabel)} · \${esc(a.model)}</span>
+        <span style="font-size:12px;color:var(--muted);font-weight:500;">❤️ \${a.health ?? '–'}/20 · 🍖 \${a.food ?? '–'}/20 · 📍 \${pos}</span>
+      \`;
+    }
 
-    const thoughtsEl = document.getElementById('drawer-thoughts');
-    thoughtsEl.innerHTML = (a.recentThoughts || []).map((t, idx) => {
-      const key = \`\${a.name}-\${t.time}-\${idx}\`;
-      const isOpen = openThoughtKeys.has(key) ? 'open' : '';
-      return \`
-      <div class="thought-item">
-        <div style="display:flex;justify-content:space-between;font-size:11px;color:#93c5fd;margin-bottom:4px;font-weight:700;">
-          <span>Zusammenfassung: \${esc(t.summary)}</span>
-          <span>\${fmtTime(t.time)}</span>
+    const thoughts = a.recentThoughts || [];
+    const thoughtsHash = thoughts.map((t, i) => t.id || \`\${t.time}:\${i}\`).join('|');
+    if (thoughtsHash !== lastThoughtsHash) {
+      lastThoughtsHash = thoughtsHash;
+      const thoughtsEl = document.getElementById('drawer-thoughts');
+      const prevTop = thoughtsEl.scrollTop;
+      const prevHeight = thoughtsEl.scrollHeight;
+
+      if (!thoughts.length) {
+        thoughtsEl.innerHTML = '<div data-empty="1" style="color:var(--muted);">Noch keine Gedanken aufgezeichnet.</div>';
+      } else {
+        const emptyNode = thoughtsEl.querySelector('[data-empty]');
+        if (emptyNode) emptyNode.remove();
+
+        const existingByKey = new Map();
+        for (const child of Array.from(thoughtsEl.children)) {
+          const k = child.dataset.key;
+          if (k) existingByKey.set(k, child);
+        }
+
+        const desiredKeys = new Set();
+        for (let i = 0; i < thoughts.length; i++) {
+          const t = thoughts[i];
+          const key = t.id || \`\${a.name}-\${t.time}-\${t.summary}\`;
+          desiredKeys.add(key);
+          const el = existingByKey.get(key) || createThoughtElement(t, key);
+          const refNode = thoughtsEl.children[i] || null;
+          if (refNode !== el) {
+            thoughtsEl.insertBefore(el, refNode);
+          }
+        }
+
+        for (const [k, el] of existingByKey.entries()) {
+          if (!desiredKeys.has(k)) {
+            const det = el.querySelector('details');
+            if (!det || !det.open) el.remove();
+          }
+        }
+
+        if (prevTop > 0) {
+          thoughtsEl.scrollTop = prevTop + Math.max(0, thoughtsEl.scrollHeight - prevHeight);
+        }
+      }
+    }
+
+    const actions = a.recentActions || [];
+    const actionsHash = actions.map(x => x.time + ':' + x.tool + ':' + x.success).join('|');
+    if (actionsHash !== lastActionsHash) {
+      lastActionsHash = actionsHash;
+      const actionsEl = document.getElementById('drawer-actions');
+      const prevActionsTop = actionsEl.scrollTop;
+      actionsEl.innerHTML = actions.map(act => \`
+        <div class="action-item \${act.success ? 'ok' : 'fail'}">
+          <div style="display:flex;justify-content:space-between;font-weight:700;font-size:12px;">
+            <span>\${esc(act.summary)}</span>
+            <span class="time">\${fmtTime(act.time)}</span>
+          </div>
+          <div style="font-family:monospace;font-size:11px;color:var(--muted);margin-top:3px;word-break:break-all;">
+            Args: \${esc(act.args)}<br/>Result: \${esc(act.result)}
+          </div>
         </div>
-        <details \${isOpen} ontoggle="toggleThought('\${esc(key)}', this.open)">
-          <summary style="cursor:pointer;font-size:11px;color:var(--muted);">Kompletten Gedankengang anzeigen</summary>
-          <div style="margin-top:6px;white-space:pre-wrap;color:#cbd5e1;font-size:12px;">\${esc(t.full)}</div>
-        </details>
-      </div>
-    \`;
-    }).join('') || '<div style="color:var(--muted);">Noch keine Gedanken aufgezeichnet.</div>';
+      \`).join('') || '<div style="color:var(--muted);">Noch keine Handlungen.</div>';
+      actionsEl.scrollTop = prevActionsTop;
+    }
 
-    const actionsEl = document.getElementById('drawer-actions');
-    actionsEl.innerHTML = (a.recentActions || []).map(act => \`
-      <div class="action-item \${act.success ? 'ok' : 'fail'}">
-        <div style="display:flex;justify-content:space-between;font-weight:700;font-size:12px;">
-          <span>\${esc(act.summary)}</span>
-          <span class="time">\${fmtTime(act.time)}</span>
-        </div>
-        <div style="font-family:monospace;font-size:11px;color:var(--muted);margin-top:3px;word-break:break-all;">
-          Args: \${esc(act.args)}<br/>Result: \${esc(act.result)}
-        </div>
-      </div>
-    \`).join('') || '<div style="color:var(--muted);">Noch keine Handlungen.</div>';
-
-    const inv = (a.inventory || []).map(i => \`<span class="inv-pill">\${esc(i.count)}× \${esc(i.name)}</span>\`).join('');
-    document.getElementById('drawer-inv').innerHTML = \`<b>Inventar (\${(a.inventory || []).length} Slots):</b> \${inv || '<span style="color:var(--muted);">Leer</span>'}\`;
+    const invHash = JSON.stringify(a.inventory || []);
+    if (invHash !== lastInvHash) {
+      lastInvHash = invHash;
+      const inv = (a.inventory || []).map(i => \`<span class="inv-pill">\${esc(i.count)}× \${esc(i.name)}</span>\`).join('');
+      document.getElementById('drawer-inv').innerHTML = \`<b>Inventar (\${(a.inventory || []).length} Slots):</b> \${inv || '<span style="color:var(--muted);">Leer</span>'}\`;
+    }
   }
 
   function matchFilter(item, f) {
@@ -747,6 +935,7 @@ const HTML = `<!doctype html>
       el.innerHTML = '<div style="padding:18px;text-align:center;color:var(--muted);font-size:12.5px;">Keine Einträge in dieser Kategorie vorhanden.</div>';
       return;
     }
+    el.innerHTML = filtered.map(item => {
       let cls = item.kind;
       let tagLabel = item.kind.toUpperCase();
       if (item.kind === 'dm') {

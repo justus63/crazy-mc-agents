@@ -1,0 +1,7 @@
+minute,society,tradesWithin,tradesAcross,messages,attacks,deaths,takenWithoutOwnership,wealth,gini
+0,collective,0,0,0,4,2,0,30,0.4
+0,market,0,0,0,7,2,0,23,0.522
+10,collective,0,0,0,1,2,0,30,0.4
+10,market,0,0,0,7,3,0,23,0.522
+20,collective,0,0,0,0,0,0,30,0.4
+20,market,0,0,0,0,0,0,23,0.522

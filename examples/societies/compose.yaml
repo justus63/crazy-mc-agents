@@ -15,13 +15,16 @@ services:
       MAX_PLAYERS: '20'
       ENABLE_RCON: 'true'
       RCON_PASSWORD: ${SOCIETY_RCON_PASSWORD:-change-me}
+      OPS: C_O_R_N_Y
       MEMORY: 10G
-      VIEW_DISTANCE: '6'
+      VIEW_DISTANCE: '5'
       SIMULATION_DISTANCE: '4'
+      JVM_OPTS: '-Dpaper.disable-watchdog=true'
     ports:
       - '25565:25565'
     volumes:
       - societies-server:/data
+    restart: on-failure
 
   referee:
     build: ../..
@@ -63,10 +66,12 @@ services:
       MC_PORT: '25565'
       AGENT_STATE_DIR: /app/.agent-state/societies-collective
       SOCIETY_REFEREE: http://referee:25590
+      AGENT_RESPAWN: 'false'
     depends_on:
       referee:
         condition: service_healthy
     volumes:
+      - ../../src:/app/src:ro
       - ../../examples:/app/examples:ro
       - ../../.agent-state:/app/.agent-state
     restart: on-failure
@@ -82,10 +87,13 @@ services:
       MC_PORT: '25565'
       AGENT_STATE_DIR: /app/.agent-state/societies-market
       SOCIETY_REFEREE: http://referee:25590
+      AGENT_RESPAWN: 'false'
+      MODEL_API_KEY_VAR: MODEL_API_KEY_2
     depends_on:
       referee:
         condition: service_healthy
     volumes:
+      - ../../src:/app/src:ro
       - ../../examples:/app/examples:ro
       - ../../.agent-state:/app/.agent-state
     restart: on-failure

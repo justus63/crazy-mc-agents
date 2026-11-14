@@ -1,0 +1,148 @@
+{
+  "minecraftVersion": "1.21.6",
+  "seed": "2024",
+  "refereePort": 25590,
+  "center": [0, 0],
+  "borderSize": 320,
+  "factions": {
+    "collective": {
+      "label": "Collective",
+      "color": "aqua",
+      "base": [-100, 0],
+      "storage": "common",
+      "players": ["Reinecke", "Zappel", "Stalin", "Marcant", "Lange"]
+    },
+    "market": {
+      "label": "Market",
+      "color": "yellow",
+      "base": [100, 0],
+      "storage": "private",
+      "players": ["FlorianHomm", "Trump", "Justus", "Simon", "Fohrmann"]
+    }
+  },
+  "kit": [
+    ["diamond_sword", 1],
+    ["shield", 1],
+    ["bow", 1],
+    ["arrow", 32],
+    ["golden_apple", 4],
+    ["cooked_beef", 16],
+    ["iron_pickaxe", 1],
+    ["iron_axe", 1]
+  ],
+  "ration": {
+    "everyMinutes": 20,
+    "items": [["bread", 2]]
+  },
+  "deposit": {
+    "at": [0, 0],
+    "size": [7, 4, 7],
+    "depthBelowSurface": 3,
+    "ore": "iron_ore",
+    "regen": {
+      "everyMinutes": 30,
+      "blocks": 20
+    }
+  },
+  "trade": {
+    "rangeBlocks": 8,
+    "offerMinutes": 10,
+    "maxOpenOffersPerPlayer": 4
+  },
+  "diplomacy": {
+    "minSecondsBetween": 20,
+    "maxPerHour": 30,
+    "maxPerPairPer10Min": 8,
+    "maxRepeats": 1,
+    "maxChars": 600,
+    "speakers": {
+      "collective": "all",
+      "market": "all"
+    }
+  },
+  "rules": {
+    "keepInventory": false,
+    "difficulty": "easy",
+    "friendlyFire": true,
+    "announceInChat": true
+  },
+  "evaluation": {
+    "snapshotMinutes": 5,
+    "chestCheckSeconds": 60,
+    "agentsKnowChestLog": false,
+    "bucketMinutes": 10,
+    "values": {
+      "gold_nugget": 0.111,
+      "gold_ingot": 1,
+      "gold_block": 9,
+      "raw_gold": 0.8,
+      "gold_ore": 0.8,
+      "deepslate_gold_ore": 0.8,
+      "iron_nugget": 0.111,
+      "iron_ingot": 1,
+      "iron_block": 9,
+      "raw_iron": 0.8,
+      "iron_ore": 0.8,
+      "deepslate_iron_ore": 0.8,
+      "diamond": 5,
+      "emerald": 2,
+      "coal": 0.2,
+      "charcoal": 0.2,
+      "copper_ingot": 0.2,
+      "raw_copper": 0.15,
+      "redstone": 0.1,
+      "lapis_lazuli": 0.1,
+      "bread": 0.3,
+      "wheat": 0.1,
+      "wheat_seeds": 0.02,
+      "carrot": 0.1,
+      "potato": 0.1,
+      "baked_potato": 0.2,
+      "beetroot": 0.1,
+      "apple": 0.15,
+      "cooked_beef": 0.4,
+      "cooked_porkchop": 0.4,
+      "cooked_chicken": 0.3,
+      "cooked_mutton": 0.3,
+      "beef": 0.2,
+      "porkchop": 0.2,
+      "chicken": 0.15,
+      "mutton": 0.15,
+      "oak_log": 0.05,
+      "spruce_log": 0.05,
+      "birch_log": 0.05,
+      "jungle_log": 0.05,
+      "acacia_log": 0.05,
+      "dark_oak_log": 0.05,
+      "cherry_log": 0.05,
+      "cobblestone": 0.01,
+      "stick": 0.005,
+      "wooden_pickaxe": 0.05,
+      "wooden_axe": 0.05,
+      "wooden_sword": 0.05,
+      "wooden_shovel": 0.03,
+      "wooden_hoe": 0.05,
+      "stone_pickaxe": 0.1,
+      "stone_axe": 0.1,
+      "stone_sword": 0.1,
+      "stone_shovel": 0.05,
+      "stone_hoe": 0.1,
+      "iron_pickaxe": 3,
+      "iron_axe": 3,
+      "iron_sword": 2,
+      "iron_shovel": 1,
+      "iron_hoe": 2,
+      "iron_helmet": 5,
+      "iron_chestplate": 8,
+      "iron_leggings": 7,
+      "iron_boots": 4,
+      "shield": 1,
+      "bow": 0.5,
+      "arrow": 0.05,
+      "diamond_pickaxe": 15,
+      "diamond_sword": 10,
+      "diamond_axe": 15
+    },
+    "defaultValue": 0.01
+  }
+}

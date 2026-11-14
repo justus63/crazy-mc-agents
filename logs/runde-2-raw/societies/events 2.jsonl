@@ -1,0 +1,484 @@
+{"t":"2026-11-13T20:53:48.111Z","event":"chest_registered","pos":[-104,126,3],"block":"chest","owner":{"kind":"society","id":"collective"},"origin":"base"}
+{"t":"2026-11-13T20:53:48.151Z","event":"chest_registered","pos":[-102,126,3],"block":"chest","owner":{"kind":"society","id":"collective"},"origin":"base"}
+{"t":"2026-11-13T20:53:48.170Z","event":"chest_registered","pos":[-100,126,3],"block":"chest","owner":{"kind":"society","id":"collective"},"origin":"base"}
+{"t":"2026-11-13T20:53:48.191Z","event":"chest_registered","pos":[-98,126,3],"block":"chest","owner":{"kind":"society","id":"collective"},"origin":"base"}
+{"t":"2026-11-13T20:53:48.204Z","event":"chest_registered","pos":[-96,126,3],"block":"chest","owner":{"kind":"society","id":"collective"},"origin":"base"}
+{"t":"2026-11-13T20:53:48.205Z","event":"base_built","faction":"collective","spawn":[-100,126,0],"ground":"dirt/grass"}
+{"t":"2026-11-13T20:53:51.445Z","event":"chest_registered","pos":[96,73,3],"block":"chest","owner":{"kind":"player","id":"FlorianHomm"},"origin":"base"}
+{"t":"2026-11-13T20:53:51.465Z","event":"chest_registered","pos":[98,73,3],"block":"chest","owner":{"kind":"player","id":"Trump"},"origin":"base"}
+{"t":"2026-11-13T20:53:51.510Z","event":"chest_registered","pos":[100,73,3],"block":"chest","owner":{"kind":"player","id":"Justus"},"origin":"base"}
+{"t":"2026-11-13T20:53:51.528Z","event":"chest_registered","pos":[102,73,3],"block":"chest","owner":{"kind":"player","id":"Simon"},"origin":"base"}
+{"t":"2026-11-13T20:53:51.600Z","event":"chest_registered","pos":[104,73,3],"block":"chest","owner":{"kind":"player","id":"Fohrmann"},"origin":"base"}
+{"t":"2026-11-13T20:53:51.604Z","event":"base_built","faction":"market","spawn":[100,73,0],"ground":"dirt/grass"}
+{"t":"2026-11-13T20:53:51.797Z","event":"deposit_built","from":[-3,63,-3],"to":[3,66,3],"surfaceY":70,"ore":"iron_ore","placed":184}
+{"t":"2026-11-13T20:53:51.802Z","event":"ready","port":25590,"bind":"0.0.0.0","swapped":false,"bases":{"collective":{"spawn":[-100,126,0],"chests":[[-104,126,3],[-102,126,3],[-100,126,3],[-98,126,3],[-96,126,3]],"ground":"dirt/grass"},"market":{"spawn":[100,73,0],"chests":[[96,73,3],[98,73,3],[100,73,3],[102,73,3],[104,73,3]],"ground":"dirt/grass"}}}
+{"t":"2026-11-13T20:54:07.416Z","event":"player_started","player":"Reinecke","faction":"collective","spawn":[-100,126,0]}
+{"t":"2026-11-13T20:54:09.545Z","event":"player_started","player":"FlorianHomm","faction":"market","spawn":[100,73,0]}
+{"t":"2026-11-13T20:54:35.239Z","event":"player_started","player":"Zappel","faction":"collective","spawn":[-100,126,0]}
+{"t":"2026-11-13T20:54:36.073Z","event":"player_started","player":"Trump","faction":"market","spawn":[100,73,0]}
+{"t":"2026-11-13T20:55:20.663Z","event":"player_started","player":"Justus","faction":"market","spawn":[100,73,0]}
+{"t":"2026-11-13T20:55:24.018Z","event":"player_started","player":"Stalin","faction":"collective","spawn":[-100,126,0]}
+{"t":"2026-11-13T20:55:27.036Z","event":"player_started","player":"Simon","faction":"market","spawn":[100,73,0]}
+{"t":"2026-11-13T20:55:29.484Z","event":"player_started","player":"Marcant","faction":"collective","spawn":[-100,126,0]}
+{"t":"2026-11-13T20:55:36.123Z","event":"player_started","player":"Fohrmann","faction":"market","spawn":[100,73,0]}
+{"t":"2026-11-13T20:55:38.392Z","event":"player_started","player":"Lange","faction":"collective","spawn":[-100,126,0]}
+{"t":"2026-11-13T20:56:42.560Z","event":"loop_error","message":"RCON request timed out"}
+{"t":"2026-11-13T20:57:02.160Z","event":"loop_error","message":"RCON request timed out"}
+{"t":"2026-11-13T20:57:21.714Z","event":"loop_error","message":"RCON request timed out"}
+{"t":"2026-11-13T20:57:28.636Z","event":"loop_error","message":"RCON connection closed"}
+{"t":"2026-11-13T20:58:02.219Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[-100,126,3],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[],"put":[{"item":"wheat_seeds","count":6}],"openAtSameTime":["Marcant","Lange"]}
+{"t":"2026-11-13T21:07:42.772Z","event":"chest_untracked_change","pos":[-104,126,3],"owner":{"kind":"society","id":"collective"},"took":[],"put":[{"item":"diamond_sword","count":1}],"nearby":[]}
+{"t":"2026-11-13T21:07:43.122Z","event":"chest_untracked_change","pos":[-102,126,3],"owner":{"kind":"society","id":"collective"},"took":[],"put":[{"item":"diamond_pickaxe","count":1}],"nearby":[]}
+{"t":"2026-11-13T21:07:43.737Z","event":"chest_untracked_change","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"took":[],"put":[{"item":"oak_planks","count":64}],"nearby":["Reinecke"]}
+{"t":"2026-11-13T21:07:44.093Z","event":"chest_untracked_change","pos":[-96,126,3],"owner":{"kind":"society","id":"collective"},"took":[],"put":[{"item":"cooked_beef","count":64}],"nearby":["Reinecke"]}
+{"t":"2026-11-13T21:07:44.652Z","event":"chest_untracked_change","pos":[96,73,3],"owner":{"kind":"player","id":"FlorianHomm"},"took":[],"put":[{"item":"diamond_sword","count":1}],"nearby":[]}
+{"t":"2026-11-13T21:07:45.048Z","event":"chest_untracked_change","pos":[98,73,3],"owner":{"kind":"player","id":"Trump"},"took":[],"put":[{"item":"diamond_sword","count":1}],"nearby":[]}
+{"t":"2026-11-13T21:07:45.412Z","event":"chest_untracked_change","pos":[100,73,3],"owner":{"kind":"player","id":"Justus"},"took":[],"put":[{"item":"diamond_sword","count":1}],"nearby":[]}
+{"t":"2026-11-13T21:07:45.750Z","event":"chest_untracked_change","pos":[102,73,3],"owner":{"kind":"player","id":"Simon"},"took":[],"put":[{"item":"diamond_sword","count":1}],"nearby":[]}
+{"t":"2026-11-13T21:07:46.135Z","event":"chest_untracked_change","pos":[104,73,3],"owner":{"kind":"player","id":"Fohrmann"},"took":[],"put":[{"item":"diamond_sword","count":1}],"nearby":[]}
+{"t":"2026-11-13T21:09:07.501Z","event":"chest_access","player":"Justus","faction":"market","pos":[100,73,3],"owner":{"kind":"player","id":"Justus"},"relation":"own","took":[{"item":"diamond_sword","count":1}],"put":[{"item":"arrow","count":32}]}
+{"t":"2026-11-13T21:10:01.274Z","event":"chest_registered","pos":[97,73,-4],"block":"chest","owner":null,"origin":"found"}
+{"t":"2026-11-13T21:10:24.406Z","event":"chest_access","player":"Simon","faction":"market","pos":[102,73,3],"owner":{"kind":"player","id":"Simon"},"relation":"own","took":[{"item":"diamond_sword","count":1}],"put":[{"item":"diamond_boots","count":1}]}
+{"t":"2026-11-13T21:10:27.773Z","event":"chest_registered","pos":[103,73,-4],"block":"chest","owner":null,"origin":"found"}
+{"t":"2026-11-13T21:11:05.290Z","event":"chest_registered","pos":[-103,126,-4],"block":"chest","owner":null,"origin":"found"}
+{"t":"2026-11-13T21:11:17.088Z","event":"loop_error","message":"RCON request timed out"}
+{"t":"2026-11-13T21:12:09.274Z","event":"chest_access","player":"Trump","faction":"market","pos":[98,73,3],"owner":{"kind":"player","id":"Trump"},"relation":"own","took":[{"item":"diamond_sword","count":1}],"put":[{"item":"cooked_beef","count":48}]}
+{"t":"2026-11-13T21:12:22.041Z","event":"chest_registered","pos":[-97,126,-4],"block":"chest","owner":null,"origin":"found"}
+{"t":"2026-11-13T21:13:27.748Z","event":"loop_error","message":"RCON request timed out"}
+{"t":"2026-11-13T21:13:52.561Z","event":"loop_error","message":"RCON request timed out"}
+{"t":"2026-11-13T21:14:23.648Z","event":"loop_error","message":"RCON request timed out"}
+{"t":"2026-11-13T21:14:40.093Z","event":"loop_error","message":"RCON request timed out"}
+{"t":"2026-11-13T21:15:00.385Z","event":"loop_error","message":"RCON request timed out"}
+{"t":"2026-11-13T21:15:14.534Z","event":"loop_error","message":"RCON request timed out"}
+{"t":"2026-11-13T21:15:28.865Z","event":"loop_error","message":"RCON request timed out"}
+{"t":"2026-11-13T21:15:33.093Z","event":"ration","players":[],"items":[{"item":"bread","count":2}]}
+{"t":"2026-11-13T21:15:39.745Z","event":"loop_error","message":"connect ECONNREFUSED 172.22.0.2:25575"}
+{"t":"2026-11-13T21:15:43.790Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:15:48.134Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:15:52.335Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:15:56.950Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:16:01.021Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:16:11.151Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:16:27.175Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:16:41.349Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:16:53.179Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:16:59.261Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:17:10.189Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:17:14.494Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:17:26.402Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:17:58.180Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:18:02.217Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:18:06.264Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:18:10.303Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:18:14.329Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:18:18.347Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:18:22.517Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:18:26.672Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:18:30.717Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:18:34.749Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:18:38.770Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:18:42.793Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:18:46.811Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:18:50.826Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:18:54.872Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:18:58.917Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:19:02.944Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:19:07.213Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:19:11.232Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:19:15.381Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:19:23.539Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:19:56.898Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:20:01.247Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:20:05.272Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:20:09.293Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:20:13.322Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:20:17.344Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:20:21.375Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:20:25.399Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:20:29.422Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:20:33.450Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:20:37.474Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:20:41.499Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:20:45.519Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:20:49.543Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:20:53.595Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:20:57.624Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:21:01.645Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:21:05.685Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:21:09.714Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:21:13.734Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:21:17.755Z","event":"loop_error","message":"getaddrinfo ENOTFOUND server"}
+{"t":"2026-11-13T21:21:21.765Z","event":"loop_error","message":"connect ECONNREFUSED 172.22.0.2:25575"}
+{"t":"2026-11-13T21:21:25.780Z","event":"loop_error","message":"connect ECONNREFUSED 172.22.0.2:25575"}
+{"t":"2026-11-13T21:21:29.789Z","event":"loop_error","message":"connect ECONNREFUSED 172.22.0.2:25575"}
+{"t":"2026-11-13T21:21:33.796Z","event":"loop_error","message":"connect ECONNREFUSED 172.22.0.2:25575"}
+{"t":"2026-11-13T21:21:37.809Z","event":"loop_error","message":"connect ECONNREFUSED 172.22.0.2:25575"}
+{"t":"2026-11-13T21:21:41.816Z","event":"loop_error","message":"connect ECONNREFUSED 172.22.0.2:25575"}
+{"t":"2026-11-13T21:23:46.487Z","event":"regen","restored":9}
+{"t":"2026-11-13T21:24:10.639Z","event":"chest_access","player":"FlorianHomm","faction":"market","pos":[96,73,3],"owner":{"kind":"player","id":"FlorianHomm"},"relation":"own","took":[{"item":"diamond_sword","count":1}],"put":[{"item":"bow","count":1}]}
+{"t":"2026-11-13T21:24:11.175Z","event":"chest_access","player":"FlorianHomm","faction":"market","pos":[96,73,3],"owner":{"kind":"player","id":"FlorianHomm"},"relation":"own","took":[{"item":"bow","count":1}],"put":[{"item":"diamond_sword","count":1}]}
+{"t":"2026-11-13T21:24:11.723Z","event":"chest_access","player":"FlorianHomm","faction":"market","pos":[96,73,3],"owner":{"kind":"player","id":"FlorianHomm"},"relation":"own","took":[{"item":"diamond_sword","count":1}],"put":[{"item":"cooked_beef","count":32}]}
+{"t":"2026-11-13T21:24:57.206Z","event":"chest_access","player":"Marcant","faction":"collective","pos":[-104,126,3],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[{"item":"diamond_sword","count":1}],"put":[{"item":"cooked_beef","count":48}]}
+{"t":"2026-11-13T21:26:42.738Z","event":"loop_error","message":"RCON request timed out"}
+{"t":"2026-11-13T21:30:32.420Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[-102,126,3],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[{"item":"diamond_pickaxe","count":1}],"put":[{"item":"oak_log","count":28}]}
+{"t":"2026-11-13T21:31:22.580Z","event":"chest_access","player":"Reinecke","faction":"collective","pos":[-104,126,3],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[{"item":"cooked_beef","count":16}],"put":[]}
+{"t":"2026-11-13T21:32:12.681Z","event":"chest_access","player":"Reinecke","faction":"collective","pos":[-103,126,-4],"owner":null,"relation":"unowned","took":[{"item":"cobblestone","count":16}],"put":[]}
+{"t":"2026-11-13T21:32:23.227Z","event":"chest_registered","pos":[-107,128,-1],"block":"chest","owner":{"kind":"society","id":"collective"},"origin":"placed","by":"Lange"}
+{"t":"2026-11-13T21:34:39.939Z","event":"chest_access","player":"Trump","faction":"market","pos":[97,73,-4],"owner":null,"relation":"unowned","took":[{"item":"cobblestone","count":64}],"put":[{"item":"ladder","count":32}]}
+{"t":"2026-11-13T21:35:33.909Z","event":"ration","players":["FlorianHomm","Reinecke","Trump","Zappel","Justus","Stalin","Marcant","Simon","Fohrmann","Lange"],"items":[{"item":"bread","count":2}]}
+{"t":"2026-11-13T21:35:57.152Z","event":"death","victim":"Simon","killer":null,"victimFaction":"market","killerFaction":null,"message":"Simon was slain by Zombie"}
+{"t":"2026-11-13T21:36:17.989Z","event":"chest_registered","pos":[-107,130,-1],"block":"chest","owner":{"kind":"society","id":"collective"},"origin":"placed","by":"Lange"}
+{"t":"2026-11-13T21:36:38.468Z","event":"death","victim":"Simon","killer":null,"victimFaction":"market","killerFaction":null,"message":"Simon was slain by Zombie"}
+{"t":"2026-11-13T21:36:44.525Z","event":"chest_access","player":"Simon","faction":"market","pos":[98,73,3],"owner":{"kind":"player","id":"Trump"},"relation":"other_member","took":[{"item":"cooked_beef","count":16}],"put":[]}
+{"t":"2026-11-13T21:36:54.166Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[-107,130,-1],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[],"put":[{"item":"stone_bricks","count":64}]}
+{"t":"2026-11-13T21:37:43.614Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[-103,126,-4],"owner":null,"relation":"unowned","took":[{"item":"cobblestone","count":32}],"put":[]}
+{"t":"2026-11-13T21:38:17.120Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[-103,126,-4],"owner":null,"relation":"unowned","took":[],"put":[{"item":"cobblestone","count":14}]}
+{"t":"2026-11-13T21:39:54.110Z","event":"chest_registered","pos":[109,74,-3],"block":"chest","owner":{"kind":"player","id":"Fohrmann"},"origin":"placed","by":"Fohrmann"}
+{"t":"2026-11-13T21:41:14.627Z","event":"death","victim":"Zappel","killer":null,"victimFaction":"collective","killerFaction":null,"message":"Zappel was shot by Skeleton"}
+{"t":"2026-11-13T21:41:53.565Z","event":"chest_access","player":"Zappel","faction":"collective","pos":[-104,126,3],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[{"item":"cooked_beef","count":16}],"put":[]}
+{"t":"2026-11-13T21:47:15.801Z","event":"loop_error","message":"RCON request timed out"}
+{"t":"2026-11-13T21:49:36.445Z","event":"chest_access","player":"Simon","faction":"market","pos":[103,73,-4],"owner":null,"relation":"unowned","took":[{"item":"oak_planks","count":16}],"put":[]}
+{"t":"2026-11-13T21:53:46.676Z","event":"regen","restored":8}
+{"t":"2026-11-13T21:55:34.479Z","event":"ration","players":["FlorianHomm","Reinecke","Zappel","Trump","Stalin","Justus","Marcant","Simon","Lange","Fohrmann"],"items":[{"item":"bread","count":2}]}
+{"t":"2026-11-13T21:58:25.258Z","event":"chest_registered","pos":[-87,120,-7],"block":"chest","owner":{"kind":"society","id":"collective"},"origin":"placed","by":"Marcant"}
+{"t":"2026-11-13T21:58:27.836Z","event":"chest_access","player":"Marcant","faction":"collective","pos":[-87,120,-7],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[],"put":[{"item":"oak_door","count":2}]}
+{"t":"2026-11-13T22:00:34.143Z","event":"loop_error","message":"RCON request timed out"}
+{"t":"2026-11-13T22:00:48.937Z","event":"loop_error","message":"RCON request timed out"}
+{"t":"2026-11-13T22:01:07.597Z","event":"loop_error","message":"RCON request timed out"}
+{"t":"2026-11-13T22:01:25.363Z","event":"chest_access","player":"Marcant","faction":"collective","pos":[-87,120,-7],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[{"item":"oak_door","count":2}],"put":[{"item":"oak_planks","count":6}]}
+{"t":"2026-11-13T22:03:31.977Z","event":"chest_access","player":"Simon","faction":"market","pos":[109,74,-3],"owner":{"kind":"player","id":"Fohrmann"},"relation":"other_member","took":[],"put":[{"item":"oak_planks","count":48}],"openAtSameTime":["Fohrmann"]}
+{"t":"2026-11-13T22:05:43.495Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[-87,120,-7],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[{"item":"oak_planks","count":6}],"put":[{"item":"torch","count":13}]}
+{"t":"2026-11-13T22:05:54.042Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[-87,120,-7],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[{"item":"torch","count":13}],"put":[{"item":"oak_door","count":3}]}
+{"t":"2026-11-13T22:10:19.494Z","event":"chest_access","player":"Marcant","faction":"collective","pos":[-87,120,-7],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[{"item":"oak_door","count":2}],"put":[]}
+{"t":"2026-11-13T22:12:59.778Z","event":"chest_access","player":"Zappel","faction":"collective","pos":[-96,126,3],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[{"item":"cooked_beef","count":16}],"put":[]}
+{"t":"2026-11-13T22:15:35.449Z","event":"ration","players":["Reinecke","Zappel","Trump","Stalin","Marcant","Lange","Fohrmann","Justus","Simon","FlorianHomm"],"items":[{"item":"bread","count":2}]}
+{"t":"2026-11-13T22:17:11.077Z","event":"chest_access","player":"Simon","faction":"market","pos":[102,73,3],"owner":{"kind":"player","id":"Simon"},"relation":"own","took":[{"item":"diamond_boots","count":1}],"put":[{"item":"leaf_litter","count":64}]}
+{"t":"2026-11-13T22:17:11.317Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[-100,126,3],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[{"item":"cobblestone","count":64}],"put":[{"item":"torch","count":32}]}
+{"t":"2026-11-13T22:23:47.594Z","event":"regen","restored":4}
+{"t":"2026-11-13T22:34:34.274Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[-100,126,3],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[{"item":"torch","count":32}],"put":[{"item":"cobblestone","count":64}]}
+{"t":"2026-11-13T22:35:35.930Z","event":"ration","players":["Reinecke","Zappel","Trump","Stalin","Marcant","Lange","Fohrmann","Justus","Simon","FlorianHomm"],"items":[{"item":"bread","count":2}]}
+{"t":"2026-11-13T22:41:24.778Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[{"item":"oak_planks","count":64}],"put":[{"item":"glass","count":48}]}
+{"t":"2026-11-13T22:42:09.107Z","event":"chest_access","player":"Justus","faction":"market","pos":[97,73,-4],"owner":null,"relation":"unowned","took":[{"item":"ladder","count":8}],"put":[]}
+{"t":"2026-11-14T00:32:02.382Z","event":"loop_error","message":"RCON request timed out"}
+{"t":"2026-11-14T00:32:13.111Z","event":"ration","players":[],"items":[{"item":"bread","count":2}]}
+{"t":"2026-11-14T00:32:13.231Z","event":"regen","restored":3}
+{"t":"2026-11-14T00:32:21.465Z","event":"loop_error","message":"RCON connection closed"}
+{"t":"2026-11-14T00:32:25.472Z","event":"loop_error","message":"connect ECONNREFUSED 172.22.0.2:25575"}
+{"t":"2026-11-14T00:32:29.479Z","event":"loop_error","message":"connect ECONNREFUSED 172.22.0.2:25575"}
+{"t":"2026-11-14T00:32:33.487Z","event":"loop_error","message":"connect ECONNREFUSED 172.22.0.2:25575"}
+{"t":"2026-11-14T00:32:37.492Z","event":"loop_error","message":"connect ECONNREFUSED 172.22.0.2:25575"}
+{"t":"2026-11-14T00:32:41.500Z","event":"loop_error","message":"connect ECONNREFUSED 172.22.0.2:25575"}
+{"t":"2026-11-14T00:34:23.383Z","event":"chest_access","player":"Zappel","faction":"collective","pos":[-104,126,3],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[{"item":"cooked_beef","count":16}],"put":[{"item":"leaf_litter","count":59}]}
+{"t":"2026-11-14T00:44:27.725Z","event":"chest_registered","pos":[-100,128,11],"block":"chest","owner":{"kind":"society","id":"collective"},"origin":"placed","by":"Lange"}
+{"t":"2026-11-14T00:46:07.863Z","event":"ready","port":25590,"bind":"0.0.0.0","swapped":false,"bases":{"collective":{"spawn":[-100,126,0],"chests":[[-104,126,3],[-102,126,3],[-100,126,3],[-98,126,3],[-96,126,3]],"ground":"dirt/grass"},"market":{"spawn":[100,73,0],"chests":[[96,73,3],[98,73,3],[100,73,3],[102,73,3],[104,73,3]],"ground":"dirt/grass"}}}
+{"t":"2026-11-14T00:47:29.974Z","event":"chest_access","player":"Zappel","faction":"collective","pos":[-104,126,3],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[{"item":"leaf_litter","count":59}],"put":[{"item":"golden_apple","count":20}]}
+{"t":"2026-11-14T00:50:19.247Z","event":"chest_registered","pos":[113,74,9],"block":"chest","owner":{"kind":"player","id":"Fohrmann"},"origin":"placed","by":"Fohrmann"}
+{"t":"2026-11-14T01:00:26.381Z","event":"ready","port":25590,"bind":"0.0.0.0","swapped":false,"bases":{"collective":{"spawn":[-100,126,0],"chests":[[-104,126,3],[-102,126,3],[-100,126,3],[-98,126,3],[-96,126,3]],"ground":"dirt/grass"},"market":{"spawn":[100,73,0],"chests":[[96,73,3],[98,73,3],[100,73,3],[102,73,3],[104,73,3]],"ground":"dirt/grass"}}}
+{"t":"2026-11-14T01:00:26.392Z","event":"ration","players":[],"items":[{"item":"bread","count":2}]}
+{"t":"2026-11-14T01:02:13.238Z","event":"regen","restored":5}
+{"t":"2026-11-14T01:02:26.724Z","event":"combat","attacker":"Stalin","target":"Trump","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:02:53.912Z","event":"combat","attacker":"Stalin","target":"Justus","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:13:32.488Z","event":"ready","port":25590,"bind":"0.0.0.0","swapped":false,"bases":{"collective":{"spawn":[-100,126,0],"chests":[[-104,126,3],[-102,126,3],[-100,126,3],[-98,126,3],[-96,126,3]],"ground":"dirt/grass"},"market":{"spawn":[100,73,0],"chests":[[96,73,3],[98,73,3],[100,73,3],[102,73,3],[104,73,3]],"ground":"dirt/grass"}}}
+{"t":"2026-11-14T01:13:39.429Z","event":"ready","port":25590,"bind":"0.0.0.0","swapped":false,"bases":{"collective":{"spawn":[-100,126,0],"chests":[[-104,126,3],[-102,126,3],[-100,126,3],[-98,126,3],[-96,126,3]],"ground":"dirt/grass"},"market":{"spawn":[100,73,0],"chests":[[96,73,3],[98,73,3],[100,73,3],[102,73,3],[104,73,3]],"ground":"dirt/grass"}}}
+{"t":"2026-11-14T01:15:08.469Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[98,73,3],"owner":{"kind":"player","id":"Trump"},"relation":"other_society","took":[{"item":"cooked_beef","count":32}],"put":[{"item":"cobblestone","count":8}]}
+{"t":"2026-11-14T01:15:08.756Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[98,73,3],"owner":{"kind":"player","id":"Trump"},"relation":"other_society","took":[{"item":"cobblestone","count":8}],"put":[{"item":"bow","count":1}]}
+{"t":"2026-11-14T01:15:09.059Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[98,73,3],"owner":{"kind":"player","id":"Trump"},"relation":"other_society","took":[{"item":"bow","count":1}],"put":[{"item":"diamond_sword","count":1}]}
+{"t":"2026-11-14T01:15:09.360Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[98,73,3],"owner":{"kind":"player","id":"Trump"},"relation":"other_society","took":[{"item":"diamond_sword","count":1}],"put":[{"item":"diamond_axe","count":1}]}
+{"t":"2026-11-14T01:15:09.672Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[98,73,3],"owner":{"kind":"player","id":"Trump"},"relation":"other_society","took":[{"item":"diamond_axe","count":1}],"put":[{"item":"diamond_shovel","count":1}]}
+{"t":"2026-11-14T01:15:09.975Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[98,73,3],"owner":{"kind":"player","id":"Trump"},"relation":"other_society","took":[{"item":"diamond_shovel","count":1}],"put":[{"item":"water_bucket","count":1}]}
+{"t":"2026-11-14T01:15:10.280Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[98,73,3],"owner":{"kind":"player","id":"Trump"},"relation":"other_society","took":[{"item":"water_bucket","count":1}],"put":[{"item":"golden_apple","count":32}]}
+{"t":"2026-11-14T01:15:10.586Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[98,73,3],"owner":{"kind":"player","id":"Trump"},"relation":"other_society","took":[{"item":"golden_apple","count":32}],"put":[{"item":"ender_pearl","count":16}]}
+{"t":"2026-11-14T01:15:10.892Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[98,73,3],"owner":{"kind":"player","id":"Trump"},"relation":"other_society","took":[{"item":"ender_pearl","count":16}],"put":[{"item":"torch","count":64}]}
+{"t":"2026-11-14T01:15:11.195Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[98,73,3],"owner":{"kind":"player","id":"Trump"},"relation":"other_society","took":[{"item":"torch","count":64}],"put":[{"item":"oak_planks","count":64}]}
+{"t":"2026-11-14T01:15:11.506Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[98,73,3],"owner":{"kind":"player","id":"Trump"},"relation":"other_society","took":[{"item":"oak_planks","count":64}],"put":[{"item":"spruce_planks","count":64}]}
+{"t":"2026-11-14T01:15:11.808Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[98,73,3],"owner":{"kind":"player","id":"Trump"},"relation":"other_society","took":[{"item":"spruce_planks","count":64}],"put":[]}
+{"t":"2026-11-14T01:15:16.413Z","event":"death","victim":"Zappel","killer":null,"victimFaction":"collective","killerFaction":null,"message":"Zappel was slain by Zombie"}
+{"t":"2026-11-14T01:15:27.364Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[96,73,3],"owner":{"kind":"player","id":"FlorianHomm"},"relation":"other_society","took":[{"item":"cooked_beef","count":32}],"put":[{"item":"raw_iron","count":6}]}
+{"t":"2026-11-14T01:15:27.662Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[96,73,3],"owner":{"kind":"player","id":"FlorianHomm"},"relation":"other_society","took":[{"item":"raw_iron","count":6}],"put":[{"item":"diamond_axe","count":1}]}
+{"t":"2026-11-14T01:15:27.963Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[96,73,3],"owner":{"kind":"player","id":"FlorianHomm"},"relation":"other_society","took":[{"item":"diamond_axe","count":1}],"put":[{"item":"diamond_shovel","count":1}]}
+{"t":"2026-11-14T01:15:28.309Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[96,73,3],"owner":{"kind":"player","id":"FlorianHomm"},"relation":"other_society","took":[{"item":"diamond_shovel","count":1}],"put":[{"item":"water_bucket","count":1}]}
+{"t":"2026-11-14T01:15:28.625Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[96,73,3],"owner":{"kind":"player","id":"FlorianHomm"},"relation":"other_society","took":[{"item":"water_bucket","count":1}],"put":[{"item":"diamond_pickaxe","count":1}]}
+{"t":"2026-11-14T01:15:29.011Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[96,73,3],"owner":{"kind":"player","id":"FlorianHomm"},"relation":"other_society","took":[{"item":"diamond_pickaxe","count":1}],"put":[{"item":"iron_helmet","count":1}]}
+{"t":"2026-11-14T01:15:44.638Z","event":"combat","attacker":"Lange","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:16:19.977Z","event":"combat","attacker":"Fohrmann","target":"Lange","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:16:26.554Z","event":"combat","attacker":"Justus","target":"Lange","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:16:50.678Z","event":"combat","attacker":"Lange","target":"Justus","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:17:01.503Z","event":"combat","attacker":"Lange","target":"Justus","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:17:08.513Z","event":"chest_access","player":"Trump","faction":"market","pos":[-87,120,-7],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"oak_door","count":1}],"put":[{"item":"birch_planks","count":12}],"openAtSameTime":["Simon"]}
+{"t":"2026-11-14T01:17:11.388Z","event":"death","victim":"Justus","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"Justus was slain by Lange"}
+{"t":"2026-11-14T01:17:29.075Z","event":"chest_access","player":"Justus","faction":"market","pos":[103,73,-4],"owner":null,"relation":"unowned","took":[{"item":"oak_planks","count":64}],"put":[{"item":"golden_apple","count":24}]}
+{"t":"2026-11-14T01:17:35.933Z","event":"combat","attacker":"Marcant","target":"Justus","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:17:38.869Z","event":"death","victim":"Justus","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Justus was slain by Marcant"}
+{"t":"2026-11-14T01:17:44.909Z","event":"death","victim":"Justus","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Justus was slain by Marcant"}
+{"t":"2026-11-14T01:17:46.294Z","event":"combat","attacker":"Reinecke","target":"Justus","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:17:50.054Z","event":"death","victim":"Justus","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"Justus was slain by Reinecke"}
+{"t":"2026-11-14T01:17:55.119Z","event":"death","victim":"Justus","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"Justus was slain by Reinecke"}
+{"t":"2026-11-14T01:17:57.558Z","event":"combat","attacker":"Zappel","target":"Justus","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:18:01.156Z","event":"death","victim":"Justus","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"Justus was slain by Reinecke"}
+{"t":"2026-11-14T01:18:05.707Z","event":"combat","attacker":"Lange","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:18:06.174Z","event":"death","victim":"Justus","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"Justus was slain by Reinecke"}
+{"t":"2026-11-14T01:18:12.703Z","event":"combat","attacker":"Lange","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:18:12.775Z","event":"chest_access","player":"Zappel","faction":"collective","pos":[103,73,-4],"owner":null,"relation":"unowned","took":[{"item":"golden_apple","count":24}],"put":[{"item":"oak_planks","count":64}]}
+{"t":"2026-11-14T01:18:14.430Z","event":"death","victim":"Justus","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"Justus was slain by Reinecke"}
+{"t":"2026-11-14T01:18:14.486Z","event":"chest_access","player":"Zappel","faction":"collective","pos":[103,73,-4],"owner":null,"relation":"unowned","took":[{"item":"oak_planks","count":64}],"put":[{"item":"spruce_planks","count":64}]}
+{"t":"2026-11-14T01:18:14.783Z","event":"chest_access","player":"Zappel","faction":"collective","pos":[103,73,-4],"owner":null,"relation":"unowned","took":[{"item":"spruce_planks","count":64}],"put":[{"item":"birch_planks","count":64}]}
+{"t":"2026-11-14T01:18:26.928Z","event":"combat","attacker":"Zappel","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:18:32.459Z","event":"combat","attacker":"Lange","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:18:33.745Z","event":"death","victim":"Fohrmann","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Lange"}
+{"t":"2026-11-14T01:18:40.530Z","event":"combat","attacker":"Fohrmann","target":"Zappel","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:18:48.671Z","event":"combat","attacker":"Fohrmann","target":"Zappel","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:18:57.493Z","event":"death","victim":"Fohrmann","killer":"Zappel","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Zappel"}
+{"t":"2026-11-14T01:19:01.504Z","event":"combat","attacker":"Lange","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:19:03.596Z","event":"combat","attacker":"Fohrmann","target":"Lange","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:19:05.510Z","event":"combat","attacker":"Marcant","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:19:07.720Z","event":"death","victim":"Fohrmann","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Marcant"}
+{"t":"2026-11-14T01:19:08.194Z","event":"combat","attacker":"Zappel","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:19:12.766Z","event":"death","victim":"Fohrmann","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Marcant"}
+{"t":"2026-11-14T01:19:18.345Z","event":"combat","attacker":"Lange","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:19:21.808Z","event":"death","victim":"Fohrmann","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Lange"}
+{"t":"2026-11-14T01:19:26.843Z","event":"death","victim":"Fohrmann","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Lange"}
+{"t":"2026-11-14T01:19:31.883Z","event":"death","victim":"Fohrmann","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Lange"}
+{"t":"2026-11-14T01:19:33.503Z","event":"combat","attacker":"Reinecke","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:19:34.981Z","event":"chest_untracked_change","pos":[-96,126,3],"owner":{"kind":"society","id":"collective"},"took":[],"put":[{"item":"cooked_beef","count":16}],"nearby":["Trump"]}
+{"t":"2026-11-14T01:19:38.009Z","event":"death","victim":"Fohrmann","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Lange"}
+{"t":"2026-11-14T01:19:42.510Z","event":"combat","attacker":"Zappel","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:19:43.045Z","event":"death","victim":"Fohrmann","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Reinecke"}
+{"t":"2026-11-14T01:19:48.216Z","event":"death","victim":"Fohrmann","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Reinecke"}
+{"t":"2026-11-14T01:19:53.279Z","event":"death","victim":"Fohrmann","killer":"Zappel","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Zappel"}
+{"t":"2026-11-14T01:20:26.639Z","event":"ration","players":["FlorianHomm","Reinecke","Trump","Stalin","Simon","Marcant","Lange","Zappel","Justus","Fohrmann"],"items":[{"item":"bread","count":2}]}
+{"t":"2026-11-14T01:20:28.404Z","event":"combat","attacker":"Lange","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:20:30.709Z","event":"death","victim":"Fohrmann","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Lange"}
+{"t":"2026-11-14T01:20:33.109Z","event":"combat","attacker":"Reinecke","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:20:35.765Z","event":"death","victim":"Fohrmann","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Reinecke"}
+{"t":"2026-11-14T01:20:37.979Z","event":"chest_broken","player":"Lange","faction":"collective","pos":[98,73,3],"owner":{"kind":"player","id":"Trump"},"relation":"other_society","contentsDropped":[]}
+{"t":"2026-11-14T01:20:40.819Z","event":"death","victim":"Fohrmann","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Reinecke"}
+{"t":"2026-11-14T01:20:41.511Z","event":"combat","attacker":"Marcant","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:20:41.935Z","event":"combat","attacker":"Stalin","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:20:45.832Z","event":"death","victim":"Fohrmann","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Marcant"}
+{"t":"2026-11-14T01:20:50.033Z","event":"chest_broken","player":"Lange","faction":"collective","pos":[96,73,3],"owner":{"kind":"player","id":"FlorianHomm"},"relation":"other_society","contentsDropped":[{"item":"iron_helmet","count":1}]}
+{"t":"2026-11-14T01:20:51.865Z","event":"death","victim":"Fohrmann","killer":"Stalin","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Stalin"}
+{"t":"2026-11-14T01:20:56.934Z","event":"death","victim":"Fohrmann","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Marcant"}
+{"t":"2026-11-14T01:20:57.905Z","event":"combat","attacker":"Zappel","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:20:59.100Z","event":"chest_broken","player":"Lange","faction":"collective","pos":[100,73,3],"owner":{"kind":"player","id":"Justus"},"relation":"other_society","contentsDropped":[{"item":"cooked_beef","count":32}]}
+{"t":"2026-11-14T01:21:01.993Z","event":"death","victim":"Fohrmann","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Marcant"}
+{"t":"2026-11-14T01:21:05.851Z","event":"chest_broken","player":"Lange","faction":"collective","pos":[102,73,3],"owner":{"kind":"player","id":"Simon"},"relation":"other_society","contentsDropped":[{"item":"leaf_litter","count":64}]}
+{"t":"2026-11-14T01:21:14.021Z","event":"chest_broken","player":"Lange","faction":"collective","pos":[97,73,-4],"owner":null,"relation":"unowned","contentsDropped":[{"item":"bricks","count":64}]}
+{"t":"2026-11-14T01:21:14.179Z","event":"combat","attacker":"Stalin","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:21:16.119Z","event":"death","victim":"Fohrmann","killer":"Stalin","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Stalin"}
+{"t":"2026-11-14T01:21:22.175Z","event":"death","victim":"Fohrmann","killer":"Stalin","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Stalin"}
+{"t":"2026-11-14T01:21:22.371Z","event":"combat","attacker":"Marcant","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:21:23.951Z","event":"chest_broken","player":"Lange","faction":"collective","pos":[104,73,3],"owner":{"kind":"player","id":"Fohrmann"},"relation":"other_society","contentsDropped":[{"item":"diamond_sword","count":1}]}
+{"t":"2026-11-14T01:21:27.210Z","event":"death","victim":"Fohrmann","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Marcant"}
+{"t":"2026-11-14T01:21:32.266Z","event":"death","victim":"Fohrmann","killer":"Stalin","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Stalin"}
+{"t":"2026-11-14T01:21:35.871Z","event":"combat","attacker":"Fohrmann","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:21:37.306Z","event":"death","victim":"Fohrmann","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Marcant"}
+{"t":"2026-11-14T01:21:43.322Z","event":"death","victim":"Fohrmann","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Marcant"}
+{"t":"2026-11-14T01:21:49.341Z","event":"death","victim":"Fohrmann","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Marcant"}
+{"t":"2026-11-14T01:21:52.369Z","event":"combat","attacker":"Reinecke","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:21:53.911Z","event":"combat","attacker":"Lange","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:21:54.145Z","event":"combat","attacker":"Fohrmann","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:21:54.835Z","event":"combat","attacker":"Stalin","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:21:55.372Z","event":"death","victim":"Fohrmann","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Lange"}
+{"t":"2026-11-14T01:22:00.409Z","event":"death","victim":"Fohrmann","killer":"Stalin","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Stalin"}
+{"t":"2026-11-14T01:22:02.980Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[103,73,-4],"owner":null,"relation":"unowned","took":[{"item":"birch_planks","count":64}],"put":[{"item":"oak_stairs","count":64}],"openAtSameTime":["Marcant"]}
+{"t":"2026-11-14T01:22:06.492Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[103,73,-4],"owner":null,"relation":"unowned","took":[{"item":"oak_stairs","count":64}],"put":[{"item":"oak_slab","count":64}],"openAtSameTime":["Marcant"]}
+{"t":"2026-11-14T01:22:09.126Z","event":"chest_access","player":"FlorianHomm","faction":"market","pos":[-97,126,-4],"owner":null,"relation":"unowned","took":[{"item":"oak_planks","count":64}],"put":[{"item":"spruce_planks","count":64}],"openAtSameTime":["Justus"]}
+{"t":"2026-11-14T01:22:09.413Z","event":"chest_access","player":"FlorianHomm","faction":"market","pos":[-97,126,-4],"owner":null,"relation":"unowned","took":[{"item":"spruce_planks","count":64}],"put":[{"item":"birch_planks","count":64}],"openAtSameTime":["Justus"]}
+{"t":"2026-11-14T01:22:13.813Z","event":"chest_access","player":"Justus","faction":"market","pos":[-97,126,-4],"owner":null,"relation":"unowned","took":[{"item":"oak_planks","count":64}],"put":[{"item":"birch_planks","count":64}],"openAtSameTime":["FlorianHomm"]}
+{"t":"2026-11-14T01:22:15.954Z","event":"chest_access","player":"Justus","faction":"market","pos":[-97,126,-4],"owner":null,"relation":"unowned","took":[{"item":"birch_planks","count":64}],"put":[{"item":"oak_log","count":64}]}
+{"t":"2026-11-14T01:22:16.307Z","event":"chest_access","player":"Justus","faction":"market","pos":[-97,126,-4],"owner":null,"relation":"unowned","took":[{"item":"oak_log","count":64}],"put":[{"item":"oak_stairs","count":64}]}
+{"t":"2026-11-14T01:22:16.633Z","event":"chest_access","player":"Justus","faction":"market","pos":[-97,126,-4],"owner":null,"relation":"unowned","took":[{"item":"oak_stairs","count":64}],"put":[{"item":"oak_slab","count":64}]}
+{"t":"2026-11-14T01:22:16.969Z","event":"chest_access","player":"Justus","faction":"market","pos":[-97,126,-4],"owner":null,"relation":"unowned","took":[{"item":"oak_slab","count":64}],"put":[{"item":"oak_fence","count":64}]}
+{"t":"2026-11-14T01:22:17.293Z","event":"chest_access","player":"Justus","faction":"market","pos":[-97,126,-4],"owner":null,"relation":"unowned","took":[{"item":"oak_fence","count":64}],"put":[{"item":"oak_fence_gate","count":16}]}
+{"t":"2026-11-14T01:22:17.624Z","event":"chest_access","player":"Justus","faction":"market","pos":[-97,126,-4],"owner":null,"relation":"unowned","took":[{"item":"oak_fence_gate","count":16}],"put":[{"item":"flint_and_steel","count":1}]}
+{"t":"2026-11-14T01:22:17.965Z","event":"chest_access","player":"Justus","faction":"market","pos":[-97,126,-4],"owner":null,"relation":"unowned","took":[{"item":"flint_and_steel","count":1}],"put":[{"item":"chest","count":15}]}
+{"t":"2026-11-14T01:22:18.263Z","event":"chest_access","player":"Justus","faction":"market","pos":[-97,126,-4],"owner":null,"relation":"unowned","took":[{"item":"chest","count":15}],"put":[]}
+{"t":"2026-11-14T01:22:18.673Z","event":"combat","attacker":"Stalin","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:22:20.193Z","event":"death","victim":"Fohrmann","killer":"Stalin","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Stalin"}
+{"t":"2026-11-14T01:22:26.229Z","event":"death","victim":"Fohrmann","killer":"Stalin","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Stalin"}
+{"t":"2026-11-14T01:22:27.522Z","event":"combat","attacker":"Marcant","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:22:27.613Z","event":"combat","attacker":"Lange","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:22:31.260Z","event":"death","victim":"Fohrmann","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Marcant"}
+{"t":"2026-11-14T01:22:37.439Z","event":"death","victim":"Fohrmann","killer":"Stalin","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Stalin"}
+{"t":"2026-11-14T01:22:40.563Z","event":"chest_broken","player":"Lange","faction":"collective","pos":[103,73,-4],"owner":null,"relation":"unowned","contentsDropped":[{"item":"oak_slab","count":64}]}
+{"t":"2026-11-14T01:22:42.224Z","event":"combat","attacker":"Stalin","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:22:44.504Z","event":"death","victim":"Fohrmann","killer":"Stalin","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Stalin"}
+{"t":"2026-11-14T01:22:48.524Z","event":"combat","attacker":"Lange","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:22:49.559Z","event":"death","victim":"Fohrmann","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Lange"}
+{"t":"2026-11-14T01:22:54.577Z","event":"death","victim":"Fohrmann","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Marcant"}
+{"t":"2026-11-14T01:22:58.624Z","event":"death","victim":"Fohrmann","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Lange"}
+{"t":"2026-11-14T01:23:01.893Z","event":"chest_access","player":"Justus","faction":"market","pos":[-96,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"cooked_beef","count":64}],"put":[{"item":"bread","count":64}]}
+{"t":"2026-11-14T01:23:03.039Z","event":"combat","attacker":"Fohrmann","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:23:03.420Z","event":"chest_access","player":"Justus","faction":"market","pos":[-96,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"bread","count":64}],"put":[{"item":"flint_and_steel","count":1}]}
+{"t":"2026-11-14T01:23:03.641Z","event":"death","victim":"Fohrmann","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Lange"}
+{"t":"2026-11-14T01:23:11.653Z","event":"combat","attacker":"Zappel","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:23:12.270Z","event":"combat","attacker":"Lange","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:23:27.408Z","event":"combat","attacker":"Zappel","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:23:32.043Z","event":"chest_registered","pos":[-94,125,4],"block":"chest","owner":{"kind":"player","id":"Justus"},"origin":"placed","by":"Justus"}
+{"t":"2026-11-14T01:23:37.943Z","event":"chest_access","player":"Justus","faction":"market","pos":[-94,125,4],"owner":{"kind":"player","id":"Justus"},"relation":"own","took":[],"put":[{"item":"birch_planks","count":64}]}
+{"t":"2026-11-14T01:23:39.784Z","event":"combat","attacker":"Zappel","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:23:52.673Z","event":"chest_access","player":"Justus","faction":"market","pos":[-96,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"flint_and_steel","count":1}],"put":[{"item":"oak_planks","count":64}]}
+{"t":"2026-11-14T01:23:56.255Z","event":"chest_access","player":"Justus","faction":"market","pos":[-96,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"oak_planks","count":64}],"put":[]}
+{"t":"2026-11-14T01:23:59.148Z","event":"combat","attacker":"Simon","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:24:05.303Z","event":"chest_access","player":"Justus","faction":"market","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"glass","count":48}],"put":[{"item":"oak_planks","count":64}]}
+{"t":"2026-11-14T01:24:05.907Z","event":"chest_access","player":"Justus","faction":"market","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"oak_planks","count":64}],"put":[{"item":"spruce_planks","count":64}]}
+{"t":"2026-11-14T01:24:06.256Z","event":"chest_access","player":"Justus","faction":"market","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"spruce_planks","count":64}],"put":[{"item":"birch_planks","count":64}]}
+{"t":"2026-11-14T01:24:06.583Z","event":"chest_access","player":"Justus","faction":"market","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"birch_planks","count":64}],"put":[{"item":"oak_log","count":64}]}
+{"t":"2026-11-14T01:24:06.942Z","event":"chest_access","player":"Justus","faction":"market","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"oak_log","count":64}],"put":[{"item":"bricks","count":32}]}
+{"t":"2026-11-14T01:24:07.280Z","event":"chest_access","player":"Justus","faction":"market","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"bricks","count":32}],"put":[{"item":"oak_stairs","count":64}]}
+{"t":"2026-11-14T01:24:07.637Z","event":"chest_access","player":"Justus","faction":"market","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"oak_stairs","count":64}],"put":[{"item":"oak_slab","count":64}]}
+{"t":"2026-11-14T01:24:07.976Z","event":"chest_access","player":"Justus","faction":"market","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"oak_slab","count":64}],"put":[{"item":"oak_fence","count":64}]}
+{"t":"2026-11-14T01:24:08.302Z","event":"chest_access","player":"Justus","faction":"market","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"oak_fence","count":64}],"put":[{"item":"oak_fence_gate","count":16}]}
+{"t":"2026-11-14T01:24:08.677Z","event":"chest_access","player":"Justus","faction":"market","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"oak_fence_gate","count":16}],"put":[{"item":"oak_door","count":14}]}
+{"t":"2026-11-14T01:24:09.056Z","event":"chest_access","player":"Justus","faction":"market","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"oak_door","count":14}],"put":[{"item":"crafting_table","count":8}]}
+{"t":"2026-11-14T01:24:09.487Z","event":"chest_access","player":"Justus","faction":"market","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"crafting_table","count":8}],"put":[{"item":"furnace","count":8}]}
+{"t":"2026-11-14T01:24:09.867Z","event":"chest_access","player":"Justus","faction":"market","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"furnace","count":8}],"put":[{"item":"red_bed","count":8}]}
+{"t":"2026-11-14T01:24:10.256Z","event":"chest_access","player":"Justus","faction":"market","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"red_bed","count":8}],"put":[{"item":"white_wool","count":64}]}
+{"t":"2026-11-14T01:24:17.156Z","event":"combat","attacker":"Stalin","target":"Trump","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:24:17.233Z","event":"chest_registered","pos":[-94,125,5],"block":"chest","owner":{"kind":"player","id":"Justus"},"origin":"placed","by":"Justus"}
+{"t":"2026-11-14T01:24:21.333Z","event":"chest_access","player":"Justus","faction":"market","pos":[-94,125,5],"owner":{"kind":"player","id":"Justus"},"relation":"own","took":[],"put":[{"item":"oak_planks","count":64}]}
+{"t":"2026-11-14T01:24:23.249Z","event":"combat","attacker":"Simon","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:24:27.549Z","event":"chest_access","player":"Justus","faction":"market","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"white_wool","count":64}],"put":[]}
+{"t":"2026-11-14T01:24:31.725Z","event":"combat","attacker":"Stalin","target":"Trump","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:24:44.824Z","event":"chest_broken","player":"Marcant","faction":"collective","pos":[109,74,-3],"owner":{"kind":"player","id":"Fohrmann"},"relation":"other_society","contentsDropped":[{"item":"oak_planks","count":48}]}
+{"t":"2026-11-14T01:24:53.084Z","event":"chest_access","player":"Justus","faction":"market","pos":[-100,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"cobblestone","count":64}],"put":[{"item":"oak_log","count":5}]}
+{"t":"2026-11-14T01:24:53.458Z","event":"chest_access","player":"Justus","faction":"market","pos":[-100,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"oak_log","count":5}],"put":[{"item":"birch_log","count":2}]}
+{"t":"2026-11-14T01:24:53.776Z","event":"chest_access","player":"Justus","faction":"market","pos":[-100,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"birch_log","count":2}],"put":[{"item":"oak_sapling","count":8}]}
+{"t":"2026-11-14T01:24:54.379Z","event":"chest_access","player":"Justus","faction":"market","pos":[-100,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"oak_sapling","count":8}],"put":[{"item":"obsidian","count":64}]}
+{"t":"2026-11-14T01:24:54.777Z","event":"chest_access","player":"Justus","faction":"market","pos":[-100,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"obsidian","count":64}],"put":[{"item":"cobblestone_wall","count":64}]}
+{"t":"2026-11-14T01:24:55.117Z","event":"chest_access","player":"Justus","faction":"market","pos":[-100,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"cobblestone_wall","count":64}],"put":[{"item":"iron_bars","count":64}]}
+{"t":"2026-11-14T01:24:55.476Z","event":"chest_access","player":"Justus","faction":"market","pos":[-100,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"iron_bars","count":64}],"put":[{"item":"iron_door","count":16}]}
+{"t":"2026-11-14T01:24:55.841Z","event":"chest_access","player":"Justus","faction":"market","pos":[-100,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"iron_door","count":16}],"put":[{"item":"oak_planks","count":64}]}
+{"t":"2026-11-14T01:24:56.212Z","event":"chest_access","player":"Justus","faction":"market","pos":[-100,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"oak_planks","count":64}],"put":[{"item":"ladder","count":64}]}
+{"t":"2026-11-14T01:24:56.638Z","event":"chest_access","player":"Justus","faction":"market","pos":[-100,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"ladder","count":64}],"put":[{"item":"iron_block","count":32}]}
+{"t":"2026-11-14T01:24:56.989Z","event":"chest_access","player":"Justus","faction":"market","pos":[-100,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"iron_block","count":32}],"put":[{"item":"diamond","count":32}]}
+{"t":"2026-11-14T01:24:57.410Z","event":"chest_access","player":"Justus","faction":"market","pos":[-100,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"diamond","count":32}],"put":[]}
+{"t":"2026-11-14T01:25:25.448Z","event":"chest_registered","pos":[-97,126,5],"block":"chest","owner":{"kind":"player","id":"Justus"},"origin":"placed","by":"Justus"}
+{"t":"2026-11-14T01:25:29.061Z","event":"chest_access","player":"Justus","faction":"market","pos":[-97,126,5],"owner":{"kind":"player","id":"Justus"},"relation":"own","took":[],"put":[{"item":"oak_log","count":5}]}
+{"t":"2026-11-14T01:26:28.940Z","event":"chest_broken","player":"FlorianHomm","faction":"market","pos":[-94,125,4],"owner":{"kind":"player","id":"Justus"},"relation":"other_member","contentsDropped":[{"item":"birch_planks","count":64}]}
+{"t":"2026-11-14T01:26:32.241Z","event":"chest_access","player":"Justus","faction":"market","pos":[-103,126,-4],"owner":null,"relation":"unowned","took":[{"item":"cobblestone","count":30}],"put":[{"item":"oak_door","count":13}],"openAtSameTime":["Simon"]}
+{"t":"2026-11-14T01:26:32.628Z","event":"chest_access","player":"Justus","faction":"market","pos":[-103,126,-4],"owner":null,"relation":"unowned","took":[{"item":"oak_door","count":13}],"put":[{"item":"torch","count":48}],"openAtSameTime":["Simon"]}
+{"t":"2026-11-14T01:26:33.080Z","event":"chest_access","player":"Justus","faction":"market","pos":[-103,126,-4],"owner":null,"relation":"unowned","took":[{"item":"torch","count":48}],"put":[{"item":"ladder","count":32}],"openAtSameTime":["Simon"]}
+{"t":"2026-11-14T01:26:33.458Z","event":"chest_access","player":"Justus","faction":"market","pos":[-103,126,-4],"owner":null,"relation":"unowned","took":[{"item":"ladder","count":32}],"put":[{"item":"chest","count":1}],"openAtSameTime":["Simon"]}
+{"t":"2026-11-14T01:26:33.882Z","event":"chest_access","player":"Justus","faction":"market","pos":[-103,126,-4],"owner":null,"relation":"unowned","took":[{"item":"chest","count":1}],"put":[{"item":"deepslate_bricks","count":64}],"openAtSameTime":["Simon"]}
+{"t":"2026-11-14T01:26:34.246Z","event":"chest_access","player":"Justus","faction":"market","pos":[-103,126,-4],"owner":null,"relation":"unowned","took":[{"item":"deepslate_bricks","count":64}],"put":[{"item":"obsidian","count":64}],"openAtSameTime":["Simon"]}
+{"t":"2026-11-14T01:26:34.591Z","event":"chest_access","player":"Justus","faction":"market","pos":[-103,126,-4],"owner":null,"relation":"unowned","took":[{"item":"obsidian","count":64}],"put":[{"item":"cobblestone_wall","count":64}],"openAtSameTime":["Simon"]}
+{"t":"2026-11-14T01:26:35.034Z","event":"chest_access","player":"Justus","faction":"market","pos":[-103,126,-4],"owner":null,"relation":"unowned","took":[{"item":"cobblestone_wall","count":64}],"put":[{"item":"iron_bars","count":64}],"openAtSameTime":["Simon"]}
+{"t":"2026-11-14T01:26:35.415Z","event":"chest_access","player":"Justus","faction":"market","pos":[-103,126,-4],"owner":null,"relation":"unowned","took":[{"item":"iron_bars","count":64}],"put":[{"item":"glass","count":48}],"openAtSameTime":["Simon"]}
+{"t":"2026-11-14T01:26:35.793Z","event":"chest_access","player":"Justus","faction":"market","pos":[-103,126,-4],"owner":null,"relation":"unowned","took":[{"item":"glass","count":48}],"put":[{"item":"iron_door","count":16}],"openAtSameTime":["Simon"]}
+{"t":"2026-11-14T01:26:36.180Z","event":"chest_access","player":"Justus","faction":"market","pos":[-103,126,-4],"owner":null,"relation":"unowned","took":[{"item":"iron_door","count":16}],"put":[{"item":"bricks","count":64}],"openAtSameTime":["Simon"]}
+{"t":"2026-11-14T01:26:36.531Z","event":"chest_access","player":"Justus","faction":"market","pos":[-103,126,-4],"owner":null,"relation":"unowned","took":[{"item":"bricks","count":64}],"put":[],"openAtSameTime":["Simon"]}
+{"t":"2026-11-14T01:26:41.053Z","event":"chest_access","player":"Simon","faction":"market","pos":[-103,126,-4],"owner":null,"relation":"unowned","took":[{"item":"cobblestone","count":30}],"put":[],"openAtSameTime":["Justus"]}
+{"t":"2026-11-14T01:27:04.288Z","event":"chest_access","player":"Justus","faction":"market","pos":[-102,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"oak_log","count":28}],"put":[{"item":"torch","count":32}]}
+{"t":"2026-11-14T01:27:04.687Z","event":"chest_access","player":"Justus","faction":"market","pos":[-102,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"torch","count":32}],"put":[{"item":"diamond_pickaxe","count":1}]}
+{"t":"2026-11-14T01:27:05.062Z","event":"chest_access","player":"Justus","faction":"market","pos":[-102,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"diamond_pickaxe","count":1}],"put":[{"item":"diamond_axe","count":1}]}
+{"t":"2026-11-14T01:27:08.137Z","event":"chest_broken","player":"FlorianHomm","faction":"market","pos":[-94,125,5],"owner":{"kind":"player","id":"Justus"},"relation":"other_member","contentsDropped":[{"item":"oak_planks","count":64}]}
+{"t":"2026-11-14T01:27:16.331Z","event":"chest_broken","player":"FlorianHomm","faction":"market","pos":[-96,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","contentsDropped":[]}
+{"t":"2026-11-14T01:27:19.641Z","event":"chest_registered","pos":[-101,126,0],"block":"chest","owner":null,"origin":"found"}
+{"t":"2026-11-14T01:27:19.672Z","event":"chest_access","player":"Justus","faction":"market","pos":[-101,126,0],"owner":null,"relation":"unowned","took":[],"put":[{"item":"cobblestone","count":64}]}
+{"t":"2026-11-14T01:27:23.290Z","event":"combat","attacker":"Stalin","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:27:24.532Z","event":"death","victim":"Fohrmann","killer":"Stalin","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Stalin"}
+{"t":"2026-11-14T01:27:28.430Z","event":"combat","attacker":"Stalin","target":"Trump","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:27:29.170Z","event":"combat","attacker":"Trump","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:27:29.211Z","event":"chest_access","player":"Justus","faction":"market","pos":[-102,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"diamond_axe","count":1}],"put":[{"item":"diamond_shovel","count":1}]}
+{"t":"2026-11-14T01:27:29.585Z","event":"chest_access","player":"Justus","faction":"market","pos":[-102,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"diamond_shovel","count":1}],"put":[{"item":"iron_helmet","count":1}]}
+{"t":"2026-11-14T01:27:30.009Z","event":"chest_access","player":"Justus","faction":"market","pos":[-102,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"iron_helmet","count":1}],"put":[{"item":"iron_chestplate","count":1}]}
+{"t":"2026-11-14T01:27:30.341Z","event":"chest_access","player":"Justus","faction":"market","pos":[-102,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"iron_chestplate","count":1}],"put":[{"item":"iron_leggings","count":1}]}
+{"t":"2026-11-14T01:27:30.431Z","event":"combat","attacker":"Lange","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:27:30.677Z","event":"chest_access","player":"Justus","faction":"market","pos":[-102,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"iron_leggings","count":1}],"put":[{"item":"iron_boots","count":1}]}
+{"t":"2026-11-14T01:27:31.063Z","event":"chest_access","player":"Justus","faction":"market","pos":[-102,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"iron_boots","count":1}],"put":[{"item":"water_bucket","count":1}]}
+{"t":"2026-11-14T01:27:31.441Z","event":"chest_access","player":"Justus","faction":"market","pos":[-102,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"water_bucket","count":1}],"put":[{"item":"flint_and_steel","count":1}]}
+{"t":"2026-11-14T01:27:31.777Z","event":"chest_access","player":"Justus","faction":"market","pos":[-102,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"flint_and_steel","count":1}],"put":[]}
+{"t":"2026-11-14T01:27:31.789Z","event":"combat","attacker":"Trump","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:27:33.725Z","event":"death","victim":"Fohrmann","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Lange"}
+{"t":"2026-11-14T01:27:34.423Z","event":"combat","attacker":"Stalin","target":"Trump","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:27:37.932Z","event":"death","victim":"Trump","killer":"Stalin","victimFaction":"market","killerFaction":"collective","message":"Trump was slain by Stalin"}
+{"t":"2026-11-14T01:27:38.942Z","event":"death","victim":"Fohrmann","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Lange"}
+{"t":"2026-11-14T01:27:41.482Z","event":"chest_access","player":"Justus","faction":"market","pos":[-104,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"golden_apple","count":20}],"put":[{"item":"leaf_litter","count":59}]}
+{"t":"2026-11-14T01:27:41.888Z","event":"chest_access","player":"Justus","faction":"market","pos":[-104,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"leaf_litter","count":59}],"put":[{"item":"diamond_sword","count":1}]}
+{"t":"2026-11-14T01:27:42.466Z","event":"chest_access","player":"Justus","faction":"market","pos":[-104,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"diamond_sword","count":1}],"put":[{"item":"shield","count":1}]}
+{"t":"2026-11-14T01:27:42.872Z","event":"chest_access","player":"Justus","faction":"market","pos":[-104,126,3],"owner":{"kind":"society","id":"collective"},"relation":"other_society","took":[{"item":"shield","count":1}],"put":[]}
+{"t":"2026-11-14T01:27:48.781Z","event":"combat","attacker":"Zappel","target":"FlorianHomm","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:27:49.344Z","event":"death","victim":"Reinecke","killer":null,"victimFaction":"collective","killerFaction":null,"message":"Reinecke was slain by Zombie"}
+{"t":"2026-11-14T01:27:51.017Z","event":"combat","attacker":"FlorianHomm","target":"Zappel","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:27:53.080Z","event":"combat","attacker":"Lange","target":"Trump","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:27:53.702Z","event":"combat","attacker":"Zappel","target":"FlorianHomm","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:27:59.487Z","event":"death","victim":"FlorianHomm","killer":"Zappel","victimFaction":"market","killerFaction":"collective","message":"FlorianHomm was slain by Zappel"}
+{"t":"2026-11-14T01:28:02.912Z","event":"combat","attacker":"Simon","target":"Reinecke","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:28:05.529Z","event":"combat","attacker":"Justus","target":"Reinecke","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:28:05.782Z","event":"death","victim":"Reinecke","killer":"Simon","victimFaction":"collective","killerFaction":"market","message":"Reinecke was slain by Simon"}
+{"t":"2026-11-14T01:28:10.409Z","event":"combat","attacker":"Lange","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:28:11.729Z","event":"death","victim":"Reinecke","killer":"Simon","victimFaction":"collective","killerFaction":"market","message":"Reinecke was slain by Simon"}
+{"t":"2026-11-14T01:28:17.532Z","event":"death","victim":"Reinecke","killer":"Simon","victimFaction":"collective","killerFaction":"market","message":"Reinecke was slain by Simon"}
+{"t":"2026-11-14T01:28:19.781Z","event":"combat","attacker":"Lange","target":"FlorianHomm","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:28:21.577Z","event":"death","victim":"Reinecke","killer":"Simon","victimFaction":"collective","killerFaction":"market","message":"Reinecke was slain by Simon"}
+{"t":"2026-11-14T01:28:22.588Z","event":"death","victim":"FlorianHomm","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"FlorianHomm was slain by Lange"}
+{"t":"2026-11-14T01:28:28.636Z","event":"death","victim":"FlorianHomm","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"FlorianHomm was slain by Lange"}
+{"t":"2026-11-14T01:28:33.706Z","event":"death","victim":"FlorianHomm","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"FlorianHomm was slain by Lange"}
+{"t":"2026-11-14T01:28:38.830Z","event":"death","victim":"FlorianHomm","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"FlorianHomm was slain by Lange"}
+{"t":"2026-11-14T01:28:46.155Z","event":"combat","attacker":"Lange","target":"FlorianHomm","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:28:49.278Z","event":"combat","attacker":"Lange","target":"FlorianHomm","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:28:50.187Z","event":"death","victim":"FlorianHomm","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"FlorianHomm was slain by Lange"}
+{"t":"2026-11-14T01:28:55.231Z","event":"death","victim":"FlorianHomm","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"FlorianHomm was slain by Lange"}
+{"t":"2026-11-14T01:28:57.267Z","event":"death","victim":"Stalin","killer":null,"victimFaction":"collective","killerFaction":null,"message":"Stalin was slain by Zombie"}
+{"t":"2026-11-14T01:28:57.971Z","event":"combat","attacker":"Lange","target":"FlorianHomm","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:29:00.284Z","event":"death","victim":"FlorianHomm","killer":"Lange","victimFaction":"market","killerFaction":"collective","message":"FlorianHomm was slain by Lange"}
+{"t":"2026-11-14T01:29:03.185Z","event":"combat","attacker":"Justus","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:29:05.415Z","event":"combat","attacker":"Simon","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:29:10.665Z","event":"death","victim":"Stalin","killer":"Simon","victimFaction":"collective","killerFaction":"market","message":"Stalin was slain by Simon"}
+{"t":"2026-11-14T01:29:26.935Z","event":"death","victim":"Reinecke","killer":"Simon","victimFaction":"collective","killerFaction":"market","message":"Reinecke was slain by Simon"}
+{"t":"2026-11-14T01:29:46.941Z","event":"combat","attacker":"Justus","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:29:48.615Z","event":"chest_access","player":"Simon","faction":"market","pos":[-101,126,0],"owner":null,"relation":"unowned","took":[{"item":"cobblestone","count":64}],"put":[{"item":"oak_door","count":13}]}
+{"t":"2026-11-14T01:29:48.986Z","event":"chest_access","player":"Simon","faction":"market","pos":[-101,126,0],"owner":null,"relation":"unowned","took":[{"item":"oak_door","count":13}],"put":[{"item":"torch","count":64}]}
+{"t":"2026-11-14T01:29:49.393Z","event":"chest_access","player":"Simon","faction":"market","pos":[-101,126,0],"owner":null,"relation":"unowned","took":[{"item":"torch","count":64}],"put":[{"item":"ladder","count":32}]}
+{"t":"2026-11-14T01:29:49.784Z","event":"chest_access","player":"Simon","faction":"market","pos":[-101,126,0],"owner":null,"relation":"unowned","took":[{"item":"ladder","count":32}],"put":[{"item":"deepslate_bricks","count":64}]}
+{"t":"2026-11-14T01:29:50.170Z","event":"chest_access","player":"Simon","faction":"market","pos":[-101,126,0],"owner":null,"relation":"unowned","took":[{"item":"deepslate_bricks","count":64}],"put":[{"item":"cobblestone_wall","count":64}]}
+{"t":"2026-11-14T01:29:50.535Z","event":"chest_access","player":"Simon","faction":"market","pos":[-101,126,0],"owner":null,"relation":"unowned","took":[{"item":"cobblestone_wall","count":64}],"put":[{"item":"iron_bars","count":64}]}
+{"t":"2026-11-14T01:29:50.906Z","event":"chest_access","player":"Simon","faction":"market","pos":[-101,126,0],"owner":null,"relation":"unowned","took":[{"item":"iron_bars","count":64}],"put":[{"item":"glass","count":48}]}
+{"t":"2026-11-14T01:29:51.303Z","event":"chest_access","player":"Simon","faction":"market","pos":[-101,126,0],"owner":null,"relation":"unowned","took":[{"item":"glass","count":48}],"put":[{"item":"iron_door","count":16}]}
+{"t":"2026-11-14T01:29:51.683Z","event":"chest_access","player":"Simon","faction":"market","pos":[-101,126,0],"owner":null,"relation":"unowned","took":[{"item":"iron_door","count":16}],"put":[{"item":"bricks","count":64}]}
+{"t":"2026-11-14T01:29:52.024Z","event":"chest_access","player":"Simon","faction":"market","pos":[-101,126,0],"owner":null,"relation":"unowned","took":[{"item":"bricks","count":64}],"put":[{"item":"oak_log","count":28}]}
+{"t":"2026-11-14T01:29:52.395Z","event":"chest_access","player":"Simon","faction":"market","pos":[-101,126,0],"owner":null,"relation":"unowned","took":[{"item":"oak_log","count":28}],"put":[]}
+{"t":"2026-11-14T01:30:09.547Z","event":"combat","attacker":"Justus","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:30:13.295Z","event":"combat","attacker":"Trump","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:30:24.682Z","event":"combat","attacker":"Stalin","target":"Trump","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:30:25.564Z","event":"death","victim":"Trump","killer":"Stalin","victimFaction":"market","killerFaction":"collective","message":"Trump was slain by Stalin"}
+{"t":"2026-11-14T01:30:29.239Z","event":"combat","attacker":"Stalin","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:30:32.422Z","event":"combat","attacker":"Stalin","target":"Justus","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:39:32.392Z","event":"ready","port":25590,"bind":"0.0.0.0","swapped":false,"bases":{"collective":{"spawn":[-100,126,0],"chests":[[-104,126,3],[-102,126,3],[-100,126,3],[-98,126,3],[-96,126,3]],"ground":"dirt/grass"},"market":{"spawn":[100,73,0],"chests":[[96,73,3],[98,73,3],[100,73,3],[102,73,3],[104,73,3]],"ground":"dirt/grass"}}}
+{"t":"2026-11-14T01:39:32.456Z","event":"regen","restored":8}
+{"t":"2026-11-14T01:39:55.590Z","event":"death","victim":"Reinecke","killer":null,"victimFaction":"collective","killerFaction":null,"message":"Reinecke was shot by Skeleton","counted":true,"repeatKill":false}
+{"t":"2026-11-14T01:39:59.074Z","event":"combat","attacker":"Justus","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:40:01.969Z","event":"combat","attacker":"Reinecke","target":"Justus","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:40:10.673Z","event":"death","victim":"Justus","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"Justus was slain by Reinecke","counted":true,"repeatKill":false}
+{"t":"2026-11-14T01:40:15.078Z","event":"combat","attacker":"Stalin","target":"Simon","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:40:15.675Z","event":"combat","attacker":"Reinecke","target":"Simon","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:40:17.558Z","event":"combat","attacker":"Fohrmann","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:40:21.828Z","event":"combat","attacker":"Stalin","target":"Simon","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:40:24.061Z","event":"combat","attacker":"Reinecke","target":"Simon","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:40:26.822Z","event":"death","victim":"Simon","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Reinecke","counted":true,"repeatKill":false}
+{"t":"2026-11-14T01:40:26.934Z","event":"ration","players":["FlorianHomm","Trump","Zappel","Stalin","Reinecke","Marcant","Justus","Fohrmann","Lange","Simon"],"items":[{"item":"bread","count":2}]}
+{"t":"2026-11-14T01:40:30.965Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[],"put":[{"item":"oak_fence_gate","count":32}]}
+{"t":"2026-11-14T01:40:49.553Z","event":"combat","attacker":"Simon","target":"Zappel","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:40:51.244Z","event":"combat","attacker":"Reinecke","target":"Trump","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:40:52.869Z","event":"combat","attacker":"Zappel","target":"Simon","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:40:54.478Z","event":"combat","attacker":"Trump","target":"Reinecke","attackerFaction":"market","targetFaction":"collective"}
+{"t":"2026-11-14T01:40:58.032Z","event":"combat","attacker":"Reinecke","target":"Trump","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:40:59.151Z","event":"death","victim":"Simon","killer":"Zappel","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Zappel","counted":true,"repeatKill":false}
+{"t":"2026-11-14T01:41:04.162Z","event":"death","victim":"Simon","killer":"Zappel","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Zappel","counted":false,"repeatKill":true}
+{"t":"2026-11-14T01:41:09.187Z","event":"death","victim":"Simon","killer":"Zappel","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Zappel","counted":false,"repeatKill":true}
+{"t":"2026-11-14T01:41:15.231Z","event":"death","victim":"Simon","killer":"Zappel","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Zappel","counted":false,"repeatKill":true}
+{"t":"2026-11-14T01:41:18.250Z","event":"death","victim":"Lange","killer":"FlorianHomm","victimFaction":"collective","killerFaction":"market","message":"Lange was slain by FlorianHomm","counted":true,"repeatKill":false}
+{"t":"2026-11-14T01:41:21.624Z","event":"combat","attacker":"Marcant","target":"Simon","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:41:24.286Z","event":"death","victim":"Simon","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Marcant","counted":true,"repeatKill":false}
+{"t":"2026-11-14T01:41:25.670Z","event":"combat","attacker":"Reinecke","target":"FlorianHomm","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:41:30.324Z","event":"death","victim":"Simon","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Marcant","counted":false,"repeatKill":true}
+{"t":"2026-11-14T01:41:35.353Z","event":"death","victim":"Simon","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Marcant","counted":false,"repeatKill":true}
+{"t":"2026-11-14T01:41:40.385Z","event":"death","victim":"Simon","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Marcant","counted":false,"repeatKill":true}
+{"t":"2026-11-14T01:41:44.588Z","event":"combat","attacker":"Stalin","target":"FlorianHomm","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:41:45.430Z","event":"death","victim":"FlorianHomm","killer":"Stalin","victimFaction":"market","killerFaction":"collective","message":"FlorianHomm was slain by Stalin","counted":true,"repeatKill":false}
+{"t":"2026-11-14T01:41:46.436Z","event":"death","victim":"Simon","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Marcant","counted":false,"repeatKill":true}
+{"t":"2026-11-14T01:41:51.460Z","event":"death","victim":"Simon","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Marcant","counted":false,"repeatKill":true}
+{"t":"2026-11-14T01:42:01.118Z","event":"combat","attacker":"Marcant","target":"FlorianHomm","attackerFaction":"collective","targetFaction":"market"}
+{"t":"2026-11-14T01:42:04.507Z","event":"death","victim":"FlorianHomm","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"FlorianHomm was slain by Marcant","counted":true,"repeatKill":false}
+{"t":"2026-11-14T01:42:17.127Z","event":"combat","attacker":"Fohrmann","target":"Lange","attackerFaction":"market","targetFaction":"collective"}

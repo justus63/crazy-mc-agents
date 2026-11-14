@@ -1,0 +1,1 @@
+Task: defensive perimeter patrol/fortification. Site near bridge-shelter route (-82,116,-12), existing torch. Progress: route lit; next build stone-brick marker/wall segment only if safe. Keep chest access clear.

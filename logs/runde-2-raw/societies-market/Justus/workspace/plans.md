@@ -1,0 +1,1 @@
+Market base (100,73,0); own chest (100,73,3), initially empty. Private chests belong individually; no withdrawals without agreement. Assigned Fohrmann shelter, Simon farming, Trump neutral iron/coal mining, FlorianHomm wood/cobble/tools; supplies transferred only by agreement. No pacts or debts as of initial status.

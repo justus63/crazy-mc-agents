@@ -1,0 +1,931 @@
+{
+ "meta": {
+  "from": "2026-11-14T03:17:32.100Z",
+  "to": "2026-11-14T03:37:36.546Z",
+  "minutes": 20.1,
+  "swapped": false,
+  "valuesIn": "gold ingots (world.json evaluation.values)",
+  "bucketMinutes": 10
+ },
+ "societies": {
+  "collective": {
+   "label": "Collective",
+   "members": [
+    "Reinecke",
+    "Zappel",
+    "Stalin",
+    "Marcant",
+    "Lange"
+   ],
+   "trades": {
+    "done": 0,
+    "within": 0,
+    "across": 0,
+    "gifts": 0,
+    "paidInGold": 0,
+    "barter": 0,
+    "goldPaid": 0,
+    "goldReceived": 0,
+    "goldMovedWithin": 0
+   },
+   "offers": {
+    "made": 0,
+    "declined": 0,
+    "expired": 0,
+    "cancelled": 0,
+    "acceptanceRate": null
+   },
+   "diplomacy": {
+    "messages": 0,
+    "pactsProposed": 0,
+    "pactsAccepted": 0,
+    "pactsDeclined": 0,
+    "pactsEnded": 0,
+    "pactsBroken": 0
+   },
+   "conflict": {
+    "attacksOnOther": 5,
+    "attacksOnOwn": 0,
+    "kills": 5,
+    "killsOfOwn": 0,
+    "deaths": 4
+   },
+   "chests": {
+    "accesses": 0,
+    "putValue": 0,
+    "tookValue": 0,
+    "byRelation": {},
+    "takenWithoutOwnership": {
+     "times": 0,
+     "value": 0,
+     "fromOwnSociety": 0,
+     "fromOtherSociety": 0
+    },
+    "brokenOthers": 0
+   },
+   "wealth": {
+    "total": 30,
+    "perCapita": 6,
+    "common": 0,
+    "personal": {
+     "Reinecke": 10,
+     "Zappel": 0,
+     "Stalin": 10,
+     "Marcant": 10,
+     "Lange": 0
+    },
+    "personalGini": 0.4,
+    "gold": 0,
+    "iron": 0,
+    "food": 0
+   },
+   "communication": {
+    "dms": {
+     "Reinecke": {},
+     "Zappel": {},
+     "Stalin": {},
+     "Marcant": {},
+     "Lange": {}
+    },
+    "mostConnected": null
+   },
+   "roles": {
+    "Reinecke": "miner",
+    "Zappel": "coordinator",
+    "Stalin": "coordinator",
+    "Marcant": "miner",
+    "Lange": "fighter"
+   }
+  },
+  "market": {
+   "label": "Market",
+   "members": [
+    "FlorianHomm",
+    "Trump",
+    "Justus",
+    "Simon",
+    "Fohrmann"
+   ],
+   "trades": {
+    "done": 0,
+    "within": 0,
+    "across": 0,
+    "gifts": 0,
+    "paidInGold": 0,
+    "barter": 0,
+    "goldPaid": 0,
+    "goldReceived": 0,
+    "goldMovedWithin": 0
+   },
+   "offers": {
+    "made": 0,
+    "declined": 0,
+    "expired": 0,
+    "cancelled": 0,
+    "acceptanceRate": null
+   },
+   "diplomacy": {
+    "messages": 0,
+    "pactsProposed": 0,
+    "pactsAccepted": 0,
+    "pactsDeclined": 0,
+    "pactsEnded": 0,
+    "pactsBroken": 0
+   },
+   "conflict": {
+    "attacksOnOther": 14,
+    "attacksOnOwn": 0,
+    "kills": 4,
+    "killsOfOwn": 0,
+    "deaths": 5
+   },
+   "chests": {
+    "accesses": 0,
+    "putValue": 0,
+    "tookValue": 0,
+    "byRelation": {},
+    "takenWithoutOwnership": {
+     "times": 0,
+     "value": 0,
+     "fromOwnSociety": 0,
+     "fromOtherSociety": 0
+    },
+    "brokenOthers": 0
+   },
+   "wealth": {
+    "total": 23,
+    "perCapita": 4.6,
+    "common": 0,
+    "personal": {
+     "FlorianHomm": 0,
+     "Trump": 10,
+     "Justus": 10,
+     "Simon": 0,
+     "Fohrmann": 3
+    },
+    "personalGini": 0.522,
+    "gold": 0,
+    "iron": 0,
+    "food": 0
+   },
+   "communication": {
+    "dms": {
+     "FlorianHomm": {},
+     "Trump": {},
+     "Justus": {},
+     "Simon": {},
+     "Fohrmann": {}
+    },
+    "mostConnected": null
+   },
+   "roles": {
+    "FlorianHomm": "miner",
+    "Trump": "miner",
+    "Justus": "coordinator",
+    "Simon": "fighter",
+    "Fohrmann": "miner"
+   }
+  }
+ },
+ "players": {
+  "Reinecke": {
+   "faction": "collective",
+   "trades": {
+    "done": 0,
+    "within": 0,
+    "across": 0,
+    "gifts": 0,
+    "paidInGold": 0,
+    "barter": 0,
+    "goldPaid": 0,
+    "goldReceived": 0,
+    "goldMovedWithin": 0
+   },
+   "offers": {
+    "made": 0,
+    "declined": 0,
+    "expired": 0,
+    "cancelled": 0
+   },
+   "diplomacy": {
+    "messages": 0,
+    "pactsProposed": 0,
+    "pactsAccepted": 0,
+    "pactsDeclined": 0,
+    "pactsEnded": 0,
+    "pactsBroken": 0
+   },
+   "conflict": {
+    "attacksOnOther": 1,
+    "attacksOnOwn": 0,
+    "kills": 3,
+    "killsOfOwn": 0,
+    "deaths": 0
+   },
+   "chests": {
+    "accesses": 0,
+    "putValue": 0,
+    "tookValue": 0,
+    "byRelation": {},
+    "takenWithoutOwnership": {
+     "times": 0,
+     "value": 0,
+     "fromOwnSociety": 0,
+     "fromOtherSociety": 0
+    },
+    "brokenOthers": 0
+   },
+   "role": {
+    "profile": {
+     "miner": 0.87,
+     "fighter": 0.1,
+     "coordinator": 0.03
+    },
+    "dominant": "miner",
+    "switches": 2,
+    "timeline": [
+     {
+      "bucket": 0,
+      "role": "fighter"
+     },
+     {
+      "bucket": 1,
+      "role": "miner"
+     },
+     {
+      "bucket": 2,
+      "role": "fighter"
+     }
+    ]
+   },
+   "wealth": 10
+  },
+  "Zappel": {
+   "faction": "collective",
+   "trades": {
+    "done": 0,
+    "within": 0,
+    "across": 0,
+    "gifts": 0,
+    "paidInGold": 0,
+    "barter": 0,
+    "goldPaid": 0,
+    "goldReceived": 0,
+    "goldMovedWithin": 0
+   },
+   "offers": {
+    "made": 0,
+    "declined": 0,
+    "expired": 0,
+    "cancelled": 0
+   },
+   "diplomacy": {
+    "messages": 0,
+    "pactsProposed": 0,
+    "pactsAccepted": 0,
+    "pactsDeclined": 0,
+    "pactsEnded": 0,
+    "pactsBroken": 0
+   },
+   "conflict": {
+    "attacksOnOther": 1,
+    "attacksOnOwn": 0,
+    "kills": 0,
+    "killsOfOwn": 0,
+    "deaths": 1
+   },
+   "chests": {
+    "accesses": 0,
+    "putValue": 0,
+    "tookValue": 0,
+    "byRelation": {},
+    "takenWithoutOwnership": {
+     "times": 0,
+     "value": 0,
+     "fromOwnSociety": 0,
+     "fromOtherSociety": 0
+    },
+    "brokenOthers": 0
+   },
+   "role": {
+    "profile": {
+     "coordinator": 0.75,
+     "fighter": 0.25
+    },
+    "dominant": "coordinator",
+    "switches": 0,
+    "timeline": [
+     {
+      "bucket": 0,
+      "role": "coordinator"
+     }
+    ]
+   },
+   "wealth": 0
+  },
+  "Stalin": {
+   "faction": "collective",
+   "trades": {
+    "done": 0,
+    "within": 0,
+    "across": 0,
+    "gifts": 0,
+    "paidInGold": 0,
+    "barter": 0,
+    "goldPaid": 0,
+    "goldReceived": 0,
+    "goldMovedWithin": 0
+   },
+   "offers": {
+    "made": 0,
+    "declined": 0,
+    "expired": 0,
+    "cancelled": 0
+   },
+   "diplomacy": {
+    "messages": 0,
+    "pactsProposed": 0,
+    "pactsAccepted": 0,
+    "pactsDeclined": 0,
+    "pactsEnded": 0,
+    "pactsBroken": 0
+   },
+   "conflict": {
+    "attacksOnOther": 0,
+    "attacksOnOwn": 0,
+    "kills": 0,
+    "killsOfOwn": 0,
+    "deaths": 1
+   },
+   "chests": {
+    "accesses": 0,
+    "putValue": 0,
+    "tookValue": 0,
+    "byRelation": {},
+    "takenWithoutOwnership": {
+     "times": 0,
+     "value": 0,
+     "fromOwnSociety": 0,
+     "fromOtherSociety": 0
+    },
+    "brokenOthers": 0
+   },
+   "role": {
+    "profile": {
+     "coordinator": 0.84,
+     "miner": 0.16
+    },
+    "dominant": "coordinator",
+    "switches": 1,
+    "timeline": [
+     {
+      "bucket": 0,
+      "role": "coordinator"
+     },
+     {
+      "bucket": 1,
+      "role": "miner"
+     }
+    ]
+   },
+   "wealth": 10
+  },
+  "Marcant": {
+   "faction": "collective",
+   "trades": {
+    "done": 0,
+    "within": 0,
+    "across": 0,
+    "gifts": 0,
+    "paidInGold": 0,
+    "barter": 0,
+    "goldPaid": 0,
+    "goldReceived": 0,
+    "goldMovedWithin": 0
+   },
+   "offers": {
+    "made": 0,
+    "declined": 0,
+    "expired": 0,
+    "cancelled": 0
+   },
+   "diplomacy": {
+    "messages": 0,
+    "pactsProposed": 0,
+    "pactsAccepted": 0,
+    "pactsDeclined": 0,
+    "pactsEnded": 0,
+    "pactsBroken": 0
+   },
+   "conflict": {
+    "attacksOnOther": 2,
+    "attacksOnOwn": 0,
+    "kills": 2,
+    "killsOfOwn": 0,
+    "deaths": 1
+   },
+   "chests": {
+    "accesses": 0,
+    "putValue": 0,
+    "tookValue": 0,
+    "byRelation": {},
+    "takenWithoutOwnership": {
+     "times": 0,
+     "value": 0,
+     "fromOwnSociety": 0,
+     "fromOtherSociety": 0
+    },
+    "brokenOthers": 0
+   },
+   "role": {
+    "profile": {
+     "miner": 0.91,
+     "fighter": 0.07,
+     "coordinator": 0.02
+    },
+    "dominant": "miner",
+    "switches": 0,
+    "timeline": [
+     {
+      "bucket": 0,
+      "role": "miner"
+     },
+     {
+      "bucket": 1,
+      "role": "miner"
+     }
+    ]
+   },
+   "wealth": 10
+  },
+  "Lange": {
+   "faction": "collective",
+   "trades": {
+    "done": 0,
+    "within": 0,
+    "across": 0,
+    "gifts": 0,
+    "paidInGold": 0,
+    "barter": 0,
+    "goldPaid": 0,
+    "goldReceived": 0,
+    "goldMovedWithin": 0
+   },
+   "offers": {
+    "made": 0,
+    "declined": 0,
+    "expired": 0,
+    "cancelled": 0
+   },
+   "diplomacy": {
+    "messages": 0,
+    "pactsProposed": 0,
+    "pactsAccepted": 0,
+    "pactsDeclined": 0,
+    "pactsEnded": 0,
+    "pactsBroken": 0
+   },
+   "conflict": {
+    "attacksOnOther": 1,
+    "attacksOnOwn": 0,
+    "kills": 0,
+    "killsOfOwn": 0,
+    "deaths": 1
+   },
+   "chests": {
+    "accesses": 0,
+    "putValue": 0,
+    "tookValue": 0,
+    "byRelation": {},
+    "takenWithoutOwnership": {
+     "times": 0,
+     "value": 0,
+     "fromOwnSociety": 0,
+     "fromOtherSociety": 0
+    },
+    "brokenOthers": 0
+   },
+   "role": {
+    "profile": {
+     "fighter": 0.92,
+     "coordinator": 0.08
+    },
+    "dominant": "fighter",
+    "switches": 0,
+    "timeline": [
+     {
+      "bucket": 0,
+      "role": "fighter"
+     }
+    ]
+   },
+   "wealth": 0
+  },
+  "FlorianHomm": {
+   "faction": "market",
+   "trades": {
+    "done": 0,
+    "within": 0,
+    "across": 0,
+    "gifts": 0,
+    "paidInGold": 0,
+    "barter": 0,
+    "goldPaid": 0,
+    "goldReceived": 0,
+    "goldMovedWithin": 0
+   },
+   "offers": {
+    "made": 0,
+    "declined": 0,
+    "expired": 0,
+    "cancelled": 0
+   },
+   "diplomacy": {
+    "messages": 0,
+    "pactsProposed": 0,
+    "pactsAccepted": 0,
+    "pactsDeclined": 0,
+    "pactsEnded": 0,
+    "pactsBroken": 0
+   },
+   "conflict": {
+    "attacksOnOther": 0,
+    "attacksOnOwn": 0,
+    "kills": 0,
+    "killsOfOwn": 0,
+    "deaths": 1
+   },
+   "chests": {
+    "accesses": 0,
+    "putValue": 0,
+    "tookValue": 0,
+    "byRelation": {},
+    "takenWithoutOwnership": {
+     "times": 0,
+     "value": 0,
+     "fromOwnSociety": 0,
+     "fromOtherSociety": 0
+    },
+    "brokenOthers": 0
+   },
+   "role": {
+    "profile": {
+     "miner": 0.46,
+     "fighter": 0.32,
+     "coordinator": 0.22
+    },
+    "dominant": "miner",
+    "switches": 0,
+    "timeline": [
+     {
+      "bucket": 0,
+      "role": "miner"
+     }
+    ]
+   },
+   "wealth": 0
+  },
+  "Trump": {
+   "faction": "market",
+   "trades": {
+    "done": 0,
+    "within": 0,
+    "across": 0,
+    "gifts": 0,
+    "paidInGold": 0,
+    "barter": 0,
+    "goldPaid": 0,
+    "goldReceived": 0,
+    "goldMovedWithin": 0
+   },
+   "offers": {
+    "made": 0,
+    "declined": 0,
+    "expired": 0,
+    "cancelled": 0
+   },
+   "diplomacy": {
+    "messages": 0,
+    "pactsProposed": 0,
+    "pactsAccepted": 0,
+    "pactsDeclined": 0,
+    "pactsEnded": 0,
+    "pactsBroken": 0
+   },
+   "conflict": {
+    "attacksOnOther": 2,
+    "attacksOnOwn": 0,
+    "kills": 1,
+    "killsOfOwn": 0,
+    "deaths": 1
+   },
+   "chests": {
+    "accesses": 0,
+    "putValue": 0,
+    "tookValue": 0,
+    "byRelation": {},
+    "takenWithoutOwnership": {
+     "times": 0,
+     "value": 0,
+     "fromOwnSociety": 0,
+     "fromOtherSociety": 0
+    },
+    "brokenOthers": 0
+   },
+   "role": {
+    "profile": {
+     "miner": 0.87,
+     "fighter": 0.12,
+     "coordinator": 0.01
+    },
+    "dominant": "miner",
+    "switches": 1,
+    "timeline": [
+     {
+      "bucket": 0,
+      "role": "miner"
+     },
+     {
+      "bucket": 1,
+      "role": "fighter"
+     }
+    ]
+   },
+   "wealth": 10
+  },
+  "Justus": {
+   "faction": "market",
+   "trades": {
+    "done": 0,
+    "within": 0,
+    "across": 0,
+    "gifts": 0,
+    "paidInGold": 0,
+    "barter": 0,
+    "goldPaid": 0,
+    "goldReceived": 0,
+    "goldMovedWithin": 0
+   },
+   "offers": {
+    "made": 0,
+    "declined": 0,
+    "expired": 0,
+    "cancelled": 0
+   },
+   "diplomacy": {
+    "messages": 0,
+    "pactsProposed": 0,
+    "pactsAccepted": 0,
+    "pactsDeclined": 0,
+    "pactsEnded": 0,
+    "pactsBroken": 0
+   },
+   "conflict": {
+    "attacksOnOther": 2,
+    "attacksOnOwn": 0,
+    "kills": 0,
+    "killsOfOwn": 0,
+    "deaths": 1
+   },
+   "chests": {
+    "accesses": 0,
+    "putValue": 0,
+    "tookValue": 0,
+    "byRelation": {},
+    "takenWithoutOwnership": {
+     "times": 0,
+     "value": 0,
+     "fromOwnSociety": 0,
+     "fromOtherSociety": 0
+    },
+    "brokenOthers": 0
+   },
+   "role": {
+    "profile": {
+     "coordinator": 0.49,
+     "miner": 0.48,
+     "fighter": 0.03
+    },
+    "dominant": "coordinator",
+    "switches": 1,
+    "timeline": [
+     {
+      "bucket": 0,
+      "role": "coordinator"
+     },
+     {
+      "bucket": 1,
+      "role": "miner"
+     }
+    ]
+   },
+   "wealth": 10
+  },
+  "Simon": {
+   "faction": "market",
+   "trades": {
+    "done": 0,
+    "within": 0,
+    "across": 0,
+    "gifts": 0,
+    "paidInGold": 0,
+    "barter": 0,
+    "goldPaid": 0,
+    "goldReceived": 0,
+    "goldMovedWithin": 0
+   },
+   "offers": {
+    "made": 0,
+    "declined": 0,
+    "expired": 0,
+    "cancelled": 0
+   },
+   "diplomacy": {
+    "messages": 0,
+    "pactsProposed": 0,
+    "pactsAccepted": 0,
+    "pactsDeclined": 0,
+    "pactsEnded": 0,
+    "pactsBroken": 0
+   },
+   "conflict": {
+    "attacksOnOther": 3,
+    "attacksOnOwn": 0,
+    "kills": 2,
+    "killsOfOwn": 0,
+    "deaths": 1
+   },
+   "chests": {
+    "accesses": 0,
+    "putValue": 0,
+    "tookValue": 0,
+    "byRelation": {},
+    "takenWithoutOwnership": {
+     "times": 0,
+     "value": 0,
+     "fromOwnSociety": 0,
+     "fromOtherSociety": 0
+    },
+    "brokenOthers": 0
+   },
+   "role": {
+    "profile": {
+     "fighter": 0.97,
+     "coordinator": 0.03
+    },
+    "dominant": "fighter",
+    "switches": 0,
+    "timeline": [
+     {
+      "bucket": 0,
+      "role": "fighter"
+     }
+    ]
+   },
+   "wealth": 0
+  },
+  "Fohrmann": {
+   "faction": "market",
+   "trades": {
+    "done": 0,
+    "within": 0,
+    "across": 0,
+    "gifts": 0,
+    "paidInGold": 0,
+    "barter": 0,
+    "goldPaid": 0,
+    "goldReceived": 0,
+    "goldMovedWithin": 0
+   },
+   "offers": {
+    "made": 0,
+    "declined": 0,
+    "expired": 0,
+    "cancelled": 0
+   },
+   "diplomacy": {
+    "messages": 0,
+    "pactsProposed": 0,
+    "pactsAccepted": 0,
+    "pactsDeclined": 0,
+    "pactsEnded": 0,
+    "pactsBroken": 0
+   },
+   "conflict": {
+    "attacksOnOther": 7,
+    "attacksOnOwn": 0,
+    "kills": 1,
+    "killsOfOwn": 0,
+    "deaths": 1
+   },
+   "chests": {
+    "accesses": 0,
+    "putValue": 0,
+    "tookValue": 0,
+    "byRelation": {},
+    "takenWithoutOwnership": {
+     "times": 0,
+     "value": 0,
+     "fromOwnSociety": 0,
+     "fromOtherSociety": 0
+    },
+    "brokenOthers": 0
+   },
+   "role": {
+    "profile": {
+     "miner": 0.86,
+     "fighter": 0.12,
+     "coordinator": 0.02
+    },
+    "dominant": "miner",
+    "switches": 0,
+    "timeline": [
+     {
+      "bucket": 0,
+      "role": "miner"
+     },
+     {
+      "bucket": 1,
+      "role": "miner"
+     }
+    ]
+   },
+   "wealth": 3
+  }
+ },
+ "goldPrices": {},
+ "timeseries": [
+  {
+   "minute": 0,
+   "society": "collective",
+   "tradesWithin": 0,
+   "tradesAcross": 0,
+   "messages": 0,
+   "attacks": 4,
+   "deaths": 2,
+   "takenWithoutOwnership": 0,
+   "wealth": 30,
+   "gini": 0.4
+  },
+  {
+   "minute": 0,
+   "society": "market",
+   "tradesWithin": 0,
+   "tradesAcross": 0,
+   "messages": 0,
+   "attacks": 7,
+   "deaths": 2,
+   "takenWithoutOwnership": 0,
+   "wealth": 23,
+   "gini": 0.522
+  },
+  {
+   "minute": 10,
+   "society": "collective",
+   "tradesWithin": 0,
+   "tradesAcross": 0,
+   "messages": 0,
+   "attacks": 1,
+   "deaths": 2,
+   "takenWithoutOwnership": 0,
+   "wealth": 30,
+   "gini": 0.4
+  },
+  {
+   "minute": 10,
+   "society": "market",
+   "tradesWithin": 0,
+   "tradesAcross": 0,
+   "messages": 0,
+   "attacks": 7,
+   "deaths": 3,
+   "takenWithoutOwnership": 0,
+   "wealth": 23,
+   "gini": 0.522
+  },
+  {
+   "minute": 20,
+   "society": "collective",
+   "tradesWithin": 0,
+   "tradesAcross": 0,
+   "messages": 0,
+   "attacks": 0,
+   "deaths": 0,
+   "takenWithoutOwnership": 0,
+   "wealth": 30,
+   "gini": 0.4
+  },
+  {
+   "minute": 20,
+   "society": "market",
+   "tradesWithin": 0,
+   "tradesAcross": 0,
+   "messages": 0,
+   "attacks": 0,
+   "deaths": 0,
+   "takenWithoutOwnership": 0,
+   "wealth": 23,
+   "gini": 0.522
+  }
+ ]
+}

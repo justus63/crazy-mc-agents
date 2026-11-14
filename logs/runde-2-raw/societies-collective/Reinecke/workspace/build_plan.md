@@ -1,0 +1,1 @@
+Reinecke: currently at x90,y67,z20 near eastern approach, fully armored and supplied. No assigned build site yet. Ready to scout/defend and march to base -100,126,0.

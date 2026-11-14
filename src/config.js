@@ -132,11 +132,11 @@ export function resolveConfig(
             ...(raw.baseUrl ? { baseUrl: raw.baseUrl, name: raw.modelName ?? model.id } : {}),
             ...(raw.serviceTier ? { serviceTier: raw.serviceTier } : {}),
             ...(raw.requestTimeoutMs ? { requestTimeoutMs: Number(raw.requestTimeoutMs) } : {}),
-            ...(raw.baseUrl && raw.apiKeyHeader && env.MODEL_API_KEY
-                ? { headers: { [raw.apiKeyHeader]: env.MODEL_API_KEY } }
+            ...(raw.baseUrl && raw.apiKeyHeader && ((env.MODEL_API_KEY_VAR && env[env.MODEL_API_KEY_VAR]) || env.MODEL_API_KEY)
+                ? { headers: { [raw.apiKeyHeader]: (env.MODEL_API_KEY_VAR && env[env.MODEL_API_KEY_VAR]) || env.MODEL_API_KEY } }
                 : {}),
         },
-        apiKey: raw.baseUrl ? env.MODEL_API_KEY : undefined,
+        apiKey: raw.baseUrl ? (env.MODEL_API_KEY_VAR && env[env.MODEL_API_KEY_VAR]) || env.MODEL_API_KEY : undefined,
         modelsPath: raw.modelsFile ? path.resolve(cwd, raw.modelsFile) : null,
         thinking: raw.thinking,
         tickRate,

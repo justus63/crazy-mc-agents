@@ -1,0 +1,2 @@
+{"agent":"Lange","time":"2026-11-14T03:18:54.519Z","event":"tool_error","tool":"fight","failureCode":"cancellation","errorMessage":"Interrupted: you were hit by Simon (entity id 488, at 2,69,3, 3 blocks away)"}
+{"agent":"Lange","time":"2026-11-14T03:19:21.592Z","event":"tool_error","tool":"eat","failureCode":"cancellation","errorMessage":"Interrupted: you were hit by Fohrmann (entity id 509, at 21,65,21, 2.8 blocks away)"}

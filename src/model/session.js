@@ -115,6 +115,29 @@ async function registerCompatibleModel(modelRuntime, m, options, modules) {
 }
 
 const BREAKPOINT_TYPES = new Set(['input_text', 'input_image', 'input_file']);
+export function pruneContextMessages(messages, now, maxAgeMs = 15 * 60 * 1000, maxMessages = 18, minKeep = 6) {
+    if (!Array.isArray(messages) || messages.length <= maxMessages) return messages;
+    const cutoff = Number.isFinite(now) && maxAgeMs > 0 ? now - maxAgeMs : -Infinity;
+    const countFloor = Math.max(0, messages.length - maxMessages);
+    const maxDrop = messages.length - minKeep;
+    let startIdx = 0;
+    let lastUserIdx = -1;
+    for (let i = 0; i < messages.length; i++) {
+        const msg = messages[i];
+        if (msg?.role === 'user') lastUserIdx = i;
+        const tooOld = Number.isFinite(msg?.timestamp) && msg.timestamp < cutoff;
+        if (i >= countFloor && !tooOld) break;
+        if (i <= maxDrop && (msg?.role === 'user' || msg?.role === 'assistant')) startIdx = i;
+    }
+    if (startIdx <= 0) return messages;
+    const sliced = messages.slice(startIdx);
+    if (sliced[0]?.role !== 'user') {
+        const userBefore = messages.slice(0, startIdx).findLast(m => m?.role === 'user');
+        if (userBefore) return [userBefore, ...sliced];
+    }
+    return sliced;
+}
+
 function markParts(parts) {
     if (!Array.isArray(parts) || !parts.length) return null;
     const last = parts.at(-1);
@@ -477,7 +500,14 @@ class MinecraftSession {
                 throw stopError();
             }
             cycle.steps++;
+            if (this.options.continuous && this.options.maxModelCalls > 1000 && this.lastModelCallAt) {
+                const waitMs = this.lastModelCallAt + 3000 - this.clock.now();
+                if (waitMs > 0) {
+                    await abortable(new Promise(r => this.clock.setTimeout(r, waitMs)), cycle.controller.signal);
+                }
+            }
             const frameStart = this.clock.now();
+            this.lastModelCallAt = frameStart;
             cycle.callStartedAt = frameStart;
             let observation;
             try {
@@ -499,7 +529,13 @@ class MinecraftSession {
                 this.requestWait(observation.waitUntil);
                 throw stopError();
             }
-            const previous = originalTransform ? await originalTransform(messages, signal) : messages;
+            const rawPrevious = originalTransform ? await originalTransform(messages, signal) : messages;
+            const previous = pruneContextMessages(
+                rawPrevious,
+                this.clock.now(),
+                this.options.maxHistoryAgeMs,
+                this.options.maxHistoryMessages,
+            );
             if (cycle.stop || signal?.aborted) throw stopError();
             const { messages: outgoing, removed } = sanitizeImages(
                 [
@@ -532,7 +568,11 @@ class MinecraftSession {
             const base = originalPayload ? ((await originalPayload(payload, model)) ?? payload) : payload;
             if (!this.compatible) return base;
             if (/claude/i.test(String(base?.model ?? model?.id ?? ''))) return anthropicPayload(base);
-            return this.options.cacheBreakpoint === false ? base : markCacheBreakpoint(base);
+            const withSummary =
+                base?.reasoning && typeof base.reasoning === 'object' && (!base.reasoning.summary || base.reasoning.summary === 'auto')
+                    ? { ...base, reasoning: { ...base.reasoning, summary: 'detailed' } }
+                    : base;
+            return this.options.cacheBreakpoint === false ? withSummary : markCacheBreakpoint(withSummary);
         };
         this.unsubscribe = this.session.subscribe(event => {
             if (event.type === 'tool_execution_end' && this.active?.stop === 'wait') this.abortAgent();

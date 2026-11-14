@@ -1,0 +1,1 @@
+Active shelter build: Collective base near (-99,128,10). Shaft at (-97,128,8) filled with dirt through y130. Existing stone-brick walls/columns around x -101..-95, z8..12; new defensive column x=-95,z=9 y124-127. Continue house completion from supported floor, 3-high walls, oak door, roof, torches. Avoid unfilled/unsupported terrain.

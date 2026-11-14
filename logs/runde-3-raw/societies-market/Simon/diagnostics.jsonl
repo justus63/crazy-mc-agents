@@ -1,0 +1,6 @@
+{"agent":"Simon","time":"2026-11-14T03:18:57.469Z","event":"tool_error","tool":"fight","failureCode":"cancellation","errorMessage":"Interrupted: you were hit by Lange (entity id 519, at -5,69,1, 2.8 blocks away)"}
+{"agent":"Simon","time":"2026-11-14T03:18:59.696Z","event":"tool_error","tool":"fight","failureCode":"cancellation","errorMessage":"Interrupted: you were hit by Lange (entity id 519, at -2,69,3, 2.5 blocks away)"}
+{"agent":"Simon","time":"2026-11-14T03:19:02.550Z","event":"tool_error","tool":"eat","failureCode":"cancellation","errorMessage":"Interrupted: you were hit by Lange (entity id 519, at 5,68,8, 2.8 blocks away)"}
+{"agent":"Simon","time":"2026-11-14T03:19:12.840Z","event":"tool_error","tool":"use_item","failureCode":"cancellation","errorMessage":"Interrupted: you were hit by Lange (entity id 519, at 8,67,11, 1.5 blocks away)"}
+{"agent":"Simon","time":"2026-11-14T03:20:35.333Z","event":"tool_error","tool":"go_to","failureCode":"no_progress","errorMessage":"Stopped: the pathfinder left you standing at -94,124,1 for 15s without moving or digging, 6.01 blocks from -100,126,0. It has no workable route from here. Next: go_to a waypoint that is open ground in a different direction, or break_area your own way through."}
+{"agent":"Simon","time":"2026-11-14T03:21:09.707Z","event":"hit_restart","step":16}

@@ -1,0 +1,1 @@
+Assigned supply/patrol task. Site: Market base around spawn chests (96,73,3). Withdrew/attempting oak planks and cobblestone for builder. Southern shaft hazard cleared by returning to surface. No house construction assigned (Fohrmann is builder).
