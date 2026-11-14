@@ -1,0 +1,88 @@
+referee-1  | {"t":"2026-11-14T01:39:32.392Z","event":"ready","port":25590,"bind":"0.0.0.0","swapped":false,"bases":{"collective":{"spawn":[-100,126,0],"chests":[[-104,126,3],[-102,126,3],[-100,126,3],[-98,126,3],[-96,126,3]],"ground":"dirt/grass"},"market":{"spawn":[100,73,0],"chests":[[96,73,3],[98,73,3],[100,73,3],[102,73,3],[104,73,3]],"ground":"dirt/grass"}}}
+referee-1  | {"t":"2026-11-14T01:39:32.456Z","event":"regen","restored":8}
+referee-1  | {"t":"2026-11-14T01:39:55.590Z","event":"death","victim":"Reinecke","killer":null,"victimFaction":"collective","killerFaction":null,"message":"Reinecke was shot by Skeleton","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:39:59.074Z","event":"combat","attacker":"Justus","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:40:01.969Z","event":"combat","attacker":"Reinecke","target":"Justus","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:40:10.673Z","event":"death","victim":"Justus","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"Justus was slain by Reinecke","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:40:15.078Z","event":"combat","attacker":"Stalin","target":"Simon","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:40:15.675Z","event":"combat","attacker":"Reinecke","target":"Simon","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:40:17.558Z","event":"combat","attacker":"Fohrmann","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:40:21.828Z","event":"combat","attacker":"Stalin","target":"Simon","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:40:24.061Z","event":"combat","attacker":"Reinecke","target":"Simon","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:40:26.822Z","event":"death","victim":"Simon","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Reinecke","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:40:26.934Z","event":"ration","players":["FlorianHomm","Trump","Zappel","Stalin","Reinecke","Marcant","Justus","Fohrmann","Lange","Simon"],"items":[{"item":"bread","count":2}]}
+referee-1  | {"t":"2026-11-14T01:40:30.965Z","event":"chest_access","player":"Stalin","faction":"collective","pos":[-98,126,3],"owner":{"kind":"society","id":"collective"},"relation":"own_society_common","took":[],"put":[{"item":"oak_fence_gate","count":32}]}
+referee-1  | {"t":"2026-11-14T01:40:49.553Z","event":"combat","attacker":"Simon","target":"Zappel","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:40:51.244Z","event":"combat","attacker":"Reinecke","target":"Trump","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:40:52.869Z","event":"combat","attacker":"Zappel","target":"Simon","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:40:54.478Z","event":"combat","attacker":"Trump","target":"Reinecke","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:40:58.032Z","event":"combat","attacker":"Reinecke","target":"Trump","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:40:59.151Z","event":"death","victim":"Simon","killer":"Zappel","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Zappel","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:41:04.162Z","event":"death","victim":"Simon","killer":"Zappel","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Zappel","counted":false,"repeatKill":true}
+referee-1  | {"t":"2026-11-14T01:41:09.187Z","event":"death","victim":"Simon","killer":"Zappel","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Zappel","counted":false,"repeatKill":true}
+referee-1  | {"t":"2026-11-14T01:41:15.231Z","event":"death","victim":"Simon","killer":"Zappel","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Zappel","counted":false,"repeatKill":true}
+referee-1  | {"t":"2026-11-14T01:41:18.250Z","event":"death","victim":"Lange","killer":"FlorianHomm","victimFaction":"collective","killerFaction":"market","message":"Lange was slain by FlorianHomm","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:41:21.624Z","event":"combat","attacker":"Marcant","target":"Simon","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:41:24.286Z","event":"death","victim":"Simon","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Marcant","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:41:25.670Z","event":"combat","attacker":"Reinecke","target":"FlorianHomm","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:41:30.324Z","event":"death","victim":"Simon","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Marcant","counted":false,"repeatKill":true}
+referee-1  | {"t":"2026-11-14T01:41:35.353Z","event":"death","victim":"Simon","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Marcant","counted":false,"repeatKill":true}
+referee-1  | {"t":"2026-11-14T01:41:40.385Z","event":"death","victim":"Simon","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Marcant","counted":false,"repeatKill":true}
+referee-1  | {"t":"2026-11-14T01:41:44.588Z","event":"combat","attacker":"Stalin","target":"FlorianHomm","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:41:45.430Z","event":"death","victim":"FlorianHomm","killer":"Stalin","victimFaction":"market","killerFaction":"collective","message":"FlorianHomm was slain by Stalin","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:41:46.436Z","event":"death","victim":"Simon","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Marcant","counted":false,"repeatKill":true}
+referee-1  | {"t":"2026-11-14T01:41:51.460Z","event":"death","victim":"Simon","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Marcant","counted":false,"repeatKill":true}
+referee-1  | {"t":"2026-11-14T01:42:01.118Z","event":"combat","attacker":"Marcant","target":"FlorianHomm","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:42:04.507Z","event":"death","victim":"FlorianHomm","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"FlorianHomm was slain by Marcant","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:42:17.127Z","event":"combat","attacker":"Fohrmann","target":"Lange","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:42:27.556Z","event":"combat","attacker":"Fohrmann","target":"Lange","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:42:29.654Z","event":"death","victim":"Lange","killer":"Fohrmann","victimFaction":"collective","killerFaction":"market","message":"Lange was slain by Fohrmann","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:42:49.041Z","event":"combat","attacker":"Simon","target":"Reinecke","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:43:07.814Z","event":"death","victim":"Simon","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Reinecke","counted":false,"repeatKill":true}
+referee-1  | {"t":"2026-11-14T01:43:13.916Z","event":"death","victim":"Simon","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Reinecke","counted":false,"repeatKill":true}
+referee-1  | {"t":"2026-11-14T01:43:19.988Z","event":"death","victim":"Simon","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Reinecke","counted":false,"repeatKill":true}
+referee-1  | {"t":"2026-11-14T01:45:32.213Z","event":"combat","attacker":"FlorianHomm","target":"Marcant","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:45:41.565Z","event":"combat","attacker":"Reinecke","target":"FlorianHomm","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:45:44.444Z","event":"combat","attacker":"FlorianHomm","target":"Reinecke","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:45:51.556Z","event":"combat","attacker":"Justus","target":"Lange","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:45:52.255Z","event":"combat","attacker":"FlorianHomm","target":"Marcant","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:45:56.042Z","event":"combat","attacker":"Marcant","target":"Simon","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:45:59.360Z","event":"combat","attacker":"Marcant","target":"Simon","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:46:09.421Z","event":"death","victim":"Simon","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Marcant","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:46:16.173Z","event":"combat","attacker":"Justus","target":"Lange","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:46:17.737Z","event":"combat","attacker":"Marcant","target":"FlorianHomm","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:46:45.215Z","event":"combat","attacker":"Zappel","target":"FlorianHomm","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:47:06.691Z","event":"combat","attacker":"FlorianHomm","target":"Reinecke","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:47:17.063Z","event":"death","victim":"FlorianHomm","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"FlorianHomm was slain by Reinecke","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:47:20.566Z","event":"combat","attacker":"FlorianHomm","target":"Reinecke","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:47:24.111Z","event":"death","victim":"FlorianHomm","killer":"Reinecke","victimFaction":"market","killerFaction":"collective","message":"FlorianHomm was slain by Reinecke","counted":false,"repeatKill":true}
+referee-1  | {"t":"2026-11-14T01:48:41.822Z","event":"death","victim":"Fohrmann","killer":null,"victimFaction":"market","killerFaction":null,"message":"Fohrmann fell from a high place","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:49:49.847Z","event":"combat","attacker":"Justus","target":"Zappel","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:49:52.258Z","event":"combat","attacker":"Fohrmann","target":"Stalin","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:49:55.666Z","event":"combat","attacker":"Zappel","target":"Justus","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:49:59.012Z","event":"combat","attacker":"Justus","target":"Zappel","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:50:06.938Z","event":"combat","attacker":"Reinecke","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:50:07.194Z","event":"combat","attacker":"Stalin","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:50:08.520Z","event":"death","victim":"Zappel","killer":"Justus","victimFaction":"collective","killerFaction":"market","message":"Zappel was slain by Justus","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:50:09.540Z","event":"death","victim":"Fohrmann","killer":"Stalin","victimFaction":"market","killerFaction":"collective","message":"Fohrmann was slain by Stalin","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:50:13.123Z","event":"combat","attacker":"Fohrmann","target":"Marcant","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:50:17.060Z","event":"combat","attacker":"Marcant","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:50:24.484Z","event":"combat","attacker":"Marcant","target":"Fohrmann","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:50:39.607Z","event":"combat","attacker":"Stalin","target":"Simon","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:50:42.066Z","event":"death","victim":"Simon","killer":"Stalin","victimFaction":"market","killerFaction":"collective","message":"Simon was slain by Stalin","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:50:48.129Z","event":"death","victim":"Zappel","killer":"Trump","victimFaction":"collective","killerFaction":"market","message":"Zappel was slain by Trump","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:50:55.233Z","event":"death","victim":"Trump","killer":null,"victimFaction":"market","killerFaction":null,"message":"Trump was slain by Zombie","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:50:59.265Z","event":"combat","attacker":"Marcant","target":"Trump","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:50:59.313Z","event":"combat","attacker":"Trump","target":"Marcant","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:51:10.453Z","event":"death","victim":"Trump","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Trump was slain by Marcant","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:51:19.601Z","event":"death","victim":"Trump","killer":"Marcant","victimFaction":"market","killerFaction":"collective","message":"Trump was slain by Marcant","counted":false,"repeatKill":true}
+referee-1  | {"t":"2026-11-14T01:51:22.615Z","event":"death","victim":"Reinecke","killer":null,"victimFaction":"collective","killerFaction":null,"message":"Reinecke was slain by Zombie","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:51:24.641Z","event":"death","victim":"Zappel","killer":null,"victimFaction":"collective","killerFaction":null,"message":"Zappel was slain by Zombie","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:51:34.748Z","event":"death","victim":"Fohrmann","killer":null,"victimFaction":"market","killerFaction":null,"message":"Fohrmann was slain by Zombie","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:51:40.725Z","event":"combat","attacker":"Justus","target":"Reinecke","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:51:42.859Z","event":"death","victim":"Reinecke","killer":"Justus","victimFaction":"collective","killerFaction":"market","message":"Reinecke was slain by Justus","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:51:46.816Z","event":"combat","attacker":"Justus","target":"Zappel","attackerFaction":"market","targetFaction":"collective"}
+referee-1  | {"t":"2026-11-14T01:51:51.437Z","event":"death","victim":"Zappel","killer":"Justus","victimFaction":"collective","killerFaction":"market","message":"Zappel was slain by Justus","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:51:52.174Z","event":"combat","attacker":"Reinecke","target":"Justus","attackerFaction":"collective","targetFaction":"market"}
+referee-1  | {"t":"2026-11-14T01:51:52.459Z","event":"death","victim":"Lange","killer":null,"victimFaction":"collective","killerFaction":null,"message":"Lange was slain by Zombie","counted":true,"repeatKill":false}
+referee-1  | {"t":"2026-11-14T01:51:57.629Z","event":"combat","attacker":"Justus","target":"Reinecke","attackerFaction":"market","targetFaction":"collective"}
